@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "simple",
+  "include-component-in-tag": false,
+  "include-v-in-tag": true,
+  "packages": {
+    ".": {
+      "package-name": "stelaris-model",
+      "changelog-path": "CHANGELOG.md"
+    }
+  },
+  "bootstrap-sha": "e54f5e0cf1febf0da9c7cb1b15517a2058d48ce6"
+}
