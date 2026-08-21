@@ -16,3 +16,4 @@ export 'src/model/item/item_lore_dto.dart';
 export 'src/model/release/release_model.dart';
 export 'src/model/sound/sound_event_model.dart';
 export 'src/model/sound/sound_file_source.dart';
+export 'src/model/project/project.dart';
