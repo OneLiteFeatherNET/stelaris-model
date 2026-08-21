@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../data_model.dart';
 
 part 'font_model_dto.g.dart';
@@ -7,7 +8,6 @@ part 'font_model_dto.freezed.dart';
 
 @freezed
 abstract class FontModelDto with _$FontModelDto, DataModel {
-
   const FontModelDto._();
 
   const factory FontModelDto({

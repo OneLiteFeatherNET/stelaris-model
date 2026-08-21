@@ -5,7 +5,6 @@ part 'item_enchantment_dto.g.dart';
 
 @freezed
 abstract class ItemEnchantmentDto with _$ItemEnchantmentDto {
-
   const ItemEnchantmentDto._();
 
   const factory ItemEnchantmentDto({

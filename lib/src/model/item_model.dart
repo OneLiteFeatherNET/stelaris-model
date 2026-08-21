@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../data_model.dart';
 import '../item_group.dart';
 import '../paginated_result.dart';
@@ -16,16 +17,16 @@ Map<String, dynamic> itemModelToJson(ItemModel item) => item.toJson();
 
 @freezed
 abstract class ItemModel with _$ItemModel, DataModel {
-
   // Define the specific const default directly within the class that uses it.
   // This is well-encapsulated.
-  static const PaginatedResult<ItemEnchantmentDto> defaultEnchantments = PaginatedResult(
-    items: <ItemEnchantmentDto>[],
-    totalItems: 0,
-    totalPages: 0,
-    currentPage: 1,
-    pageSize: 0,
-  );
+  static const PaginatedResult<ItemEnchantmentDto> defaultEnchantments =
+      PaginatedResult(
+        items: <ItemEnchantmentDto>[],
+        totalItems: 0,
+        totalPages: 0,
+        currentPage: 1,
+        pageSize: 0,
+      );
 
   // Define the specific const default directly within the class that uses it.
   // This is well-encapsulated.
@@ -61,12 +62,12 @@ abstract class ItemModel with _$ItemModel, DataModel {
     @Default(1) int? amount,
     @Default(ItemModel.defaultEnchantments)
     PaginatedResult<ItemEnchantmentDto> enchantments,
-    @Default(ItemModel._defaultLore)
-    PaginatedResult<ItemLoreDto> lore,
-    @Default(ItemModel._defaultFlags)
-    PaginatedResult<ItemFlagDto> flags,
-    @Default(false) @JsonKey(includeToJson: false) bool isLoadingMoreEnchantments,
-    @Default(false) @JsonKey(includeToJson: false) bool isLoadingMoreLoreLines
+    @Default(ItemModel._defaultLore) PaginatedResult<ItemLoreDto> lore,
+    @Default(ItemModel._defaultFlags) PaginatedResult<ItemFlagDto> flags,
+    @Default(false)
+    @JsonKey(includeToJson: false)
+    bool isLoadingMoreEnchantments,
+    @Default(false) @JsonKey(includeToJson: false) bool isLoadingMoreLoreLines,
   }) = _ItemModel;
 
   factory ItemModel.fromJson(Map<String, dynamic> json) =>

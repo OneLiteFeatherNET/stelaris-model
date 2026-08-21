@@ -9,7 +9,8 @@ part 'notification_model.freezed.dart';
 NotificationModel notificationFromJson(Object? json) =>
     NotificationModel.fromJson(json as Map<String, dynamic>);
 
-Map<String, dynamic> notificationModelToJson(NotificationModel item) => item.toJson();
+Map<String, dynamic> notificationModelToJson(NotificationModel item) =>
+    item.toJson();
 
 @freezed
 abstract class NotificationModel with _$NotificationModel, DataModel {

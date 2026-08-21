@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../data_model.dart';
 import '../paginated_result.dart';
 import 'font/font_string_dto.dart';
@@ -32,11 +33,10 @@ abstract class FontModel with _$FontModel, DataModel {
     String? provider,
     String? texturePath,
     String? comment,
-    @Default('font')String mapper,
+    @Default('font') String mapper,
     @Default(0) int ascent,
     @Default(0) int height,
-    @Default(FontModel._defaultFiles)
-    PaginatedResult<FontStringDTO> chars,
+    @Default(FontModel._defaultFiles) PaginatedResult<FontStringDTO> chars,
     @Default(false) @JsonKey(includeToJson: false) bool isLoadingChars,
   }) = _FontModel;
 

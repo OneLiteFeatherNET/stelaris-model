@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../data_model.dart';
 
 part 'sound_file_source.freezed.dart';

@@ -6,7 +6,6 @@ part 'release_model.freezed.dart';
 
 @freezed
 abstract class ReleaseModel with _$ReleaseModel {
-
   const ReleaseModel._();
 
   const factory ReleaseModel({
