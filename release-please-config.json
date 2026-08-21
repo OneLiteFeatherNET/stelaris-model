@@ -8,5 +8,6 @@
       "package-name": "stelaris-model",
       "changelog-path": "CHANGELOG.md"
     }
-  }
+  },
+  "bootstrap-sha": "e54f5e0cf1febf0da9c7cb1b15517a2058d48ce6"
 }
