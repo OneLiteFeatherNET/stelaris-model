@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'release_model.dart';
@@ -9,14 +9,14 @@ part of 'release_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ReleaseModel {
 
- String get version; DateTime get publishedAt; String? get url; bool get prerelease;// The naming of this comes from the official api https://docs.github.com/en/rest/releases/releases. Search for target_commitish
- String? get targetCommitish;
+ String get version; DateTime get publishedAt; String? get url; bool get prerelease; String? get targetCommitish;
 /// Create a copy of ReleaseModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -67,7 +67,7 @@ class _$ReleaseModelCopyWithImpl<$Res>
 /// Create a copy of ReleaseModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? version = null,Object? publishedAt = null,Object? url = freezed,Object? prerelease = null,Object? targetCommitish = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ReleaseModel(
 version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
 as String,publishedAt: null == publishedAt ? _self.publishedAt : publishedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
@@ -221,7 +221,6 @@ class _ReleaseModel extends ReleaseModel {
 @override final  DateTime publishedAt;
 @override final  String? url;
 @override@JsonKey() final  bool prerelease;
-// The naming of this comes from the official api https://docs.github.com/en/rest/releases/releases. Search for target_commitish
 @override final  String? targetCommitish;
 
 /// Create a copy of ReleaseModel
