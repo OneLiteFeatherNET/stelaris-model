@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Project {
 
- String get id; String get displayName; String get key;@JsonKey(name: 'project_url') String? get projectUrl;@JsonKey(name: 'docu_url') String? get docuUrl; String? get description; bool get labor;
+ String? get id; String get displayName; String get key;@JsonKey(name: 'project_url') String? get projectUrl;@JsonKey(name: 'docu_url') String? get docuUrl; String? get description; bool get labor;
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $ProjectCopyWith<$Res>  {
   factory $ProjectCopyWith(Project value, $Res Function(Project) _then) = _$ProjectCopyWithImpl;
 @useResult
 $Res call({
- String id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor
+ String? id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor
 });
 
 
@@ -66,10 +66,10 @@ class _$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,}) {
   return _then(Project(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String,key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,projectUrl: freezed == projectUrl ? _self.projectUrl : projectUrl // ignore: cast_nullable_to_non_nullable
 as String?,docuUrl: freezed == docuUrl ? _self.docuUrl : docuUrl // ignore: cast_nullable_to_non_nullable
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
 return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor);case _:
@@ -181,7 +181,7 @@ return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docu
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)  $default,) {final _that = this;
 switch (_that) {
 case _Project():
 return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor);case _:
@@ -201,7 +201,7 @@ return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docu
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)?  $default,) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
 return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor);case _:
@@ -216,10 +216,10 @@ return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docu
 @JsonSerializable()
 
 class _Project implements Project {
-  const _Project({required this.id, required this.displayName, required this.key, @JsonKey(name: 'project_url') this.projectUrl, @JsonKey(name: 'docu_url') this.docuUrl, this.description, this.labor = false});
+  const _Project({this.id, required this.displayName, required this.key, @JsonKey(name: 'project_url') this.projectUrl, @JsonKey(name: 'docu_url') this.docuUrl, this.description, this.labor = false});
   factory _Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
 
-@override final  String id;
+@override final  String? id;
 @override final  String displayName;
 @override final  String key;
 @override@JsonKey(name: 'project_url') final  String? projectUrl;
@@ -260,7 +260,7 @@ abstract mixin class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) _then) = __$ProjectCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor
+ String? id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor
 });
 
 
@@ -277,10 +277,10 @@ class __$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,}) {
   return _then(_Project(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String,key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,projectUrl: freezed == projectUrl ? _self.projectUrl : projectUrl // ignore: cast_nullable_to_non_nullable
 as String?,docuUrl: freezed == docuUrl ? _self.docuUrl : docuUrl // ignore: cast_nullable_to_non_nullable

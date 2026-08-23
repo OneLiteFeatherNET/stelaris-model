@@ -7,7 +7,7 @@ part of 'project.dart';
 // **************************************************************************
 
 _Project _$ProjectFromJson(Map<String, dynamic> json) => _Project(
-  id: json['id'] as String,
+  id: json['id'] as String?,
   displayName: json['displayName'] as String,
   key: json['key'] as String,
   projectUrl: json['project_url'] as String?,
