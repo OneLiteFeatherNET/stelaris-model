@@ -10,6 +10,7 @@ _SoundEventModel _$SoundEventModelFromJson(Map<String, dynamic> json) =>
     _SoundEventModel(
       uiName: json['uiName'] as String,
       id: json['id'] as String?,
+      projectId: json['projectId'] as String?,
       variableName: json['variableName'] as String?,
       keyName: json['keyName'] as String?,
       subTitle: json['subTitle'] as String?,
@@ -27,6 +28,7 @@ Map<String, dynamic> _$SoundEventModelToJson(_SoundEventModel instance) =>
     <String, dynamic>{
       'uiName': instance.uiName,
       'id': instance.id,
+      'projectId': instance.projectId,
       'variableName': instance.variableName,
       'keyName': instance.keyName,
       'subTitle': instance.subTitle,

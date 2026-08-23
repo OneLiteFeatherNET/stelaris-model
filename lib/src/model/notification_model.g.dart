@@ -10,6 +10,7 @@ _Notification _$NotificationFromJson(Map<String, dynamic> json) =>
     _Notification(
       uiName: json['uiName'] as String,
       id: json['id'] as String?,
+      projectId: json['projectId'] as String?,
       variableName: json['variableName'] as String?,
       material: json['material'] as String?,
       frameType:
@@ -23,6 +24,7 @@ Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
     <String, dynamic>{
       'uiName': instance.uiName,
       'id': instance.id,
+      'projectId': instance.projectId,
       'variableName': instance.variableName,
       'material': instance.material,
       'frameType': _$FrameTypeEnumMap[instance.frameType]!,

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SoundEventModel {
 
- String get uiName; String? get id; String? get variableName; String? get keyName; String? get subTitle; PaginatedResult<SoundFileSource> get files;@JsonKey(includeToJson: false) bool get isLoading;
+ String get uiName; String? get id; String? get projectId; String? get variableName; String? get keyName; String? get subTitle; PaginatedResult<SoundFileSource> get files;@JsonKey(includeToJson: false) bool get isLoading;
 /// Create a copy of SoundEventModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $SoundEventModelCopyWith<SoundEventModel> get copyWith => _$SoundEventModelCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SoundEventModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.keyName, keyName) || other.keyName == keyName)&&(identical(other.subTitle, subTitle) || other.subTitle == subTitle)&&(identical(other.files, files) || other.files == files)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SoundEventModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.keyName, keyName) || other.keyName == keyName)&&(identical(other.subTitle, subTitle) || other.subTitle == subTitle)&&(identical(other.files, files) || other.files == files)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,variableName,keyName,subTitle,files,isLoading);
+int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,keyName,subTitle,files,isLoading);
 
 @override
 String toString() {
-  return 'SoundEventModel(uiName: $uiName, id: $id, variableName: $variableName, keyName: $keyName, subTitle: $subTitle, files: $files, isLoading: $isLoading)';
+  return 'SoundEventModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, keyName: $keyName, subTitle: $subTitle, files: $files, isLoading: $isLoading)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $SoundEventModelCopyWith<$Res>  {
   factory $SoundEventModelCopyWith(SoundEventModel value, $Res Function(SoundEventModel) _then) = _$SoundEventModelCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String? id, String? variableName, String? keyName, String? subTitle, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading
+ String uiName, String? id, String? projectId, String? variableName, String? keyName, String? subTitle, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading
 });
 
 
@@ -66,10 +66,11 @@ class _$SoundEventModelCopyWithImpl<$Res>
 
 /// Create a copy of SoundEventModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? variableName = freezed,Object? keyName = freezed,Object? subTitle = freezed,Object? files = null,Object? isLoading = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? variableName = freezed,Object? keyName = freezed,Object? subTitle = freezed,Object? files = null,Object? isLoading = null,}) {
   return _then(SoundEventModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
 as String?,keyName: freezed == keyName ? _self.keyName : keyName // ignore: cast_nullable_to_non_nullable
 as String?,subTitle: freezed == subTitle ? _self.subTitle : subTitle // ignore: cast_nullable_to_non_nullable
@@ -160,10 +161,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? variableName,  String? keyName,  String? subTitle,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? keyName,  String? subTitle,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SoundEventModel() when $default != null:
-return $default(_that.uiName,_that.id,_that.variableName,_that.keyName,_that.subTitle,_that.files,_that.isLoading);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.keyName,_that.subTitle,_that.files,_that.isLoading);case _:
   return orElse();
 
 }
@@ -181,10 +182,10 @@ return $default(_that.uiName,_that.id,_that.variableName,_that.keyName,_that.sub
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? variableName,  String? keyName,  String? subTitle,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? keyName,  String? subTitle,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading)  $default,) {final _that = this;
 switch (_that) {
 case _SoundEventModel():
-return $default(_that.uiName,_that.id,_that.variableName,_that.keyName,_that.subTitle,_that.files,_that.isLoading);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.keyName,_that.subTitle,_that.files,_that.isLoading);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +202,10 @@ return $default(_that.uiName,_that.id,_that.variableName,_that.keyName,_that.sub
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? variableName,  String? keyName,  String? subTitle,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? keyName,  String? subTitle,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading)?  $default,) {final _that = this;
 switch (_that) {
 case _SoundEventModel() when $default != null:
-return $default(_that.uiName,_that.id,_that.variableName,_that.keyName,_that.subTitle,_that.files,_that.isLoading);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.keyName,_that.subTitle,_that.files,_that.isLoading);case _:
   return null;
 
 }
@@ -216,11 +217,12 @@ return $default(_that.uiName,_that.id,_that.variableName,_that.keyName,_that.sub
 @JsonSerializable()
 
 class _SoundEventModel extends SoundEventModel {
-   _SoundEventModel({required this.uiName, this.id, this.variableName, this.keyName, this.subTitle, this.files = SoundEventModel._defaultFiles, @JsonKey(includeToJson: false) this.isLoading = false}): super._();
+   _SoundEventModel({required this.uiName, this.id, this.projectId, this.variableName, this.keyName, this.subTitle, this.files = SoundEventModel._defaultFiles, @JsonKey(includeToJson: false) this.isLoading = false}): super._();
   factory _SoundEventModel.fromJson(Map<String, dynamic> json) => _$SoundEventModelFromJson(json);
 
 @override final  String uiName;
 @override final  String? id;
+@override final  String? projectId;
 @override final  String? variableName;
 @override final  String? keyName;
 @override final  String? subTitle;
@@ -240,16 +242,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SoundEventModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.keyName, keyName) || other.keyName == keyName)&&(identical(other.subTitle, subTitle) || other.subTitle == subTitle)&&(identical(other.files, files) || other.files == files)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SoundEventModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.keyName, keyName) || other.keyName == keyName)&&(identical(other.subTitle, subTitle) || other.subTitle == subTitle)&&(identical(other.files, files) || other.files == files)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,variableName,keyName,subTitle,files,isLoading);
+int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,keyName,subTitle,files,isLoading);
 
 @override
 String toString() {
-  return 'SoundEventModel(uiName: $uiName, id: $id, variableName: $variableName, keyName: $keyName, subTitle: $subTitle, files: $files, isLoading: $isLoading)';
+  return 'SoundEventModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, keyName: $keyName, subTitle: $subTitle, files: $files, isLoading: $isLoading)';
 }
 
 
@@ -260,7 +262,7 @@ abstract mixin class _$SoundEventModelCopyWith<$Res> implements $SoundEventModel
   factory _$SoundEventModelCopyWith(_SoundEventModel value, $Res Function(_SoundEventModel) _then) = __$SoundEventModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String? id, String? variableName, String? keyName, String? subTitle, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading
+ String uiName, String? id, String? projectId, String? variableName, String? keyName, String? subTitle, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading
 });
 
 
@@ -277,10 +279,11 @@ class __$SoundEventModelCopyWithImpl<$Res>
 
 /// Create a copy of SoundEventModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? variableName = freezed,Object? keyName = freezed,Object? subTitle = freezed,Object? files = null,Object? isLoading = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? variableName = freezed,Object? keyName = freezed,Object? subTitle = freezed,Object? files = null,Object? isLoading = null,}) {
   return _then(_SoundEventModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
 as String?,keyName: freezed == keyName ? _self.keyName : keyName // ignore: cast_nullable_to_non_nullable
 as String?,subTitle: freezed == subTitle ? _self.subTitle : subTitle // ignore: cast_nullable_to_non_nullable

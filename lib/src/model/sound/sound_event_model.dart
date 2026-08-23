@@ -30,6 +30,7 @@ abstract class SoundEventModel with _$SoundEventModel, DataModel {
   factory SoundEventModel({
     required String uiName,
     String? id,
+    String? projectId,
     String? variableName,
     String? keyName,
     String? subTitle,

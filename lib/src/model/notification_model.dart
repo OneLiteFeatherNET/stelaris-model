@@ -19,6 +19,7 @@ abstract class NotificationModel with _$NotificationModel, DataModel {
   const factory NotificationModel({
     required String uiName,
     String? id,
+    String? projectId,
     String? variableName,
     String? material,
     @Default(FrameType.task) FrameType frameType,

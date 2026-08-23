@@ -53,12 +53,13 @@ abstract class ItemModel with _$ItemModel, DataModel {
   const factory ItemModel({
     required String uiName,
     String? id,
+    String? projectId,
     String? variableName,
     String? comment,
     String? displayName,
     @Default(EnchantmentGroup.meta) EnchantmentGroup groupName,
     String? material,
-    int? customModelData,
+    @Default(0) int? customModelData,
     @Default(1) int? amount,
     @Default(ItemModel.defaultEnchantments)
     PaginatedResult<ItemEnchantmentDto> enchantments,

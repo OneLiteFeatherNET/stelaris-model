@@ -17,6 +17,7 @@ abstract class AttributeModel with _$AttributeModel, DataModel {
   const factory AttributeModel({
     required String uiName,
     String? id,
+    String? projectId,
     String? variableName,
     @freezed @Default(0.0) double? defaultValue,
     @Default(0.0) double? maximumValue,
