@@ -29,6 +29,7 @@ abstract class FontModel with _$FontModel, DataModel {
   const factory FontModel({
     required String uiName,
     String? id,
+    String? projectId,
     String? variableName,
     String? provider,
     String? texturePath,

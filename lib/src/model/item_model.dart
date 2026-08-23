@@ -53,6 +53,7 @@ abstract class ItemModel with _$ItemModel, DataModel {
   const factory ItemModel({
     required String uiName,
     String? id,
+    String? projectId,
     String? variableName,
     String? comment,
     String? displayName,
