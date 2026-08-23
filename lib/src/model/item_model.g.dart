@@ -17,7 +17,7 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
       $enumDecodeNullable(_$EnchantmentGroupEnumMap, json['groupName']) ??
       EnchantmentGroup.meta,
   material: json['material'] as String?,
-  customModelData: (json['customModelData'] as num?)?.toInt(),
+  customModelData: (json['customModelData'] as num?)?.toInt() ?? 0,
   amount: (json['amount'] as num?)?.toInt() ?? 1,
   enchantments: json['enchantments'] == null
       ? ItemModel.defaultEnchantments

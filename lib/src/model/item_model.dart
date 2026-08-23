@@ -59,7 +59,7 @@ abstract class ItemModel with _$ItemModel, DataModel {
     String? displayName,
     @Default(EnchantmentGroup.meta) EnchantmentGroup groupName,
     String? material,
-    int? customModelData,
+    @Default(0) int? customModelData,
     @Default(1) int? amount,
     @Default(ItemModel.defaultEnchantments)
     PaginatedResult<ItemEnchantmentDto> enchantments,

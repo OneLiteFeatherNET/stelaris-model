@@ -224,7 +224,7 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.c
 @JsonSerializable()
 
 class _ItemModel extends ItemModel {
-  const _ItemModel({required this.uiName, this.id, this.projectId, this.variableName, this.comment, this.displayName, this.groupName = EnchantmentGroup.meta, this.material, this.customModelData, this.amount = 1, this.enchantments = ItemModel.defaultEnchantments, this.lore = ItemModel._defaultLore, this.flags = ItemModel._defaultFlags, @JsonKey(includeToJson: false) this.isLoadingMoreEnchantments = false, @JsonKey(includeToJson: false) this.isLoadingMoreLoreLines = false}): super._();
+  const _ItemModel({required this.uiName, this.id, this.projectId, this.variableName, this.comment, this.displayName, this.groupName = EnchantmentGroup.meta, this.material, this.customModelData = 0, this.amount = 1, this.enchantments = ItemModel.defaultEnchantments, this.lore = ItemModel._defaultLore, this.flags = ItemModel._defaultFlags, @JsonKey(includeToJson: false) this.isLoadingMoreEnchantments = false, @JsonKey(includeToJson: false) this.isLoadingMoreLoreLines = false}): super._();
   factory _ItemModel.fromJson(Map<String, dynamic> json) => _$ItemModelFromJson(json);
 
 @override final  String uiName;
@@ -235,7 +235,7 @@ class _ItemModel extends ItemModel {
 @override final  String? displayName;
 @override@JsonKey() final  EnchantmentGroup groupName;
 @override final  String? material;
-@override final  int? customModelData;
+@override@JsonKey() final  int? customModelData;
 @override@JsonKey() final  int? amount;
 @override@JsonKey() final  PaginatedResult<ItemEnchantmentDto> enchantments;
 @override@JsonKey() final  PaginatedResult<ItemLoreDto> lore;
