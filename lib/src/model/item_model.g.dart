@@ -37,6 +37,8 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
           json['flags'] as Map<String, dynamic>,
           (value) => ItemFlagDto.fromJson(value as Map<String, dynamic>),
         ),
+  components:
+      json['components'] as Map<String, dynamic>? ?? const <String, dynamic>{},
   isLoadingMoreEnchantments:
       json['isLoadingMoreEnchantments'] as bool? ?? false,
   isLoadingMoreLoreLines: json['isLoadingMoreLoreLines'] as bool? ?? false,
@@ -57,6 +59,7 @@ Map<String, dynamic> _$ItemModelToJson(_ItemModel instance) =>
       'enchantments': instance.enchantments.toJson((value) => value),
       'lore': instance.lore.toJson((value) => value),
       'flags': instance.flags.toJson((value) => value),
+      'components': instance.components,
     };
 
 const _$EnchantmentGroupEnumMap = {

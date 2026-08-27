@@ -65,6 +65,7 @@ abstract class ItemModel with _$ItemModel, DataModel {
     PaginatedResult<ItemEnchantmentDto> enchantments,
     @Default(ItemModel._defaultLore) PaginatedResult<ItemLoreDto> lore,
     @Default(ItemModel._defaultFlags) PaginatedResult<ItemFlagDto> flags,
+    @Default(<String, dynamic>{}) Map<String, dynamic> components,
     @Default(false)
     @JsonKey(includeToJson: false)
     bool isLoadingMoreEnchantments,
