@@ -29,16 +29,21 @@ $ItemEnchantmentDtoCopyWith<ItemEnchantmentDto> get copyWith => _$ItemEnchantmen
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemEnchantmentDto&&(identical(other.name, name) || other.name == name)&&(identical(other.level, level) || other.level == level)&&(identical(other.unsafe, unsafe) || other.unsafe == unsafe)&&(identical(other.id, id) || other.id == id));
+  final _this = this as ItemEnchantmentDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemEnchantmentDto&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.level, _this.level) || other.level == _this.level)&&(identical(other.unsafe, _this.unsafe) || other.unsafe == _this.unsafe)&&(identical(other.id, _this.id) || other.id == _this.id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,level,unsafe,id);
+int get hashCode {
+  final _this = this as ItemEnchantmentDto;
+  return Object.hash(runtimeType,_this.name,_this.level,_this.unsafe,_this.id);
+}
 
 @override
 String toString() {
-  return 'ItemEnchantmentDto(name: $name, level: $level, unsafe: $unsafe, id: $id)';
+  final _this = this as ItemEnchantmentDto;
+  return 'ItemEnchantmentDto(name: ${_this.name}, level: ${_this.level}, unsafe: ${_this.unsafe}, id: ${_this.id})';
 }
 
 
@@ -234,16 +239,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemEnchantmentDto&&(identical(other.name, name) || other.name == name)&&(identical(other.level, level) || other.level == level)&&(identical(other.unsafe, unsafe) || other.unsafe == unsafe)&&(identical(other.id, id) || other.id == id));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemEnchantmentDto&&(identical(other.name, name) || other.name == name)&&(identical(other.level, level) || other.level == level)&&(identical(other.unsafe, unsafe) || other.unsafe == unsafe)&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,level,unsafe,id);
+int get hashCode {
+    return Object.hash(runtimeType,name,level,unsafe,id);
+}
 
 @override
 String toString() {
-  return 'ItemEnchantmentDto(name: $name, level: $level, unsafe: $unsafe, id: $id)';
+    return 'ItemEnchantmentDto(name: $name, level: $level, unsafe: $unsafe, id: $id)';
 }
 
 

@@ -29,16 +29,21 @@ $ReleaseModelCopyWith<ReleaseModel> get copyWith => _$ReleaseModelCopyWithImpl<R
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReleaseModel&&(identical(other.version, version) || other.version == version)&&(identical(other.publishedAt, publishedAt) || other.publishedAt == publishedAt)&&(identical(other.url, url) || other.url == url)&&(identical(other.prerelease, prerelease) || other.prerelease == prerelease)&&(identical(other.targetCommitish, targetCommitish) || other.targetCommitish == targetCommitish));
+  final _this = this as ReleaseModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReleaseModel&&(identical(other.version, _this.version) || other.version == _this.version)&&(identical(other.publishedAt, _this.publishedAt) || other.publishedAt == _this.publishedAt)&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.prerelease, _this.prerelease) || other.prerelease == _this.prerelease)&&(identical(other.targetCommitish, _this.targetCommitish) || other.targetCommitish == _this.targetCommitish));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,version,publishedAt,url,prerelease,targetCommitish);
+int get hashCode {
+  final _this = this as ReleaseModel;
+  return Object.hash(runtimeType,_this.version,_this.publishedAt,_this.url,_this.prerelease,_this.targetCommitish);
+}
 
 @override
 String toString() {
-  return 'ReleaseModel(version: $version, publishedAt: $publishedAt, url: $url, prerelease: $prerelease, targetCommitish: $targetCommitish)';
+  final _this = this as ReleaseModel;
+  return 'ReleaseModel(version: ${_this.version}, publishedAt: ${_this.publishedAt}, url: ${_this.url}, prerelease: ${_this.prerelease}, targetCommitish: ${_this.targetCommitish})';
 }
 
 
@@ -236,16 +241,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReleaseModel&&(identical(other.version, version) || other.version == version)&&(identical(other.publishedAt, publishedAt) || other.publishedAt == publishedAt)&&(identical(other.url, url) || other.url == url)&&(identical(other.prerelease, prerelease) || other.prerelease == prerelease)&&(identical(other.targetCommitish, targetCommitish) || other.targetCommitish == targetCommitish));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReleaseModel&&(identical(other.version, version) || other.version == version)&&(identical(other.publishedAt, publishedAt) || other.publishedAt == publishedAt)&&(identical(other.url, url) || other.url == url)&&(identical(other.prerelease, prerelease) || other.prerelease == prerelease)&&(identical(other.targetCommitish, targetCommitish) || other.targetCommitish == targetCommitish));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,version,publishedAt,url,prerelease,targetCommitish);
+int get hashCode {
+    return Object.hash(runtimeType,version,publishedAt,url,prerelease,targetCommitish);
+}
 
 @override
 String toString() {
-  return 'ReleaseModel(version: $version, publishedAt: $publishedAt, url: $url, prerelease: $prerelease, targetCommitish: $targetCommitish)';
+    return 'ReleaseModel(version: $version, publishedAt: $publishedAt, url: $url, prerelease: $prerelease, targetCommitish: $targetCommitish)';
 }
 
 

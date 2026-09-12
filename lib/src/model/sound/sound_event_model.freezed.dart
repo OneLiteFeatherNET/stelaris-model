@@ -29,16 +29,21 @@ $SoundEventModelCopyWith<SoundEventModel> get copyWith => _$SoundEventModelCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SoundEventModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.keyName, keyName) || other.keyName == keyName)&&(identical(other.subTitle, subTitle) || other.subTitle == subTitle)&&(identical(other.files, files) || other.files == files)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+  final _this = this as SoundEventModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SoundEventModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.keyName, _this.keyName) || other.keyName == _this.keyName)&&(identical(other.subTitle, _this.subTitle) || other.subTitle == _this.subTitle)&&(identical(other.files, _this.files) || other.files == _this.files)&&(identical(other.isLoading, _this.isLoading) || other.isLoading == _this.isLoading));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,keyName,subTitle,files,isLoading);
+int get hashCode {
+  final _this = this as SoundEventModel;
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.variableName,_this.keyName,_this.subTitle,_this.files,_this.isLoading);
+}
 
 @override
 String toString() {
-  return 'SoundEventModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, keyName: $keyName, subTitle: $subTitle, files: $files, isLoading: $isLoading)';
+  final _this = this as SoundEventModel;
+  return 'SoundEventModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, variableName: ${_this.variableName}, keyName: ${_this.keyName}, subTitle: ${_this.subTitle}, files: ${_this.files}, isLoading: ${_this.isLoading})';
 }
 
 
@@ -242,16 +247,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SoundEventModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.keyName, keyName) || other.keyName == keyName)&&(identical(other.subTitle, subTitle) || other.subTitle == subTitle)&&(identical(other.files, files) || other.files == files)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SoundEventModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.keyName, keyName) || other.keyName == keyName)&&(identical(other.subTitle, subTitle) || other.subTitle == subTitle)&&(identical(other.files, files) || other.files == files)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,keyName,subTitle,files,isLoading);
+int get hashCode {
+    return Object.hash(runtimeType,uiName,id,projectId,variableName,keyName,subTitle,files,isLoading);
+}
 
 @override
 String toString() {
-  return 'SoundEventModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, keyName: $keyName, subTitle: $subTitle, files: $files, isLoading: $isLoading)';
+    return 'SoundEventModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, keyName: $keyName, subTitle: $subTitle, files: $files, isLoading: $isLoading)';
 }
 
 

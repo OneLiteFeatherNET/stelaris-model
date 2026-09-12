@@ -29,16 +29,21 @@ $ItemLoreDtoCopyWith<ItemLoreDto> get copyWith => _$ItemLoreDtoCopyWithImpl<Item
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemLoreDto&&(identical(other.text, text) || other.text == text)&&(identical(other.id, id) || other.id == id)&&(identical(other.orderIndex, orderIndex) || other.orderIndex == orderIndex));
+  final _this = this as ItemLoreDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemLoreDto&&(identical(other.text, _this.text) || other.text == _this.text)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.orderIndex, _this.orderIndex) || other.orderIndex == _this.orderIndex));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,text,id,orderIndex);
+int get hashCode {
+  final _this = this as ItemLoreDto;
+  return Object.hash(runtimeType,_this.text,_this.id,_this.orderIndex);
+}
 
 @override
 String toString() {
-  return 'ItemLoreDto(text: $text, id: $id, orderIndex: $orderIndex)';
+  final _this = this as ItemLoreDto;
+  return 'ItemLoreDto(text: ${_this.text}, id: ${_this.id}, orderIndex: ${_this.orderIndex})';
 }
 
 
@@ -232,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemLoreDto&&(identical(other.text, text) || other.text == text)&&(identical(other.id, id) || other.id == id)&&(identical(other.orderIndex, orderIndex) || other.orderIndex == orderIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemLoreDto&&(identical(other.text, text) || other.text == text)&&(identical(other.id, id) || other.id == id)&&(identical(other.orderIndex, orderIndex) || other.orderIndex == orderIndex));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,text,id,orderIndex);
+int get hashCode {
+    return Object.hash(runtimeType,text,id,orderIndex);
+}
 
 @override
 String toString() {
-  return 'ItemLoreDto(text: $text, id: $id, orderIndex: $orderIndex)';
+    return 'ItemLoreDto(text: $text, id: $id, orderIndex: $orderIndex)';
 }
 
 

@@ -29,16 +29,21 @@ $AttributeModelCopyWith<AttributeModel> get copyWith => _$AttributeModelCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AttributeModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.defaultValue, defaultValue) || other.defaultValue == defaultValue)&&(identical(other.maximumValue, maximumValue) || other.maximumValue == maximumValue));
+  final _this = this as AttributeModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AttributeModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.defaultValue, _this.defaultValue) || other.defaultValue == _this.defaultValue)&&(identical(other.maximumValue, _this.maximumValue) || other.maximumValue == _this.maximumValue));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,defaultValue,maximumValue);
+int get hashCode {
+  final _this = this as AttributeModel;
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.variableName,_this.defaultValue,_this.maximumValue);
+}
 
 @override
 String toString() {
-  return 'AttributeModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, defaultValue: $defaultValue, maximumValue: $maximumValue)';
+  final _this = this as AttributeModel;
+  return 'AttributeModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, variableName: ${_this.variableName}, defaultValue: ${_this.defaultValue}, maximumValue: ${_this.maximumValue})';
 }
 
 
@@ -238,16 +243,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AttributeModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.defaultValue, defaultValue) || other.defaultValue == defaultValue)&&(identical(other.maximumValue, maximumValue) || other.maximumValue == maximumValue));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AttributeModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.defaultValue, defaultValue) || other.defaultValue == defaultValue)&&(identical(other.maximumValue, maximumValue) || other.maximumValue == maximumValue));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,defaultValue,maximumValue);
+int get hashCode {
+    return Object.hash(runtimeType,uiName,id,projectId,variableName,defaultValue,maximumValue);
+}
 
 @override
 String toString() {
-  return 'AttributeModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, defaultValue: $defaultValue, maximumValue: $maximumValue)';
+    return 'AttributeModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, defaultValue: $defaultValue, maximumValue: $maximumValue)';
 }
 
 

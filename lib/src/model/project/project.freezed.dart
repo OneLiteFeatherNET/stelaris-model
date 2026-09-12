@@ -29,16 +29,21 @@ $ProjectCopyWith<Project> get copyWith => _$ProjectCopyWithImpl<Project>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.key, key) || other.key == key)&&(identical(other.projectUrl, projectUrl) || other.projectUrl == projectUrl)&&(identical(other.docuUrl, docuUrl) || other.docuUrl == docuUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.labor, labor) || other.labor == labor));
+  final _this = this as Project;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.projectUrl, _this.projectUrl) || other.projectUrl == _this.projectUrl)&&(identical(other.docuUrl, _this.docuUrl) || other.docuUrl == _this.docuUrl)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.labor, _this.labor) || other.labor == _this.labor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,displayName,key,projectUrl,docuUrl,description,labor);
+int get hashCode {
+  final _this = this as Project;
+  return Object.hash(runtimeType,_this.id,_this.displayName,_this.key,_this.projectUrl,_this.docuUrl,_this.description,_this.labor);
+}
 
 @override
 String toString() {
-  return 'Project(id: $id, displayName: $displayName, key: $key, projectUrl: $projectUrl, docuUrl: $docuUrl, description: $description, labor: $labor)';
+  final _this = this as Project;
+  return 'Project(id: ${_this.id}, displayName: ${_this.displayName}, key: ${_this.key}, projectUrl: ${_this.projectUrl}, docuUrl: ${_this.docuUrl}, description: ${_this.description}, labor: ${_this.labor})';
 }
 
 
@@ -240,16 +245,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.key, key) || other.key == key)&&(identical(other.projectUrl, projectUrl) || other.projectUrl == projectUrl)&&(identical(other.docuUrl, docuUrl) || other.docuUrl == docuUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.labor, labor) || other.labor == labor));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.key, key) || other.key == key)&&(identical(other.projectUrl, projectUrl) || other.projectUrl == projectUrl)&&(identical(other.docuUrl, docuUrl) || other.docuUrl == docuUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.labor, labor) || other.labor == labor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,displayName,key,projectUrl,docuUrl,description,labor);
+int get hashCode {
+    return Object.hash(runtimeType,id,displayName,key,projectUrl,docuUrl,description,labor);
+}
 
 @override
 String toString() {
-  return 'Project(id: $id, displayName: $displayName, key: $key, projectUrl: $projectUrl, docuUrl: $docuUrl, description: $description, labor: $labor)';
+    return 'Project(id: $id, displayName: $displayName, key: $key, projectUrl: $projectUrl, docuUrl: $docuUrl, description: $description, labor: $labor)';
 }
 
 

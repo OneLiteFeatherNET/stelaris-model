@@ -29,16 +29,21 @@ $ItemFlagDtoCopyWith<ItemFlagDto> get copyWith => _$ItemFlagDtoCopyWithImpl<Item
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemFlagDto&&(identical(other.id, id) || other.id == id)&&(identical(other.flag, flag) || other.flag == flag));
+  final _this = this as ItemFlagDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemFlagDto&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.flag, _this.flag) || other.flag == _this.flag));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,flag);
+int get hashCode {
+  final _this = this as ItemFlagDto;
+  return Object.hash(runtimeType,_this.id,_this.flag);
+}
 
 @override
 String toString() {
-  return 'ItemFlagDto(id: $id, flag: $flag)';
+  final _this = this as ItemFlagDto;
+  return 'ItemFlagDto(id: ${_this.id}, flag: ${_this.flag})';
 }
 
 
@@ -230,16 +235,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemFlagDto&&(identical(other.id, id) || other.id == id)&&(identical(other.flag, flag) || other.flag == flag));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemFlagDto&&(identical(other.id, id) || other.id == id)&&(identical(other.flag, flag) || other.flag == flag));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,flag);
+int get hashCode {
+    return Object.hash(runtimeType,id,flag);
+}
 
 @override
 String toString() {
-  return 'ItemFlagDto(id: $id, flag: $flag)';
+    return 'ItemFlagDto(id: $id, flag: $flag)';
 }
 
 

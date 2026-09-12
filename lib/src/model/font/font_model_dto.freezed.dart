@@ -29,16 +29,21 @@ $FontModelDtoCopyWith<FontModelDto> get copyWith => _$FontModelDtoCopyWithImpl<F
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontModelDto&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height));
+  final _this = this as FontModelDto;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontModelDto&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.texturePath, _this.texturePath) || other.texturePath == _this.texturePath)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.mapper, _this.mapper) || other.mapper == _this.mapper)&&(identical(other.ascent, _this.ascent) || other.ascent == _this.ascent)&&(identical(other.height, _this.height) || other.height == _this.height));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,variableName,provider,texturePath,comment,mapper,ascent,height);
+int get hashCode {
+  final _this = this as FontModelDto;
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.variableName,_this.provider,_this.texturePath,_this.comment,_this.mapper,_this.ascent,_this.height);
+}
 
 @override
 String toString() {
-  return 'FontModelDto(uiName: $uiName, id: $id, variableName: $variableName, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height)';
+  final _this = this as FontModelDto;
+  return 'FontModelDto(uiName: ${_this.uiName}, id: ${_this.id}, variableName: ${_this.variableName}, provider: ${_this.provider}, texturePath: ${_this.texturePath}, comment: ${_this.comment}, mapper: ${_this.mapper}, ascent: ${_this.ascent}, height: ${_this.height})';
 }
 
 
@@ -244,16 +249,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontModelDto&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontModelDto&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,variableName,provider,texturePath,comment,mapper,ascent,height);
+int get hashCode {
+    return Object.hash(runtimeType,uiName,id,variableName,provider,texturePath,comment,mapper,ascent,height);
+}
 
 @override
 String toString() {
-  return 'FontModelDto(uiName: $uiName, id: $id, variableName: $variableName, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height)';
+    return 'FontModelDto(uiName: $uiName, id: $id, variableName: $variableName, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height)';
 }
 
 

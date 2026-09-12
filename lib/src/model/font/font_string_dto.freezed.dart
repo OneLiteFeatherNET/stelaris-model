@@ -36,16 +36,21 @@ $FontStringDTOCopyWith<FontStringDTO> get copyWith => _$FontStringDTOCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontStringDTO&&(identical(other.line, line) || other.line == line)&&(identical(other.id, id) || other.id == id)&&(identical(other.orderIndex, orderIndex) || other.orderIndex == orderIndex));
+  final _this = this as FontStringDTO;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontStringDTO&&(identical(other.line, _this.line) || other.line == _this.line)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.orderIndex, _this.orderIndex) || other.orderIndex == _this.orderIndex));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,line,id,orderIndex);
+int get hashCode {
+  final _this = this as FontStringDTO;
+  return Object.hash(runtimeType,_this.line,_this.id,_this.orderIndex);
+}
 
 @override
 String toString() {
-  return 'FontStringDTO(line: $line, id: $id, orderIndex: $orderIndex)';
+  final _this = this as FontStringDTO;
+  return 'FontStringDTO(line: ${_this.line}, id: ${_this.id}, orderIndex: ${_this.orderIndex})';
 }
 
 
@@ -239,16 +244,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontStringDto&&(identical(other.line, line) || other.line == line)&&(identical(other.id, id) || other.id == id)&&(identical(other.orderIndex, orderIndex) || other.orderIndex == orderIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontStringDto&&(identical(other.line, line) || other.line == line)&&(identical(other.id, id) || other.id == id)&&(identical(other.orderIndex, orderIndex) || other.orderIndex == orderIndex));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,line,id,orderIndex);
+int get hashCode {
+    return Object.hash(runtimeType,line,id,orderIndex);
+}
 
 @override
 String toString() {
-  return 'FontStringDTO(line: $line, id: $id, orderIndex: $orderIndex)';
+    return 'FontStringDTO(line: $line, id: $id, orderIndex: $orderIndex)';
 }
 
 

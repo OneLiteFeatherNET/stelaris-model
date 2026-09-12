@@ -29,16 +29,21 @@ $FontModelCopyWith<FontModel> get copyWith => _$FontModelCopyWithImpl<FontModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height)&&(identical(other.chars, chars) || other.chars == chars)&&(identical(other.isLoadingChars, isLoadingChars) || other.isLoadingChars == isLoadingChars));
+  final _this = this as FontModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.texturePath, _this.texturePath) || other.texturePath == _this.texturePath)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.mapper, _this.mapper) || other.mapper == _this.mapper)&&(identical(other.ascent, _this.ascent) || other.ascent == _this.ascent)&&(identical(other.height, _this.height) || other.height == _this.height)&&(identical(other.chars, _this.chars) || other.chars == _this.chars)&&(identical(other.isLoadingChars, _this.isLoadingChars) || other.isLoadingChars == _this.isLoadingChars));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,provider,texturePath,comment,mapper,ascent,height,chars,isLoadingChars);
+int get hashCode {
+  final _this = this as FontModel;
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.variableName,_this.provider,_this.texturePath,_this.comment,_this.mapper,_this.ascent,_this.height,_this.chars,_this.isLoadingChars);
+}
 
 @override
 String toString() {
-  return 'FontModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height, chars: $chars, isLoadingChars: $isLoadingChars)';
+  final _this = this as FontModel;
+  return 'FontModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, variableName: ${_this.variableName}, provider: ${_this.provider}, texturePath: ${_this.texturePath}, comment: ${_this.comment}, mapper: ${_this.mapper}, ascent: ${_this.ascent}, height: ${_this.height}, chars: ${_this.chars}, isLoadingChars: ${_this.isLoadingChars})';
 }
 
 
@@ -250,16 +255,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height)&&(identical(other.chars, chars) || other.chars == chars)&&(identical(other.isLoadingChars, isLoadingChars) || other.isLoadingChars == isLoadingChars));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height)&&(identical(other.chars, chars) || other.chars == chars)&&(identical(other.isLoadingChars, isLoadingChars) || other.isLoadingChars == isLoadingChars));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,provider,texturePath,comment,mapper,ascent,height,chars,isLoadingChars);
+int get hashCode {
+    return Object.hash(runtimeType,uiName,id,projectId,variableName,provider,texturePath,comment,mapper,ascent,height,chars,isLoadingChars);
+}
 
 @override
 String toString() {
-  return 'FontModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height, chars: $chars, isLoadingChars: $isLoadingChars)';
+    return 'FontModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height, chars: $chars, isLoadingChars: $isLoadingChars)';
 }
 
 

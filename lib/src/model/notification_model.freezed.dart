@@ -36,16 +36,21 @@ $NotificationModelCopyWith<NotificationModel> get copyWith => _$NotificationMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.material, material) || other.material == material)&&(identical(other.frameType, frameType) || other.frameType == frameType)&&(identical(other.title, title) || other.title == title)&&(identical(other.comment, comment) || other.comment == comment));
+  final _this = this as NotificationModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.material, _this.material) || other.material == _this.material)&&(identical(other.frameType, _this.frameType) || other.frameType == _this.frameType)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.comment, _this.comment) || other.comment == _this.comment));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,material,frameType,title,comment);
+int get hashCode {
+  final _this = this as NotificationModel;
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.variableName,_this.material,_this.frameType,_this.title,_this.comment);
+}
 
 @override
 String toString() {
-  return 'NotificationModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, material: $material, frameType: $frameType, title: $title, comment: $comment)';
+  final _this = this as NotificationModel;
+  return 'NotificationModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, variableName: ${_this.variableName}, material: ${_this.material}, frameType: ${_this.frameType}, title: ${_this.title}, comment: ${_this.comment})';
 }
 
 
@@ -249,16 +254,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Notification&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.material, material) || other.material == material)&&(identical(other.frameType, frameType) || other.frameType == frameType)&&(identical(other.title, title) || other.title == title)&&(identical(other.comment, comment) || other.comment == comment));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Notification&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.material, material) || other.material == material)&&(identical(other.frameType, frameType) || other.frameType == frameType)&&(identical(other.title, title) || other.title == title)&&(identical(other.comment, comment) || other.comment == comment));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,material,frameType,title,comment);
+int get hashCode {
+    return Object.hash(runtimeType,uiName,id,projectId,variableName,material,frameType,title,comment);
+}
 
 @override
 String toString() {
-  return 'NotificationModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, material: $material, frameType: $frameType, title: $title, comment: $comment)';
+    return 'NotificationModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, material: $material, frameType: $frameType, title: $title, comment: $comment)';
 }
 
 

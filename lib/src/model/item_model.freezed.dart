@@ -29,16 +29,21 @@ $ItemModelCopyWith<ItemModel> get copyWith => _$ItemModelCopyWithImpl<ItemModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.groupName, groupName) || other.groupName == groupName)&&(identical(other.material, material) || other.material == material)&&(identical(other.customModelData, customModelData) || other.customModelData == customModelData)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.enchantments, enchantments) || other.enchantments == enchantments)&&(identical(other.lore, lore) || other.lore == lore)&&(identical(other.flags, flags) || other.flags == flags)&&(identical(other.isLoadingMoreEnchantments, isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == isLoadingMoreLoreLines));
+  final _this = this as ItemModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.groupName, _this.groupName) || other.groupName == _this.groupName)&&(identical(other.material, _this.material) || other.material == _this.material)&&(identical(other.customModelData, _this.customModelData) || other.customModelData == _this.customModelData)&&(identical(other.amount, _this.amount) || other.amount == _this.amount)&&(identical(other.enchantments, _this.enchantments) || other.enchantments == _this.enchantments)&&(identical(other.lore, _this.lore) || other.lore == _this.lore)&&(identical(other.flags, _this.flags) || other.flags == _this.flags)&&(identical(other.isLoadingMoreEnchantments, _this.isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == _this.isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, _this.isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == _this.isLoadingMoreLoreLines));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,comment,displayName,groupName,material,customModelData,amount,enchantments,lore,flags,isLoadingMoreEnchantments,isLoadingMoreLoreLines);
+int get hashCode {
+  final _this = this as ItemModel;
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.variableName,_this.comment,_this.displayName,_this.groupName,_this.material,_this.customModelData,_this.amount,_this.enchantments,_this.lore,_this.flags,_this.isLoadingMoreEnchantments,_this.isLoadingMoreLoreLines);
+}
 
 @override
 String toString() {
-  return 'ItemModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, comment: $comment, displayName: $displayName, groupName: $groupName, material: $material, customModelData: $customModelData, amount: $amount, enchantments: $enchantments, lore: $lore, flags: $flags, isLoadingMoreEnchantments: $isLoadingMoreEnchantments, isLoadingMoreLoreLines: $isLoadingMoreLoreLines)';
+  final _this = this as ItemModel;
+  return 'ItemModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, variableName: ${_this.variableName}, comment: ${_this.comment}, displayName: ${_this.displayName}, groupName: ${_this.groupName}, material: ${_this.material}, customModelData: ${_this.customModelData}, amount: ${_this.amount}, enchantments: ${_this.enchantments}, lore: ${_this.lore}, flags: ${_this.flags}, isLoadingMoreEnchantments: ${_this.isLoadingMoreEnchantments}, isLoadingMoreLoreLines: ${_this.isLoadingMoreLoreLines})';
 }
 
 
@@ -256,16 +261,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.groupName, groupName) || other.groupName == groupName)&&(identical(other.material, material) || other.material == material)&&(identical(other.customModelData, customModelData) || other.customModelData == customModelData)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.enchantments, enchantments) || other.enchantments == enchantments)&&(identical(other.lore, lore) || other.lore == lore)&&(identical(other.flags, flags) || other.flags == flags)&&(identical(other.isLoadingMoreEnchantments, isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == isLoadingMoreLoreLines));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.groupName, groupName) || other.groupName == groupName)&&(identical(other.material, material) || other.material == material)&&(identical(other.customModelData, customModelData) || other.customModelData == customModelData)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.enchantments, enchantments) || other.enchantments == enchantments)&&(identical(other.lore, lore) || other.lore == lore)&&(identical(other.flags, flags) || other.flags == flags)&&(identical(other.isLoadingMoreEnchantments, isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == isLoadingMoreLoreLines));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uiName,id,projectId,variableName,comment,displayName,groupName,material,customModelData,amount,enchantments,lore,flags,isLoadingMoreEnchantments,isLoadingMoreLoreLines);
+int get hashCode {
+    return Object.hash(runtimeType,uiName,id,projectId,variableName,comment,displayName,groupName,material,customModelData,amount,enchantments,lore,flags,isLoadingMoreEnchantments,isLoadingMoreLoreLines);
+}
 
 @override
 String toString() {
-  return 'ItemModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, comment: $comment, displayName: $displayName, groupName: $groupName, material: $material, customModelData: $customModelData, amount: $amount, enchantments: $enchantments, lore: $lore, flags: $flags, isLoadingMoreEnchantments: $isLoadingMoreEnchantments, isLoadingMoreLoreLines: $isLoadingMoreLoreLines)';
+    return 'ItemModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, comment: $comment, displayName: $displayName, groupName: $groupName, material: $material, customModelData: $customModelData, amount: $amount, enchantments: $enchantments, lore: $lore, flags: $flags, isLoadingMoreEnchantments: $isLoadingMoreEnchantments, isLoadingMoreLoreLines: $isLoadingMoreLoreLines)';
 }
 
 
