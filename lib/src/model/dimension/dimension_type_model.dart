@@ -23,7 +23,7 @@ abstract class DimensionTypeModel with _$DimensionTypeModel, DataModel {
     required String uiName,
     String? id,
     String? projectId,
-    String? variableName,
+    String? key,
     @Default(false) bool hasFixedTime,
     @Default(true) bool hasSkylight,
     @Default(false) bool hasCeiling,

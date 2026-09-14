@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ItemModel {
 
- String get uiName; String? get id; String? get projectId; String? get variableName; String? get comment; String? get displayName; EnchantmentGroup get groupName; String? get material; int? get customModelData; int? get amount; PaginatedResult<ItemEnchantmentDto> get enchantments; PaginatedResult<ItemLoreDto> get lore; PaginatedResult<ItemFlagDto> get flags;@JsonKey(includeToJson: false) bool get isLoadingMoreEnchantments;@JsonKey(includeToJson: false) bool get isLoadingMoreLoreLines;
+ String get uiName; String? get id; String? get projectId; String? get key; String? get comment; String? get displayName; EnchantmentGroup get groupName; String? get material; int? get customModelData; int? get amount; PaginatedResult<ItemEnchantmentDto> get enchantments; PaginatedResult<ItemLoreDto> get lore; PaginatedResult<ItemFlagDto> get flags;@JsonKey(includeToJson: false) bool get isLoadingMoreEnchantments;@JsonKey(includeToJson: false) bool get isLoadingMoreLoreLines;
 /// Create a copy of ItemModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $ItemModelCopyWith<ItemModel> get copyWith => _$ItemModelCopyWithImpl<ItemModel>
 @override
 bool operator ==(Object other) {
   final _this = this as ItemModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.groupName, _this.groupName) || other.groupName == _this.groupName)&&(identical(other.material, _this.material) || other.material == _this.material)&&(identical(other.customModelData, _this.customModelData) || other.customModelData == _this.customModelData)&&(identical(other.amount, _this.amount) || other.amount == _this.amount)&&(identical(other.enchantments, _this.enchantments) || other.enchantments == _this.enchantments)&&(identical(other.lore, _this.lore) || other.lore == _this.lore)&&(identical(other.flags, _this.flags) || other.flags == _this.flags)&&(identical(other.isLoadingMoreEnchantments, _this.isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == _this.isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, _this.isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == _this.isLoadingMoreLoreLines));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ItemModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.groupName, _this.groupName) || other.groupName == _this.groupName)&&(identical(other.material, _this.material) || other.material == _this.material)&&(identical(other.customModelData, _this.customModelData) || other.customModelData == _this.customModelData)&&(identical(other.amount, _this.amount) || other.amount == _this.amount)&&(identical(other.enchantments, _this.enchantments) || other.enchantments == _this.enchantments)&&(identical(other.lore, _this.lore) || other.lore == _this.lore)&&(identical(other.flags, _this.flags) || other.flags == _this.flags)&&(identical(other.isLoadingMoreEnchantments, _this.isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == _this.isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, _this.isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == _this.isLoadingMoreLoreLines));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as ItemModel;
-  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.variableName,_this.comment,_this.displayName,_this.groupName,_this.material,_this.customModelData,_this.amount,_this.enchantments,_this.lore,_this.flags,_this.isLoadingMoreEnchantments,_this.isLoadingMoreLoreLines);
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.key,_this.comment,_this.displayName,_this.groupName,_this.material,_this.customModelData,_this.amount,_this.enchantments,_this.lore,_this.flags,_this.isLoadingMoreEnchantments,_this.isLoadingMoreLoreLines);
 }
 
 @override
 String toString() {
   final _this = this as ItemModel;
-  return 'ItemModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, variableName: ${_this.variableName}, comment: ${_this.comment}, displayName: ${_this.displayName}, groupName: ${_this.groupName}, material: ${_this.material}, customModelData: ${_this.customModelData}, amount: ${_this.amount}, enchantments: ${_this.enchantments}, lore: ${_this.lore}, flags: ${_this.flags}, isLoadingMoreEnchantments: ${_this.isLoadingMoreEnchantments}, isLoadingMoreLoreLines: ${_this.isLoadingMoreLoreLines})';
+  return 'ItemModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, comment: ${_this.comment}, displayName: ${_this.displayName}, groupName: ${_this.groupName}, material: ${_this.material}, customModelData: ${_this.customModelData}, amount: ${_this.amount}, enchantments: ${_this.enchantments}, lore: ${_this.lore}, flags: ${_this.flags}, isLoadingMoreEnchantments: ${_this.isLoadingMoreEnchantments}, isLoadingMoreLoreLines: ${_this.isLoadingMoreLoreLines})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $ItemModelCopyWith<$Res>  {
   factory $ItemModelCopyWith(ItemModel value, $Res Function(ItemModel) _then) = _$ItemModelCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? variableName, String? comment, String? displayName, EnchantmentGroup groupName, String? material, int? customModelData, int? amount, PaginatedResult<ItemEnchantmentDto> enchantments, PaginatedResult<ItemLoreDto> lore, PaginatedResult<ItemFlagDto> flags,@JsonKey(includeToJson: false) bool isLoadingMoreEnchantments,@JsonKey(includeToJson: false) bool isLoadingMoreLoreLines
+ String uiName, String? id, String? projectId, String? key, String? comment, String? displayName, EnchantmentGroup groupName, String? material, int? customModelData, int? amount, PaginatedResult<ItemEnchantmentDto> enchantments, PaginatedResult<ItemLoreDto> lore, PaginatedResult<ItemFlagDto> flags,@JsonKey(includeToJson: false) bool isLoadingMoreEnchantments,@JsonKey(includeToJson: false) bool isLoadingMoreLoreLines
 });
 
 
@@ -71,12 +71,12 @@ class _$ItemModelCopyWithImpl<$Res>
 
 /// Create a copy of ItemModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? variableName = freezed,Object? comment = freezed,Object? displayName = freezed,Object? groupName = null,Object? material = freezed,Object? customModelData = freezed,Object? amount = freezed,Object? enchantments = null,Object? lore = null,Object? flags = null,Object? isLoadingMoreEnchantments = null,Object? isLoadingMoreLoreLines = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? comment = freezed,Object? displayName = freezed,Object? groupName = null,Object? material = freezed,Object? customModelData = freezed,Object? amount = freezed,Object? enchantments = null,Object? lore = null,Object? flags = null,Object? isLoadingMoreEnchantments = null,Object? isLoadingMoreLoreLines = null,}) {
   return _then(ItemModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
-as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
+as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String?,groupName: null == groupName ? _self.groupName : groupName // ignore: cast_nullable_to_non_nullable
@@ -173,10 +173,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? comment,  String? displayName,  EnchantmentGroup groupName,  String? material,  int? customModelData,  int? amount,  PaginatedResult<ItemEnchantmentDto> enchantments,  PaginatedResult<ItemLoreDto> lore,  PaginatedResult<ItemFlagDto> flags, @JsonKey(includeToJson: false)  bool isLoadingMoreEnchantments, @JsonKey(includeToJson: false)  bool isLoadingMoreLoreLines)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? comment,  String? displayName,  EnchantmentGroup groupName,  String? material,  int? customModelData,  int? amount,  PaginatedResult<ItemEnchantmentDto> enchantments,  PaginatedResult<ItemLoreDto> lore,  PaginatedResult<ItemFlagDto> flags, @JsonKey(includeToJson: false)  bool isLoadingMoreEnchantments, @JsonKey(includeToJson: false)  bool isLoadingMoreLoreLines)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ItemModel() when $default != null:
-return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.comment,_that.displayName,_that.groupName,_that.material,_that.customModelData,_that.amount,_that.enchantments,_that.lore,_that.flags,_that.isLoadingMoreEnchantments,_that.isLoadingMoreLoreLines);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.comment,_that.displayName,_that.groupName,_that.material,_that.customModelData,_that.amount,_that.enchantments,_that.lore,_that.flags,_that.isLoadingMoreEnchantments,_that.isLoadingMoreLoreLines);case _:
   return orElse();
 
 }
@@ -194,10 +194,10 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? comment,  String? displayName,  EnchantmentGroup groupName,  String? material,  int? customModelData,  int? amount,  PaginatedResult<ItemEnchantmentDto> enchantments,  PaginatedResult<ItemLoreDto> lore,  PaginatedResult<ItemFlagDto> flags, @JsonKey(includeToJson: false)  bool isLoadingMoreEnchantments, @JsonKey(includeToJson: false)  bool isLoadingMoreLoreLines)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? comment,  String? displayName,  EnchantmentGroup groupName,  String? material,  int? customModelData,  int? amount,  PaginatedResult<ItemEnchantmentDto> enchantments,  PaginatedResult<ItemLoreDto> lore,  PaginatedResult<ItemFlagDto> flags, @JsonKey(includeToJson: false)  bool isLoadingMoreEnchantments, @JsonKey(includeToJson: false)  bool isLoadingMoreLoreLines)  $default,) {final _that = this;
 switch (_that) {
 case _ItemModel():
-return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.comment,_that.displayName,_that.groupName,_that.material,_that.customModelData,_that.amount,_that.enchantments,_that.lore,_that.flags,_that.isLoadingMoreEnchantments,_that.isLoadingMoreLoreLines);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.comment,_that.displayName,_that.groupName,_that.material,_that.customModelData,_that.amount,_that.enchantments,_that.lore,_that.flags,_that.isLoadingMoreEnchantments,_that.isLoadingMoreLoreLines);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +214,10 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? comment,  String? displayName,  EnchantmentGroup groupName,  String? material,  int? customModelData,  int? amount,  PaginatedResult<ItemEnchantmentDto> enchantments,  PaginatedResult<ItemLoreDto> lore,  PaginatedResult<ItemFlagDto> flags, @JsonKey(includeToJson: false)  bool isLoadingMoreEnchantments, @JsonKey(includeToJson: false)  bool isLoadingMoreLoreLines)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? key,  String? comment,  String? displayName,  EnchantmentGroup groupName,  String? material,  int? customModelData,  int? amount,  PaginatedResult<ItemEnchantmentDto> enchantments,  PaginatedResult<ItemLoreDto> lore,  PaginatedResult<ItemFlagDto> flags, @JsonKey(includeToJson: false)  bool isLoadingMoreEnchantments, @JsonKey(includeToJson: false)  bool isLoadingMoreLoreLines)?  $default,) {final _that = this;
 switch (_that) {
 case _ItemModel() when $default != null:
-return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.comment,_that.displayName,_that.groupName,_that.material,_that.customModelData,_that.amount,_that.enchantments,_that.lore,_that.flags,_that.isLoadingMoreEnchantments,_that.isLoadingMoreLoreLines);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.comment,_that.displayName,_that.groupName,_that.material,_that.customModelData,_that.amount,_that.enchantments,_that.lore,_that.flags,_that.isLoadingMoreEnchantments,_that.isLoadingMoreLoreLines);case _:
   return null;
 
 }
@@ -229,13 +229,13 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.c
 @JsonSerializable()
 
 class _ItemModel extends ItemModel {
-  const _ItemModel({required this.uiName, this.id, this.projectId, this.variableName, this.comment, this.displayName, this.groupName = EnchantmentGroup.meta, this.material, this.customModelData = 0, this.amount = 1, this.enchantments = ItemModel.defaultEnchantments, this.lore = ItemModel._defaultLore, this.flags = ItemModel._defaultFlags, @JsonKey(includeToJson: false) this.isLoadingMoreEnchantments = false, @JsonKey(includeToJson: false) this.isLoadingMoreLoreLines = false}): super._();
+  const _ItemModel({required this.uiName, this.id, this.projectId, this.key, this.comment, this.displayName, this.groupName = EnchantmentGroup.meta, this.material, this.customModelData = 0, this.amount = 1, this.enchantments = ItemModel.defaultEnchantments, this.lore = ItemModel._defaultLore, this.flags = ItemModel._defaultFlags, @JsonKey(includeToJson: false) this.isLoadingMoreEnchantments = false, @JsonKey(includeToJson: false) this.isLoadingMoreLoreLines = false}): super._();
   factory _ItemModel.fromJson(Map<String, dynamic> json) => _$ItemModelFromJson(json);
 
 @override final  String uiName;
 @override final  String? id;
 @override final  String? projectId;
-@override final  String? variableName;
+@override final  String? key;
 @override final  String? comment;
 @override final  String? displayName;
 @override@JsonKey() final  EnchantmentGroup groupName;
@@ -261,18 +261,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.groupName, groupName) || other.groupName == groupName)&&(identical(other.material, material) || other.material == material)&&(identical(other.customModelData, customModelData) || other.customModelData == customModelData)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.enchantments, enchantments) || other.enchantments == enchantments)&&(identical(other.lore, lore) || other.lore == lore)&&(identical(other.flags, flags) || other.flags == flags)&&(identical(other.isLoadingMoreEnchantments, isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == isLoadingMoreLoreLines));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ItemModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.groupName, groupName) || other.groupName == groupName)&&(identical(other.material, material) || other.material == material)&&(identical(other.customModelData, customModelData) || other.customModelData == customModelData)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.enchantments, enchantments) || other.enchantments == enchantments)&&(identical(other.lore, lore) || other.lore == lore)&&(identical(other.flags, flags) || other.flags == flags)&&(identical(other.isLoadingMoreEnchantments, isLoadingMoreEnchantments) || other.isLoadingMoreEnchantments == isLoadingMoreEnchantments)&&(identical(other.isLoadingMoreLoreLines, isLoadingMoreLoreLines) || other.isLoadingMoreLoreLines == isLoadingMoreLoreLines));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,uiName,id,projectId,variableName,comment,displayName,groupName,material,customModelData,amount,enchantments,lore,flags,isLoadingMoreEnchantments,isLoadingMoreLoreLines);
+    return Object.hash(runtimeType,uiName,id,projectId,key,comment,displayName,groupName,material,customModelData,amount,enchantments,lore,flags,isLoadingMoreEnchantments,isLoadingMoreLoreLines);
 }
 
 @override
 String toString() {
-    return 'ItemModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, comment: $comment, displayName: $displayName, groupName: $groupName, material: $material, customModelData: $customModelData, amount: $amount, enchantments: $enchantments, lore: $lore, flags: $flags, isLoadingMoreEnchantments: $isLoadingMoreEnchantments, isLoadingMoreLoreLines: $isLoadingMoreLoreLines)';
+    return 'ItemModel(uiName: $uiName, id: $id, projectId: $projectId, key: $key, comment: $comment, displayName: $displayName, groupName: $groupName, material: $material, customModelData: $customModelData, amount: $amount, enchantments: $enchantments, lore: $lore, flags: $flags, isLoadingMoreEnchantments: $isLoadingMoreEnchantments, isLoadingMoreLoreLines: $isLoadingMoreLoreLines)';
 }
 
 
@@ -283,7 +283,7 @@ abstract mixin class _$ItemModelCopyWith<$Res> implements $ItemModelCopyWith<$Re
   factory _$ItemModelCopyWith(_ItemModel value, $Res Function(_ItemModel) _then) = __$ItemModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? variableName, String? comment, String? displayName, EnchantmentGroup groupName, String? material, int? customModelData, int? amount, PaginatedResult<ItemEnchantmentDto> enchantments, PaginatedResult<ItemLoreDto> lore, PaginatedResult<ItemFlagDto> flags,@JsonKey(includeToJson: false) bool isLoadingMoreEnchantments,@JsonKey(includeToJson: false) bool isLoadingMoreLoreLines
+ String uiName, String? id, String? projectId, String? key, String? comment, String? displayName, EnchantmentGroup groupName, String? material, int? customModelData, int? amount, PaginatedResult<ItemEnchantmentDto> enchantments, PaginatedResult<ItemLoreDto> lore, PaginatedResult<ItemFlagDto> flags,@JsonKey(includeToJson: false) bool isLoadingMoreEnchantments,@JsonKey(includeToJson: false) bool isLoadingMoreLoreLines
 });
 
 
@@ -300,12 +300,12 @@ class __$ItemModelCopyWithImpl<$Res>
 
 /// Create a copy of ItemModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? variableName = freezed,Object? comment = freezed,Object? displayName = freezed,Object? groupName = null,Object? material = freezed,Object? customModelData = freezed,Object? amount = freezed,Object? enchantments = null,Object? lore = null,Object? flags = null,Object? isLoadingMoreEnchantments = null,Object? isLoadingMoreLoreLines = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? comment = freezed,Object? displayName = freezed,Object? groupName = null,Object? material = freezed,Object? customModelData = freezed,Object? amount = freezed,Object? enchantments = null,Object? lore = null,Object? flags = null,Object? isLoadingMoreEnchantments = null,Object? isLoadingMoreLoreLines = null,}) {
   return _then(_ItemModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
-as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
+as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String?,groupName: null == groupName ? _self.groupName : groupName // ignore: cast_nullable_to_non_nullable

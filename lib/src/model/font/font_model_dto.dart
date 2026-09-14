@@ -13,7 +13,7 @@ abstract class FontModelDto with _$FontModelDto, DataModel {
   const factory FontModelDto({
     required String uiName,
     String? id,
-    String? variableName,
+    String? key,
     String? provider,
     String? texturePath,
     String? comment,

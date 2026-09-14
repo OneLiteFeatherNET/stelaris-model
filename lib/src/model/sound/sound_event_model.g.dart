@@ -11,7 +11,7 @@ _SoundEventModel _$SoundEventModelFromJson(Map<String, dynamic> json) =>
       uiName: json['uiName'] as String,
       id: json['id'] as String?,
       projectId: json['projectId'] as String?,
-      variableName: json['variableName'] as String?,
+      key: json['key'] as String?,
       keyName: json['keyName'] as String?,
       subTitle: json['subTitle'] as String?,
       files: json['files'] == null
@@ -29,7 +29,7 @@ Map<String, dynamic> _$SoundEventModelToJson(_SoundEventModel instance) =>
       'uiName': instance.uiName,
       'id': instance.id,
       'projectId': instance.projectId,
-      'variableName': instance.variableName,
+      'key': instance.key,
       'keyName': instance.keyName,
       'subTitle': instance.subTitle,
       'files': instance.files.toJson((value) => value),

@@ -20,7 +20,7 @@ abstract class NotificationModel with _$NotificationModel, DataModel {
     required String uiName,
     String? id,
     String? projectId,
-    String? variableName,
+    String? key,
     String? material,
     @Default(FrameType.task) FrameType frameType,
     String? title,

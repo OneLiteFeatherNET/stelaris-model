@@ -30,7 +30,7 @@ abstract class FontModel with _$FontModel, DataModel {
     required String uiName,
     String? id,
     String? projectId,
-    String? variableName,
+    String? key,
     String? provider,
     String? texturePath,
     String? comment,

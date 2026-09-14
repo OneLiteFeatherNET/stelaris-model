@@ -23,7 +23,7 @@ NotificationModel _$NotificationModelFromJson(
 /// @nodoc
 mixin _$NotificationModel {
 
- String get uiName; String? get id; String? get projectId; String? get variableName; String? get material; FrameType get frameType; String? get title; String? get comment;
+ String get uiName; String? get id; String? get projectId; String? get key; String? get material; FrameType get frameType; String? get title; String? get comment;
 /// Create a copy of NotificationModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,20 +37,20 @@ $NotificationModelCopyWith<NotificationModel> get copyWith => _$NotificationMode
 @override
 bool operator ==(Object other) {
   final _this = this as NotificationModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.material, _this.material) || other.material == _this.material)&&(identical(other.frameType, _this.frameType) || other.frameType == _this.frameType)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.comment, _this.comment) || other.comment == _this.comment));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotificationModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.material, _this.material) || other.material == _this.material)&&(identical(other.frameType, _this.frameType) || other.frameType == _this.frameType)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.comment, _this.comment) || other.comment == _this.comment));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as NotificationModel;
-  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.variableName,_this.material,_this.frameType,_this.title,_this.comment);
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.key,_this.material,_this.frameType,_this.title,_this.comment);
 }
 
 @override
 String toString() {
   final _this = this as NotificationModel;
-  return 'NotificationModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, variableName: ${_this.variableName}, material: ${_this.material}, frameType: ${_this.frameType}, title: ${_this.title}, comment: ${_this.comment})';
+  return 'NotificationModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, material: ${_this.material}, frameType: ${_this.frameType}, title: ${_this.title}, comment: ${_this.comment})';
 }
 
 
@@ -61,7 +61,7 @@ abstract mixin class $NotificationModelCopyWith<$Res>  {
   factory $NotificationModelCopyWith(NotificationModel value, $Res Function(NotificationModel) _then) = _$NotificationModelCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? variableName, String? material, FrameType frameType, String? title, String? comment
+ String uiName, String? id, String? projectId, String? key, String? material, FrameType frameType, String? title, String? comment
 });
 
 
@@ -78,12 +78,12 @@ class _$NotificationModelCopyWithImpl<$Res>
 
 /// Create a copy of NotificationModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? variableName = freezed,Object? material = freezed,Object? frameType = null,Object? title = freezed,Object? comment = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? material = freezed,Object? frameType = null,Object? title = freezed,Object? comment = freezed,}) {
   return _then(NotificationModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
-as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
+as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String?,material: freezed == material ? _self.material : material // ignore: cast_nullable_to_non_nullable
 as String?,frameType: null == frameType ? _self.frameType : frameType // ignore: cast_nullable_to_non_nullable
 as FrameType,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -173,10 +173,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? material,  FrameType frameType,  String? title,  String? comment)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? material,  FrameType frameType,  String? title,  String? comment)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Notification() when $default != null:
-return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.material,_that.frameType,_that.title,_that.comment);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.material,_that.frameType,_that.title,_that.comment);case _:
   return orElse();
 
 }
@@ -194,10 +194,10 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.m
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? material,  FrameType frameType,  String? title,  String? comment)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? material,  FrameType frameType,  String? title,  String? comment)  $default,) {final _that = this;
 switch (_that) {
 case _Notification():
-return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.material,_that.frameType,_that.title,_that.comment);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.material,_that.frameType,_that.title,_that.comment);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +214,10 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.m
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? variableName,  String? material,  FrameType frameType,  String? title,  String? comment)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? key,  String? material,  FrameType frameType,  String? title,  String? comment)?  $default,) {final _that = this;
 switch (_that) {
 case _Notification() when $default != null:
-return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.material,_that.frameType,_that.title,_that.comment);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.material,_that.frameType,_that.title,_that.comment);case _:
   return null;
 
 }
@@ -229,13 +229,13 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.variableName,_that.m
 @JsonSerializable()
 
 class _Notification extends NotificationModel {
-  const _Notification({required this.uiName, this.id, this.projectId, this.variableName, this.material, this.frameType = FrameType.task, this.title, this.comment}): super._();
+  const _Notification({required this.uiName, this.id, this.projectId, this.key, this.material, this.frameType = FrameType.task, this.title, this.comment}): super._();
   factory _Notification.fromJson(Map<String, dynamic> json) => _$NotificationFromJson(json);
 
 @override final  String uiName;
 @override final  String? id;
 @override final  String? projectId;
-@override final  String? variableName;
+@override final  String? key;
 @override final  String? material;
 @override@JsonKey() final  FrameType frameType;
 @override final  String? title;
@@ -254,18 +254,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Notification&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.material, material) || other.material == material)&&(identical(other.frameType, frameType) || other.frameType == frameType)&&(identical(other.title, title) || other.title == title)&&(identical(other.comment, comment) || other.comment == comment));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Notification&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.material, material) || other.material == material)&&(identical(other.frameType, frameType) || other.frameType == frameType)&&(identical(other.title, title) || other.title == title)&&(identical(other.comment, comment) || other.comment == comment));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,uiName,id,projectId,variableName,material,frameType,title,comment);
+    return Object.hash(runtimeType,uiName,id,projectId,key,material,frameType,title,comment);
 }
 
 @override
 String toString() {
-    return 'NotificationModel(uiName: $uiName, id: $id, projectId: $projectId, variableName: $variableName, material: $material, frameType: $frameType, title: $title, comment: $comment)';
+    return 'NotificationModel(uiName: $uiName, id: $id, projectId: $projectId, key: $key, material: $material, frameType: $frameType, title: $title, comment: $comment)';
 }
 
 
@@ -276,7 +276,7 @@ abstract mixin class _$NotificationCopyWith<$Res> implements $NotificationModelC
   factory _$NotificationCopyWith(_Notification value, $Res Function(_Notification) _then) = __$NotificationCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? variableName, String? material, FrameType frameType, String? title, String? comment
+ String uiName, String? id, String? projectId, String? key, String? material, FrameType frameType, String? title, String? comment
 });
 
 
@@ -293,12 +293,12 @@ class __$NotificationCopyWithImpl<$Res>
 
 /// Create a copy of NotificationModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? variableName = freezed,Object? material = freezed,Object? frameType = null,Object? title = freezed,Object? comment = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? material = freezed,Object? frameType = null,Object? title = freezed,Object? comment = freezed,}) {
   return _then(_Notification(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
-as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
+as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String?,material: freezed == material ? _self.material : material // ignore: cast_nullable_to_non_nullable
 as String?,frameType: null == frameType ? _self.frameType : frameType // ignore: cast_nullable_to_non_nullable
 as FrameType,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable

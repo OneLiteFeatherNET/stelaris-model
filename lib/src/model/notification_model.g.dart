@@ -11,7 +11,7 @@ _Notification _$NotificationFromJson(Map<String, dynamic> json) =>
       uiName: json['uiName'] as String,
       id: json['id'] as String?,
       projectId: json['projectId'] as String?,
-      variableName: json['variableName'] as String?,
+      key: json['key'] as String?,
       material: json['material'] as String?,
       frameType:
           $enumDecodeNullable(_$FrameTypeEnumMap, json['frameType']) ??
@@ -25,7 +25,7 @@ Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
       'uiName': instance.uiName,
       'id': instance.id,
       'projectId': instance.projectId,
-      'variableName': instance.variableName,
+      'key': instance.key,
       'material': instance.material,
       'frameType': _$FrameTypeEnumMap[instance.frameType]!,
       'title': instance.title,

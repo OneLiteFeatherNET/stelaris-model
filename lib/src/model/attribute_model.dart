@@ -18,7 +18,7 @@ abstract class AttributeModel with _$AttributeModel, DataModel {
     required String uiName,
     String? id,
     String? projectId,
-    String? variableName,
+    String? key,
     @freezed @Default(0.0) double? defaultValue,
     @Default(0.0) double? maximumValue,
   }) = _AttributeModel;

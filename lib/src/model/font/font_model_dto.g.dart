@@ -10,7 +10,7 @@ _FontModelDto _$FontModelDtoFromJson(Map<String, dynamic> json) =>
     _FontModelDto(
       uiName: json['uiName'] as String,
       id: json['id'] as String?,
-      variableName: json['variableName'] as String?,
+      key: json['key'] as String?,
       provider: json['provider'] as String?,
       texturePath: json['texturePath'] as String?,
       comment: json['comment'] as String?,
@@ -23,7 +23,7 @@ Map<String, dynamic> _$FontModelDtoToJson(_FontModelDto instance) =>
     <String, dynamic>{
       'uiName': instance.uiName,
       'id': instance.id,
-      'variableName': instance.variableName,
+      'key': instance.key,
       'provider': instance.provider,
       'texturePath': instance.texturePath,
       'comment': instance.comment,

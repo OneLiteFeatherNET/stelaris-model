@@ -54,7 +54,7 @@ abstract class ItemModel with _$ItemModel, DataModel {
     required String uiName,
     String? id,
     String? projectId,
-    String? variableName,
+    String? key,
     String? comment,
     String? displayName,
     @Default(EnchantmentGroup.meta) EnchantmentGroup groupName,

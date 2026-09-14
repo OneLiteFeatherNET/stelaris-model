@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FontModelDto {
 
- String get uiName; String? get id; String? get variableName; String? get provider; String? get texturePath; String? get comment; String get mapper; int get ascent; int get height;
+ String get uiName; String? get id; String? get key; String? get provider; String? get texturePath; String? get comment; String get mapper; int get ascent; int get height;
 /// Create a copy of FontModelDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $FontModelDtoCopyWith<FontModelDto> get copyWith => _$FontModelDtoCopyWithImpl<F
 @override
 bool operator ==(Object other) {
   final _this = this as FontModelDto;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontModelDto&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.variableName, _this.variableName) || other.variableName == _this.variableName)&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.texturePath, _this.texturePath) || other.texturePath == _this.texturePath)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.mapper, _this.mapper) || other.mapper == _this.mapper)&&(identical(other.ascent, _this.ascent) || other.ascent == _this.ascent)&&(identical(other.height, _this.height) || other.height == _this.height));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FontModelDto&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.texturePath, _this.texturePath) || other.texturePath == _this.texturePath)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.mapper, _this.mapper) || other.mapper == _this.mapper)&&(identical(other.ascent, _this.ascent) || other.ascent == _this.ascent)&&(identical(other.height, _this.height) || other.height == _this.height));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as FontModelDto;
-  return Object.hash(runtimeType,_this.uiName,_this.id,_this.variableName,_this.provider,_this.texturePath,_this.comment,_this.mapper,_this.ascent,_this.height);
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.key,_this.provider,_this.texturePath,_this.comment,_this.mapper,_this.ascent,_this.height);
 }
 
 @override
 String toString() {
   final _this = this as FontModelDto;
-  return 'FontModelDto(uiName: ${_this.uiName}, id: ${_this.id}, variableName: ${_this.variableName}, provider: ${_this.provider}, texturePath: ${_this.texturePath}, comment: ${_this.comment}, mapper: ${_this.mapper}, ascent: ${_this.ascent}, height: ${_this.height})';
+  return 'FontModelDto(uiName: ${_this.uiName}, id: ${_this.id}, key: ${_this.key}, provider: ${_this.provider}, texturePath: ${_this.texturePath}, comment: ${_this.comment}, mapper: ${_this.mapper}, ascent: ${_this.ascent}, height: ${_this.height})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $FontModelDtoCopyWith<$Res>  {
   factory $FontModelDtoCopyWith(FontModelDto value, $Res Function(FontModelDto) _then) = _$FontModelDtoCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String? id, String? variableName, String? provider, String? texturePath, String? comment, String mapper, int ascent, int height
+ String uiName, String? id, String? key, String? provider, String? texturePath, String? comment, String mapper, int ascent, int height
 });
 
 
@@ -71,11 +71,11 @@ class _$FontModelDtoCopyWithImpl<$Res>
 
 /// Create a copy of FontModelDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? variableName = freezed,Object? provider = freezed,Object? texturePath = freezed,Object? comment = freezed,Object? mapper = null,Object? ascent = null,Object? height = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? key = freezed,Object? provider = freezed,Object? texturePath = freezed,Object? comment = freezed,Object? mapper = null,Object? ascent = null,Object? height = null,}) {
   return _then(FontModelDto(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
+as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String?,provider: freezed == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as String?,texturePath: freezed == texturePath ? _self.texturePath : texturePath // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
@@ -167,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? variableName,  String? provider,  String? texturePath,  String? comment,  String mapper,  int ascent,  int height)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? key,  String? provider,  String? texturePath,  String? comment,  String mapper,  int ascent,  int height)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FontModelDto() when $default != null:
-return $default(_that.uiName,_that.id,_that.variableName,_that.provider,_that.texturePath,_that.comment,_that.mapper,_that.ascent,_that.height);case _:
+return $default(_that.uiName,_that.id,_that.key,_that.provider,_that.texturePath,_that.comment,_that.mapper,_that.ascent,_that.height);case _:
   return orElse();
 
 }
@@ -188,10 +188,10 @@ return $default(_that.uiName,_that.id,_that.variableName,_that.provider,_that.te
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? variableName,  String? provider,  String? texturePath,  String? comment,  String mapper,  int ascent,  int height)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? key,  String? provider,  String? texturePath,  String? comment,  String mapper,  int ascent,  int height)  $default,) {final _that = this;
 switch (_that) {
 case _FontModelDto():
-return $default(_that.uiName,_that.id,_that.variableName,_that.provider,_that.texturePath,_that.comment,_that.mapper,_that.ascent,_that.height);case _:
+return $default(_that.uiName,_that.id,_that.key,_that.provider,_that.texturePath,_that.comment,_that.mapper,_that.ascent,_that.height);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +208,10 @@ return $default(_that.uiName,_that.id,_that.variableName,_that.provider,_that.te
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? variableName,  String? provider,  String? texturePath,  String? comment,  String mapper,  int ascent,  int height)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? key,  String? provider,  String? texturePath,  String? comment,  String mapper,  int ascent,  int height)?  $default,) {final _that = this;
 switch (_that) {
 case _FontModelDto() when $default != null:
-return $default(_that.uiName,_that.id,_that.variableName,_that.provider,_that.texturePath,_that.comment,_that.mapper,_that.ascent,_that.height);case _:
+return $default(_that.uiName,_that.id,_that.key,_that.provider,_that.texturePath,_that.comment,_that.mapper,_that.ascent,_that.height);case _:
   return null;
 
 }
@@ -223,12 +223,12 @@ return $default(_that.uiName,_that.id,_that.variableName,_that.provider,_that.te
 @JsonSerializable()
 
 class _FontModelDto extends FontModelDto {
-  const _FontModelDto({required this.uiName, this.id, this.variableName, this.provider, this.texturePath, this.comment, this.mapper = 'font', this.ascent = 0, this.height = 0}): super._();
+  const _FontModelDto({required this.uiName, this.id, this.key, this.provider, this.texturePath, this.comment, this.mapper = 'font', this.ascent = 0, this.height = 0}): super._();
   factory _FontModelDto.fromJson(Map<String, dynamic> json) => _$FontModelDtoFromJson(json);
 
 @override final  String uiName;
 @override final  String? id;
-@override final  String? variableName;
+@override final  String? key;
 @override final  String? provider;
 @override final  String? texturePath;
 @override final  String? comment;
@@ -249,18 +249,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontModelDto&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.variableName, variableName) || other.variableName == variableName)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FontModelDto&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.key, key) || other.key == key)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.texturePath, texturePath) || other.texturePath == texturePath)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.mapper, mapper) || other.mapper == mapper)&&(identical(other.ascent, ascent) || other.ascent == ascent)&&(identical(other.height, height) || other.height == height));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,uiName,id,variableName,provider,texturePath,comment,mapper,ascent,height);
+    return Object.hash(runtimeType,uiName,id,key,provider,texturePath,comment,mapper,ascent,height);
 }
 
 @override
 String toString() {
-    return 'FontModelDto(uiName: $uiName, id: $id, variableName: $variableName, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height)';
+    return 'FontModelDto(uiName: $uiName, id: $id, key: $key, provider: $provider, texturePath: $texturePath, comment: $comment, mapper: $mapper, ascent: $ascent, height: $height)';
 }
 
 
@@ -271,7 +271,7 @@ abstract mixin class _$FontModelDtoCopyWith<$Res> implements $FontModelDtoCopyWi
   factory _$FontModelDtoCopyWith(_FontModelDto value, $Res Function(_FontModelDto) _then) = __$FontModelDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String? id, String? variableName, String? provider, String? texturePath, String? comment, String mapper, int ascent, int height
+ String uiName, String? id, String? key, String? provider, String? texturePath, String? comment, String mapper, int ascent, int height
 });
 
 
@@ -288,11 +288,11 @@ class __$FontModelDtoCopyWithImpl<$Res>
 
 /// Create a copy of FontModelDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? variableName = freezed,Object? provider = freezed,Object? texturePath = freezed,Object? comment = freezed,Object? mapper = null,Object? ascent = null,Object? height = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? key = freezed,Object? provider = freezed,Object? texturePath = freezed,Object? comment = freezed,Object? mapper = null,Object? ascent = null,Object? height = null,}) {
   return _then(_FontModelDto(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,variableName: freezed == variableName ? _self.variableName : variableName // ignore: cast_nullable_to_non_nullable
+as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String?,provider: freezed == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as String?,texturePath: freezed == texturePath ? _self.texturePath : texturePath // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable

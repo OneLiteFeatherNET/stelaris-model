@@ -10,7 +10,7 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
   uiName: json['uiName'] as String,
   id: json['id'] as String?,
   projectId: json['projectId'] as String?,
-  variableName: json['variableName'] as String?,
+  key: json['key'] as String?,
   comment: json['comment'] as String?,
   displayName: json['displayName'] as String?,
   groupName:
@@ -47,7 +47,7 @@ Map<String, dynamic> _$ItemModelToJson(_ItemModel instance) =>
       'uiName': instance.uiName,
       'id': instance.id,
       'projectId': instance.projectId,
-      'variableName': instance.variableName,
+      'key': instance.key,
       'comment': instance.comment,
       'displayName': instance.displayName,
       'groupName': _$EnchantmentGroupEnumMap[instance.groupName]!,

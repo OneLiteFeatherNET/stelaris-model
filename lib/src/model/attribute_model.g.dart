@@ -11,7 +11,7 @@ _AttributeModel _$AttributeModelFromJson(Map<String, dynamic> json) =>
       uiName: json['uiName'] as String,
       id: json['id'] as String?,
       projectId: json['projectId'] as String?,
-      variableName: json['variableName'] as String?,
+      key: json['key'] as String?,
       defaultValue: (json['defaultValue'] as num?)?.toDouble() ?? 0.0,
       maximumValue: (json['maximumValue'] as num?)?.toDouble() ?? 0.0,
     );
@@ -21,7 +21,7 @@ Map<String, dynamic> _$AttributeModelToJson(_AttributeModel instance) =>
       'uiName': instance.uiName,
       'id': instance.id,
       'projectId': instance.projectId,
-      'variableName': instance.variableName,
+      'key': instance.key,
       'defaultValue': instance.defaultValue,
       'maximumValue': instance.maximumValue,
     };
