@@ -2,6 +2,7 @@
 library;
 
 export 'src/data_model.dart';
+export 'src/namespaced_data_model.dart';
 export 'src/paginated_result.dart';
 export 'src/item_group.dart';
 export 'src/model/attribute_model.dart';
