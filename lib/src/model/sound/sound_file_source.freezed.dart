@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SoundFileSource {
 
- String get name; double get volume; double get pitch; int get attenuationDistance; bool get preload; String get type; int get weight; String? get id;
+ String get name; double get volume; double get pitch; int get attenuationDistance; bool get preload; String get type; int get weight; String? get id; DateTime? get creationDate; DateTime? get modificationDate;
 /// Create a copy of SoundFileSource
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $SoundFileSourceCopyWith<SoundFileSource> get copyWith => _$SoundFileSourceCopyW
 @override
 bool operator ==(Object other) {
   final _this = this as SoundFileSource;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SoundFileSource&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.volume, _this.volume) || other.volume == _this.volume)&&(identical(other.pitch, _this.pitch) || other.pitch == _this.pitch)&&(identical(other.attenuationDistance, _this.attenuationDistance) || other.attenuationDistance == _this.attenuationDistance)&&(identical(other.preload, _this.preload) || other.preload == _this.preload)&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.weight, _this.weight) || other.weight == _this.weight)&&(identical(other.id, _this.id) || other.id == _this.id));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SoundFileSource&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.volume, _this.volume) || other.volume == _this.volume)&&(identical(other.pitch, _this.pitch) || other.pitch == _this.pitch)&&(identical(other.attenuationDistance, _this.attenuationDistance) || other.attenuationDistance == _this.attenuationDistance)&&(identical(other.preload, _this.preload) || other.preload == _this.preload)&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.weight, _this.weight) || other.weight == _this.weight)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as SoundFileSource;
-  return Object.hash(runtimeType,_this.name,_this.volume,_this.pitch,_this.attenuationDistance,_this.preload,_this.type,_this.weight,_this.id);
+  return Object.hash(runtimeType,_this.name,_this.volume,_this.pitch,_this.attenuationDistance,_this.preload,_this.type,_this.weight,_this.id,_this.creationDate,_this.modificationDate);
 }
 
 @override
 String toString() {
   final _this = this as SoundFileSource;
-  return 'SoundFileSource(name: ${_this.name}, volume: ${_this.volume}, pitch: ${_this.pitch}, attenuationDistance: ${_this.attenuationDistance}, preload: ${_this.preload}, type: ${_this.type}, weight: ${_this.weight}, id: ${_this.id})';
+  return 'SoundFileSource(name: ${_this.name}, volume: ${_this.volume}, pitch: ${_this.pitch}, attenuationDistance: ${_this.attenuationDistance}, preload: ${_this.preload}, type: ${_this.type}, weight: ${_this.weight}, id: ${_this.id}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $SoundFileSourceCopyWith<$Res>  {
   factory $SoundFileSourceCopyWith(SoundFileSource value, $Res Function(SoundFileSource) _then) = _$SoundFileSourceCopyWithImpl;
 @useResult
 $Res call({
- String name, double volume, double pitch, int attenuationDistance, bool preload, String type, int weight, String? id
+ String name, double volume, double pitch, int attenuationDistance, bool preload, String type, int weight, String? id, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -71,7 +71,7 @@ class _$SoundFileSourceCopyWithImpl<$Res>
 
 /// Create a copy of SoundFileSource
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? volume = null,Object? pitch = null,Object? attenuationDistance = null,Object? preload = null,Object? type = null,Object? weight = null,Object? id = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? volume = null,Object? pitch = null,Object? attenuationDistance = null,Object? preload = null,Object? type = null,Object? weight = null,Object? id = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(SoundFileSource(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,volume: null == volume ? _self.volume : volume // ignore: cast_nullable_to_non_nullable
@@ -81,7 +81,9 @@ as int,preload: null == preload ? _self.preload : preload // ignore: cast_nullab
 as bool,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_to_non_nullable
 as int,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
@@ -166,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  double volume,  double pitch,  int attenuationDistance,  bool preload,  String type,  int weight,  String? id)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  double volume,  double pitch,  int attenuationDistance,  bool preload,  String type,  int weight,  String? id,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SoundFileSource() when $default != null:
-return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_that.preload,_that.type,_that.weight,_that.id);case _:
+return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_that.preload,_that.type,_that.weight,_that.id,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -187,10 +189,10 @@ return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  double volume,  double pitch,  int attenuationDistance,  bool preload,  String type,  int weight,  String? id)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  double volume,  double pitch,  int attenuationDistance,  bool preload,  String type,  int weight,  String? id,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _SoundFileSource():
-return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_that.preload,_that.type,_that.weight,_that.id);case _:
+return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_that.preload,_that.type,_that.weight,_that.id,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +209,10 @@ return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  double volume,  double pitch,  int attenuationDistance,  bool preload,  String type,  int weight,  String? id)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  double volume,  double pitch,  int attenuationDistance,  bool preload,  String type,  int weight,  String? id,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _SoundFileSource() when $default != null:
-return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_that.preload,_that.type,_that.weight,_that.id);case _:
+return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_that.preload,_that.type,_that.weight,_that.id,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -222,7 +224,7 @@ return $default(_that.name,_that.volume,_that.pitch,_that.attenuationDistance,_t
 @JsonSerializable()
 
 class _SoundFileSource extends SoundFileSource {
-  const _SoundFileSource({required this.name, required this.volume, required this.pitch, required this.attenuationDistance, required this.preload, required this.type, required this.weight, this.id}): super._();
+  const _SoundFileSource({required this.name, required this.volume, required this.pitch, required this.attenuationDistance, required this.preload, required this.type, required this.weight, this.id, this.creationDate, this.modificationDate}): super._();
   factory _SoundFileSource.fromJson(Map<String, dynamic> json) => _$SoundFileSourceFromJson(json);
 
 @override final  String name;
@@ -233,6 +235,8 @@ class _SoundFileSource extends SoundFileSource {
 @override final  String type;
 @override final  int weight;
 @override final  String? id;
+@override final  DateTime? creationDate;
+@override final  DateTime? modificationDate;
 
 /// Create a copy of SoundFileSource
 /// with the given fields replaced by the non-null parameter values.
@@ -247,18 +251,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SoundFileSource&&(identical(other.name, name) || other.name == name)&&(identical(other.volume, volume) || other.volume == volume)&&(identical(other.pitch, pitch) || other.pitch == pitch)&&(identical(other.attenuationDistance, attenuationDistance) || other.attenuationDistance == attenuationDistance)&&(identical(other.preload, preload) || other.preload == preload)&&(identical(other.type, type) || other.type == type)&&(identical(other.weight, weight) || other.weight == weight)&&(identical(other.id, id) || other.id == id));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SoundFileSource&&(identical(other.name, name) || other.name == name)&&(identical(other.volume, volume) || other.volume == volume)&&(identical(other.pitch, pitch) || other.pitch == pitch)&&(identical(other.attenuationDistance, attenuationDistance) || other.attenuationDistance == attenuationDistance)&&(identical(other.preload, preload) || other.preload == preload)&&(identical(other.type, type) || other.type == type)&&(identical(other.weight, weight) || other.weight == weight)&&(identical(other.id, id) || other.id == id)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,name,volume,pitch,attenuationDistance,preload,type,weight,id);
+    return Object.hash(runtimeType,name,volume,pitch,attenuationDistance,preload,type,weight,id,creationDate,modificationDate);
 }
 
 @override
 String toString() {
-    return 'SoundFileSource(name: $name, volume: $volume, pitch: $pitch, attenuationDistance: $attenuationDistance, preload: $preload, type: $type, weight: $weight, id: $id)';
+    return 'SoundFileSource(name: $name, volume: $volume, pitch: $pitch, attenuationDistance: $attenuationDistance, preload: $preload, type: $type, weight: $weight, id: $id, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -269,7 +273,7 @@ abstract mixin class _$SoundFileSourceCopyWith<$Res> implements $SoundFileSource
   factory _$SoundFileSourceCopyWith(_SoundFileSource value, $Res Function(_SoundFileSource) _then) = __$SoundFileSourceCopyWithImpl;
 @override @useResult
 $Res call({
- String name, double volume, double pitch, int attenuationDistance, bool preload, String type, int weight, String? id
+ String name, double volume, double pitch, int attenuationDistance, bool preload, String type, int weight, String? id, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -286,7 +290,7 @@ class __$SoundFileSourceCopyWithImpl<$Res>
 
 /// Create a copy of SoundFileSource
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? volume = null,Object? pitch = null,Object? attenuationDistance = null,Object? preload = null,Object? type = null,Object? weight = null,Object? id = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? volume = null,Object? pitch = null,Object? attenuationDistance = null,Object? preload = null,Object? type = null,Object? weight = null,Object? id = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_SoundFileSource(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,volume: null == volume ? _self.volume : volume // ignore: cast_nullable_to_non_nullable
@@ -296,7 +300,9 @@ as int,preload: null == preload ? _self.preload : preload // ignore: cast_nullab
 as bool,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_to_non_nullable
 as int,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 

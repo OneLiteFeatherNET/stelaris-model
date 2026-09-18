@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../data_model.dart';
+import '../namespaced_data_model.dart';
 import '../paginated_result.dart';
 import 'font/font_string_dto.dart';
 
@@ -13,7 +14,7 @@ FontModel fontFromJson(Object? json) =>
 Map<String, dynamic> fontToJson(FontModel item) => item.toJson();
 
 @freezed
-abstract class FontModel with _$FontModel, DataModel {
+abstract class FontModel with _$FontModel, DataModel, NamespacedDataModel {
   const FontModel._(); // Add this private constructor
 
   // Define the specific const default directly within the class that uses it.
@@ -39,6 +40,8 @@ abstract class FontModel with _$FontModel, DataModel {
     @Default(0) int height,
     @Default(FontModel._defaultFiles) PaginatedResult<FontStringDTO> chars,
     @Default(false) @JsonKey(includeToJson: false) bool isLoadingChars,
+    DateTime? creationDate,
+    DateTime? modificationDate,
   }) = _FontModel;
 
   factory FontModel.fromJson(Map<String, dynamic> json) =>

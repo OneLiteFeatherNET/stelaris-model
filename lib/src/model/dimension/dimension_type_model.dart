@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data_model.dart';
+import '../../namespaced_data_model.dart';
 import 'cardinal_light.dart';
 import 'dimension_attribute_dto.dart';
 import 'dimension_timeline_dto.dart';
@@ -16,7 +17,7 @@ Map<String, dynamic> dimensionTypeToJson(DimensionTypeModel model) =>
     model.toJson();
 
 @freezed
-abstract class DimensionTypeModel with _$DimensionTypeModel, DataModel {
+abstract class DimensionTypeModel with _$DimensionTypeModel, DataModel, NamespacedDataModel {
   const DimensionTypeModel._(); // Add this private constructor
 
   const factory DimensionTypeModel({
@@ -41,6 +42,8 @@ abstract class DimensionTypeModel with _$DimensionTypeModel, DataModel {
     String? defaultClock,
     @Default(<DimensionAttributeDto>[]) List<DimensionAttributeDto> attributes,
     @Default(<DimensionTimelineDto>[]) List<DimensionTimelineDto> timelines,
+    DateTime? creationDate,
+    DateTime? modificationDate,
   }) = _DimensionTypeModel;
 
   factory DimensionTypeModel.fromJson(Map<String, dynamic> json) =>

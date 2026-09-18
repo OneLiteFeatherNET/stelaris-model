@@ -18,6 +18,8 @@ abstract class SoundFileSource with _$SoundFileSource, DataModel {
     required String type,
     required int weight,
     String? id,
+    DateTime? creationDate,
+    DateTime? modificationDate,
   }) = _SoundFileSource;
 
   factory SoundFileSource.fromJson(Map<String, dynamic> json) =>

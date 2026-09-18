@@ -22,6 +22,12 @@ _SoundEventModel _$SoundEventModelFromJson(Map<String, dynamic> json) =>
                   SoundFileSource.fromJson(value as Map<String, dynamic>),
             ),
       isLoading: json['isLoading'] as bool? ?? false,
+      creationDate: json['creationDate'] == null
+          ? null
+          : DateTime.parse(json['creationDate'] as String),
+      modificationDate: json['modificationDate'] == null
+          ? null
+          : DateTime.parse(json['modificationDate'] as String),
     );
 
 Map<String, dynamic> _$SoundEventModelToJson(_SoundEventModel instance) =>
@@ -33,4 +39,6 @@ Map<String, dynamic> _$SoundEventModelToJson(_SoundEventModel instance) =>
       'keyName': instance.keyName,
       'subTitle': instance.subTitle,
       'files': instance.files.toJson((value) => value),
+      'creationDate': instance.creationDate?.toIso8601String(),
+      'modificationDate': instance.modificationDate?.toIso8601String(),
     };

@@ -40,6 +40,12 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
   isLoadingMoreEnchantments:
       json['isLoadingMoreEnchantments'] as bool? ?? false,
   isLoadingMoreLoreLines: json['isLoadingMoreLoreLines'] as bool? ?? false,
+  creationDate: json['creationDate'] == null
+      ? null
+      : DateTime.parse(json['creationDate'] as String),
+  modificationDate: json['modificationDate'] == null
+      ? null
+      : DateTime.parse(json['modificationDate'] as String),
 );
 
 Map<String, dynamic> _$ItemModelToJson(_ItemModel instance) =>
@@ -57,6 +63,8 @@ Map<String, dynamic> _$ItemModelToJson(_ItemModel instance) =>
       'enchantments': instance.enchantments.toJson((value) => value),
       'lore': instance.lore.toJson((value) => value),
       'flags': instance.flags.toJson((value) => value),
+      'creationDate': instance.creationDate?.toIso8601String(),
+      'modificationDate': instance.modificationDate?.toIso8601String(),
     };
 
 const _$EnchantmentGroupEnumMap = {

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Project {
 
- String? get id; String get displayName; String get key;@JsonKey(name: 'project_url') String? get projectUrl;@JsonKey(name: 'docu_url') String? get docuUrl; String? get description; bool get labor;
+ String? get id; String get displayName; String get key;@JsonKey(name: 'project_url') String? get projectUrl;@JsonKey(name: 'docu_url') String? get docuUrl; String? get description; bool get labor; DateTime? get creationDate; DateTime? get modificationDate;
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $ProjectCopyWith<Project> get copyWith => _$ProjectCopyWithImpl<Project>(this as
 @override
 bool operator ==(Object other) {
   final _this = this as Project;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.projectUrl, _this.projectUrl) || other.projectUrl == _this.projectUrl)&&(identical(other.docuUrl, _this.docuUrl) || other.docuUrl == _this.docuUrl)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.labor, _this.labor) || other.labor == _this.labor));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.projectUrl, _this.projectUrl) || other.projectUrl == _this.projectUrl)&&(identical(other.docuUrl, _this.docuUrl) || other.docuUrl == _this.docuUrl)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.labor, _this.labor) || other.labor == _this.labor)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as Project;
-  return Object.hash(runtimeType,_this.id,_this.displayName,_this.key,_this.projectUrl,_this.docuUrl,_this.description,_this.labor);
+  return Object.hash(runtimeType,_this.id,_this.displayName,_this.key,_this.projectUrl,_this.docuUrl,_this.description,_this.labor,_this.creationDate,_this.modificationDate);
 }
 
 @override
 String toString() {
   final _this = this as Project;
-  return 'Project(id: ${_this.id}, displayName: ${_this.displayName}, key: ${_this.key}, projectUrl: ${_this.projectUrl}, docuUrl: ${_this.docuUrl}, description: ${_this.description}, labor: ${_this.labor})';
+  return 'Project(id: ${_this.id}, displayName: ${_this.displayName}, key: ${_this.key}, projectUrl: ${_this.projectUrl}, docuUrl: ${_this.docuUrl}, description: ${_this.description}, labor: ${_this.labor}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $ProjectCopyWith<$Res>  {
   factory $ProjectCopyWith(Project value, $Res Function(Project) _then) = _$ProjectCopyWithImpl;
 @useResult
 $Res call({
- String? id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor
+ String? id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -71,7 +71,7 @@ class _$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(Project(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
@@ -80,7 +80,9 @@ as String,projectUrl: freezed == projectUrl ? _self.projectUrl : projectUrl // i
 as String?,docuUrl: freezed == docuUrl ? _self.docuUrl : docuUrl // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,labor: null == labor ? _self.labor : labor // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
@@ -165,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
-return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor);case _:
+return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -186,10 +188,10 @@ return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docu
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _Project():
-return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor);case _:
+return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +208,10 @@ return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docu
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id,  String displayName,  String key, @JsonKey(name: 'project_url')  String? projectUrl, @JsonKey(name: 'docu_url')  String? docuUrl,  String? description,  bool labor,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
-return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor);case _:
+return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docuUrl,_that.description,_that.labor,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -221,7 +223,7 @@ return $default(_that.id,_that.displayName,_that.key,_that.projectUrl,_that.docu
 @JsonSerializable()
 
 class _Project implements Project {
-  const _Project({this.id, required this.displayName, required this.key, @JsonKey(name: 'project_url') this.projectUrl, @JsonKey(name: 'docu_url') this.docuUrl, this.description, this.labor = false});
+  const _Project({this.id, required this.displayName, required this.key, @JsonKey(name: 'project_url') this.projectUrl, @JsonKey(name: 'docu_url') this.docuUrl, this.description, this.labor = false, this.creationDate, this.modificationDate});
   factory _Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
 
 @override final  String? id;
@@ -231,6 +233,8 @@ class _Project implements Project {
 @override@JsonKey(name: 'docu_url') final  String? docuUrl;
 @override final  String? description;
 @override@JsonKey() final  bool labor;
+@override final  DateTime? creationDate;
+@override final  DateTime? modificationDate;
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
@@ -245,18 +249,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.key, key) || other.key == key)&&(identical(other.projectUrl, projectUrl) || other.projectUrl == projectUrl)&&(identical(other.docuUrl, docuUrl) || other.docuUrl == docuUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.labor, labor) || other.labor == labor));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.key, key) || other.key == key)&&(identical(other.projectUrl, projectUrl) || other.projectUrl == projectUrl)&&(identical(other.docuUrl, docuUrl) || other.docuUrl == docuUrl)&&(identical(other.description, description) || other.description == description)&&(identical(other.labor, labor) || other.labor == labor)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,displayName,key,projectUrl,docuUrl,description,labor);
+    return Object.hash(runtimeType,id,displayName,key,projectUrl,docuUrl,description,labor,creationDate,modificationDate);
 }
 
 @override
 String toString() {
-    return 'Project(id: $id, displayName: $displayName, key: $key, projectUrl: $projectUrl, docuUrl: $docuUrl, description: $description, labor: $labor)';
+    return 'Project(id: $id, displayName: $displayName, key: $key, projectUrl: $projectUrl, docuUrl: $docuUrl, description: $description, labor: $labor, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -267,7 +271,7 @@ abstract mixin class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) _then) = __$ProjectCopyWithImpl;
 @override @useResult
 $Res call({
- String? id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor
+ String? id, String displayName, String key,@JsonKey(name: 'project_url') String? projectUrl,@JsonKey(name: 'docu_url') String? docuUrl, String? description, bool labor, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -284,7 +288,7 @@ class __$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? displayName = null,Object? key = null,Object? projectUrl = freezed,Object? docuUrl = freezed,Object? description = freezed,Object? labor = null,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_Project(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
@@ -293,7 +297,9 @@ as String,projectUrl: freezed == projectUrl ? _self.projectUrl : projectUrl // i
 as String?,docuUrl: freezed == docuUrl ? _self.docuUrl : docuUrl // ignore: cast_nullable_to_non_nullable
 as String?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,labor: null == labor ? _self.labor : labor // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
