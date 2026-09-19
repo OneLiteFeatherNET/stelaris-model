@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../data_model.dart';
+import '../namespaced_data_model.dart';
 import '../item_group.dart';
 import '../paginated_result.dart';
 import 'item/item_enchantment_dto.dart';
@@ -16,7 +17,7 @@ ItemModel itemModelFromJson(Object? json) =>
 Map<String, dynamic> itemModelToJson(ItemModel item) => item.toJson();
 
 @freezed
-abstract class ItemModel with _$ItemModel, DataModel {
+abstract class ItemModel with _$ItemModel, DataModel, NamespacedDataModel {
   // Define the specific const default directly within the class that uses it.
   // This is well-encapsulated.
   static const PaginatedResult<ItemEnchantmentDto> defaultEnchantments =
@@ -69,6 +70,8 @@ abstract class ItemModel with _$ItemModel, DataModel {
     @JsonKey(includeToJson: false)
     bool isLoadingMoreEnchantments,
     @Default(false) @JsonKey(includeToJson: false) bool isLoadingMoreLoreLines,
+    DateTime? creationDate,
+    DateTime? modificationDate,
   }) = _ItemModel;
 
   factory ItemModel.fromJson(Map<String, dynamic> json) =>

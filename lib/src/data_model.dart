@@ -3,4 +3,10 @@
 mixin DataModel {
   /// Returns the id from a model which is represented by a [String]
   String? get id;
+
+  /// Returns the creation date of the model
+  DateTime? get creationDate;
+
+  /// Returns the last modification date of the model
+  DateTime? get modificationDate;
 }

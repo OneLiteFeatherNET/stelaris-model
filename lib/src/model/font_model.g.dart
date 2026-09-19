@@ -24,6 +24,12 @@ _FontModel _$FontModelFromJson(Map<String, dynamic> json) => _FontModel(
           (value) => FontStringDTO.fromJson(value as Map<String, dynamic>),
         ),
   isLoadingChars: json['isLoadingChars'] as bool? ?? false,
+  creationDate: json['creationDate'] == null
+      ? null
+      : DateTime.parse(json['creationDate'] as String),
+  modificationDate: json['modificationDate'] == null
+      ? null
+      : DateTime.parse(json['modificationDate'] as String),
 );
 
 Map<String, dynamic> _$FontModelToJson(_FontModel instance) =>
@@ -39,4 +45,6 @@ Map<String, dynamic> _$FontModelToJson(_FontModel instance) =>
       'ascent': instance.ascent,
       'height': instance.height,
       'chars': instance.chars.toJson((value) => value),
+      'creationDate': instance.creationDate?.toIso8601String(),
+      'modificationDate': instance.modificationDate?.toIso8601String(),
     };

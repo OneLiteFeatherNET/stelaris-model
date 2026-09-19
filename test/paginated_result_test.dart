@@ -5,13 +5,28 @@ class MockDataModel with DataModel {
   @override
   final String? id;
   final String name;
+  @override
+  final DateTime? creationDate;
+  @override
+  final DateTime? modificationDate;
 
-  const MockDataModel({required this.id, required this.name});
+  const MockDataModel({
+    required this.id,
+    required this.name,
+    this.creationDate,
+    this.modificationDate,
+  });
 
   factory MockDataModel.fromJson(Map<String, dynamic> json) {
     return MockDataModel(
       id: json['id'] as String?,
       name: json['name'] as String? ?? 'Unknown',
+      creationDate: json['creationDate'] != null
+          ? DateTime.parse(json['creationDate'] as String)
+          : null,
+      modificationDate: json['modificationDate'] != null
+          ? DateTime.parse(json['modificationDate'] as String)
+          : null,
     );
   }
 

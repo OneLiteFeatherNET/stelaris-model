@@ -18,6 +18,12 @@ _Notification _$NotificationFromJson(Map<String, dynamic> json) =>
           FrameType.task,
       title: json['title'] as String?,
       comment: json['comment'] as String?,
+      creationDate: json['creationDate'] == null
+          ? null
+          : DateTime.parse(json['creationDate'] as String),
+      modificationDate: json['modificationDate'] == null
+          ? null
+          : DateTime.parse(json['modificationDate'] as String),
     );
 
 Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
@@ -30,6 +36,8 @@ Map<String, dynamic> _$NotificationToJson(_Notification instance) =>
       'frameType': _$FrameTypeEnumMap[instance.frameType]!,
       'title': instance.title,
       'comment': instance.comment,
+      'creationDate': instance.creationDate?.toIso8601String(),
+      'modificationDate': instance.modificationDate?.toIso8601String(),
     };
 
 const _$FrameTypeEnumMap = {

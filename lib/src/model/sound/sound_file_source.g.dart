@@ -16,6 +16,12 @@ _SoundFileSource _$SoundFileSourceFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       weight: (json['weight'] as num).toInt(),
       id: json['id'] as String?,
+      creationDate: json['creationDate'] == null
+          ? null
+          : DateTime.parse(json['creationDate'] as String),
+      modificationDate: json['modificationDate'] == null
+          ? null
+          : DateTime.parse(json['modificationDate'] as String),
     );
 
 Map<String, dynamic> _$SoundFileSourceToJson(_SoundFileSource instance) =>
@@ -28,4 +34,6 @@ Map<String, dynamic> _$SoundFileSourceToJson(_SoundFileSource instance) =>
       'type': instance.type,
       'weight': instance.weight,
       'id': instance.id,
+      'creationDate': instance.creationDate?.toIso8601String(),
+      'modificationDate': instance.modificationDate?.toIso8601String(),
     };

@@ -14,6 +14,12 @@ _Project _$ProjectFromJson(Map<String, dynamic> json) => _Project(
   docuUrl: json['docu_url'] as String?,
   description: json['description'] as String?,
   labor: json['labor'] as bool? ?? false,
+  creationDate: json['creationDate'] == null
+      ? null
+      : DateTime.parse(json['creationDate'] as String),
+  modificationDate: json['modificationDate'] == null
+      ? null
+      : DateTime.parse(json['modificationDate'] as String),
 );
 
 Map<String, dynamic> _$ProjectToJson(_Project instance) => <String, dynamic>{
@@ -24,4 +30,6 @@ Map<String, dynamic> _$ProjectToJson(_Project instance) => <String, dynamic>{
   'docu_url': instance.docuUrl,
   'description': instance.description,
   'labor': instance.labor,
+  'creationDate': instance.creationDate?.toIso8601String(),
+  'modificationDate': instance.modificationDate?.toIso8601String(),
 };

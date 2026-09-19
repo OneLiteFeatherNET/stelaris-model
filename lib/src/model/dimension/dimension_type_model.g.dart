@@ -46,6 +46,12 @@ _DimensionTypeModel _$DimensionTypeModelFromJson(Map<String, dynamic> json) =>
               )
               .toList() ??
           const <DimensionTimelineDto>[],
+      creationDate: json['creationDate'] == null
+          ? null
+          : DateTime.parse(json['creationDate'] as String),
+      modificationDate: json['modificationDate'] == null
+          ? null
+          : DateTime.parse(json['modificationDate'] as String),
     );
 
 Map<String, dynamic> _$DimensionTypeModelToJson(_DimensionTypeModel instance) =>
@@ -71,6 +77,8 @@ Map<String, dynamic> _$DimensionTypeModelToJson(_DimensionTypeModel instance) =>
       'defaultClock': instance.defaultClock,
       'attributes': instance.attributes,
       'timelines': instance.timelines,
+      'creationDate': instance.creationDate?.toIso8601String(),
+      'modificationDate': instance.modificationDate?.toIso8601String(),
     };
 
 const _$SkyboxEnumMap = {
