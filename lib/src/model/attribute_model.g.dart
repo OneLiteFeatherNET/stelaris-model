@@ -14,6 +14,7 @@ _AttributeModel _$AttributeModelFromJson(Map<String, dynamic> json) =>
       key: json['key'] as String?,
       defaultValue: (json['defaultValue'] as num?)?.toDouble() ?? 0.0,
       maximumValue: (json['maximumValue'] as num?)?.toDouble() ?? 0.0,
+      comment: json['comment'] as String?,
       creationDate: json['creationDate'] == null
           ? null
           : DateTime.parse(json['creationDate'] as String),
@@ -30,6 +31,7 @@ Map<String, dynamic> _$AttributeModelToJson(_AttributeModel instance) =>
       'key': instance.key,
       'defaultValue': instance.defaultValue,
       'maximumValue': instance.maximumValue,
+      'comment': instance.comment,
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),
     };

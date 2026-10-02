@@ -14,6 +14,7 @@ _SoundEventModel _$SoundEventModelFromJson(Map<String, dynamic> json) =>
       key: json['key'] as String?,
       keyName: json['keyName'] as String?,
       subTitle: json['subTitle'] as String?,
+      comment: json['comment'] as String?,
       files: json['files'] == null
           ? SoundEventModel._defaultFiles
           : PaginatedResult<SoundFileSource>.fromJson(
@@ -38,6 +39,7 @@ Map<String, dynamic> _$SoundEventModelToJson(_SoundEventModel instance) =>
       'key': instance.key,
       'keyName': instance.keyName,
       'subTitle': instance.subTitle,
+      'comment': instance.comment,
       'files': instance.files.toJson((value) => value),
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),
