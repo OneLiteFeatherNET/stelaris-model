@@ -35,6 +35,7 @@ abstract class SoundEventModel with _$SoundEventModel, DataModel, NamespacedData
     String? key,
     String? keyName,
     String? subTitle,
+    String? comment,
     @Default(SoundEventModel._defaultFiles)
     PaginatedResult<SoundFileSource> files,
     @Default(false) @JsonKey(includeToJson: false) bool isLoading,

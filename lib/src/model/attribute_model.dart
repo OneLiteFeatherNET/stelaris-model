@@ -22,6 +22,7 @@ abstract class AttributeModel with _$AttributeModel, DataModel, NamespacedDataMo
     String? key,
     @freezed @Default(0.0) double? defaultValue,
     @Default(0.0) double? maximumValue,
+    String? comment,
     DateTime? creationDate,
     DateTime? modificationDate,
   }) = _AttributeModel;
