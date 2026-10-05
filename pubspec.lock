@@ -186,7 +186,7 @@ packages:
     source: hosted
     version: "1.1.1"
   flutter:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -530,7 +530,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "7664d25841676a9bd0547dab19512cb960daa294"
+      resolved-ref: d80fcacb53c026c0627a7f95e43ead54af419634
       url: "https://github.com/OneLiteFeatherNET/vulpes-minecraft-dart.git"
     source: git
     version: "1.0.0"
@@ -576,4 +576,4 @@ packages:
     version: "3.1.4"
 sdks:
   dart: ">=3.13.3 <4.0.0"
-  flutter: ">=3.47.2"
+  flutter: ">=3.47.4 <4.0.0"
