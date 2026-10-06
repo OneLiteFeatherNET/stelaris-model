@@ -57,11 +57,7 @@ abstract class ItemModel with _$ItemModel, DataModel, NamespacedDataModel {
     String? projectId,
     String? key,
     String? comment,
-    String? displayName,
     @Default(EnchantmentGroup.meta) EnchantmentGroup groupName,
-    String? material,
-    @Default(0) int? customModelData,
-    @Default(1) int? amount,
     @Default(ItemModel.defaultEnchantments)
     PaginatedResult<ItemEnchantmentDto> enchantments,
     @Default(ItemModel._defaultLore) PaginatedResult<ItemLoreDto> lore,
