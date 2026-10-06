@@ -27,12 +27,6 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
           json['lore'] as Map<String, dynamic>,
           (value) => ItemLoreDto.fromJson(value as Map<String, dynamic>),
         ),
-  flags: json['flags'] == null
-      ? ItemModel._defaultFlags
-      : PaginatedResult<ItemFlagDto>.fromJson(
-          json['flags'] as Map<String, dynamic>,
-          (value) => ItemFlagDto.fromJson(value as Map<String, dynamic>),
-        ),
   isLoadingMoreEnchantments:
       json['isLoadingMoreEnchantments'] as bool? ?? false,
   isLoadingMoreLoreLines: json['isLoadingMoreLoreLines'] as bool? ?? false,
@@ -54,7 +48,6 @@ Map<String, dynamic> _$ItemModelToJson(_ItemModel instance) =>
       'groupName': _$EnchantmentGroupEnumMap[instance.groupName]!,
       'enchantments': instance.enchantments.toJson((value) => value),
       'lore': instance.lore.toJson((value) => value),
-      'flags': instance.flags.toJson((value) => value),
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),
     };

@@ -5,7 +5,6 @@ import '../namespaced_data_model.dart';
 import '../item_group.dart';
 import '../paginated_result.dart';
 import 'item/item_enchantment_dto.dart';
-import 'item/item_flag_dto.dart';
 import 'item/item_lore_dto.dart';
 
 part 'item_model.g.dart';
@@ -39,16 +38,6 @@ abstract class ItemModel with _$ItemModel, DataModel, NamespacedDataModel {
     pageSize: 0,
   );
 
-  // Define the specific const default directly within the class that uses it.
-  // This is well-encapsulated.
-  static const PaginatedResult<ItemFlagDto> _defaultFlags = PaginatedResult(
-    items: <ItemFlagDto>[],
-    totalItems: 0,
-    totalPages: 0,
-    currentPage: 0,
-    pageSize: 0,
-  );
-
   const ItemModel._(); // Add this private constructor
 
   const factory ItemModel({
@@ -61,7 +50,6 @@ abstract class ItemModel with _$ItemModel, DataModel, NamespacedDataModel {
     @Default(ItemModel.defaultEnchantments)
     PaginatedResult<ItemEnchantmentDto> enchantments,
     @Default(ItemModel._defaultLore) PaginatedResult<ItemLoreDto> lore,
-    @Default(ItemModel._defaultFlags) PaginatedResult<ItemFlagDto> flags,
     @Default(false)
     @JsonKey(includeToJson: false)
     bool isLoadingMoreEnchantments,
