@@ -20,7 +20,6 @@ export 'src/model/font/font_model_dto.dart';
 export 'src/model/font/font_string_dto.dart';
 export 'src/model/item/item_component_dto.dart';
 export 'src/model/item/item_enchantment_dto.dart';
-export 'src/model/item/item_flag_dto.dart';
 export 'src/model/item/item_lore_dto.dart';
 export 'src/model/release/release_model.dart';
 export 'src/model/sound/sound_event_model.dart';

@@ -12,13 +12,9 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
   projectId: json['projectId'] as String?,
   key: json['key'] as String?,
   comment: json['comment'] as String?,
-  displayName: json['displayName'] as String?,
   groupName:
       $enumDecodeNullable(_$EnchantmentGroupEnumMap, json['groupName']) ??
       EnchantmentGroup.meta,
-  material: json['material'] as String?,
-  customModelData: (json['customModelData'] as num?)?.toInt() ?? 0,
-  amount: (json['amount'] as num?)?.toInt() ?? 1,
   enchantments: json['enchantments'] == null
       ? ItemModel.defaultEnchantments
       : PaginatedResult<ItemEnchantmentDto>.fromJson(
@@ -30,12 +26,6 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
       : PaginatedResult<ItemLoreDto>.fromJson(
           json['lore'] as Map<String, dynamic>,
           (value) => ItemLoreDto.fromJson(value as Map<String, dynamic>),
-        ),
-  flags: json['flags'] == null
-      ? ItemModel._defaultFlags
-      : PaginatedResult<ItemFlagDto>.fromJson(
-          json['flags'] as Map<String, dynamic>,
-          (value) => ItemFlagDto.fromJson(value as Map<String, dynamic>),
         ),
   isLoadingMoreEnchantments:
       json['isLoadingMoreEnchantments'] as bool? ?? false,
@@ -55,14 +45,9 @@ Map<String, dynamic> _$ItemModelToJson(_ItemModel instance) =>
       'projectId': instance.projectId,
       'key': instance.key,
       'comment': instance.comment,
-      'displayName': instance.displayName,
       'groupName': _$EnchantmentGroupEnumMap[instance.groupName]!,
-      'material': instance.material,
-      'customModelData': instance.customModelData,
-      'amount': instance.amount,
       'enchantments': instance.enchantments.toJson((value) => value),
       'lore': instance.lore.toJson((value) => value),
-      'flags': instance.flags.toJson((value) => value),
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),
     };
