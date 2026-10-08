@@ -16,6 +16,8 @@ export 'src/model/dimension/skybox.dart';
 export 'src/model/font_model.dart';
 export 'src/model/item_model.dart';
 export 'src/model/notification_model.dart';
+export 'src/model/advancement/advancement_model.dart';
+export 'src/model/advancement/frame_type_converter.dart';
 export 'src/model/font/font_model_dto.dart';
 export 'src/model/font/font_string_dto.dart';
 export 'src/model/item/item_component_dto.dart';
