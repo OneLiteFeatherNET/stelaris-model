@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AttributeModel {
 
- String get uiName; String? get id; String? get projectId; String? get key;@freezed double? get defaultValue; double? get maximumValue; String? get comment; DateTime? get creationDate; DateTime? get modificationDate;
+ String get uiName; String? get id; String? get projectId; String? get key; double get defaultValue; double get maximumValue; double get minimumValue; bool get synced; String? get translationKey; String? get comment; DateTime? get creationDate; DateTime? get modificationDate;
 /// Create a copy of AttributeModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $AttributeModelCopyWith<AttributeModel> get copyWith => _$AttributeModelCopyWith
 @override
 bool operator ==(Object other) {
   final _this = this as AttributeModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AttributeModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.defaultValue, _this.defaultValue) || other.defaultValue == _this.defaultValue)&&(identical(other.maximumValue, _this.maximumValue) || other.maximumValue == _this.maximumValue)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AttributeModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.defaultValue, _this.defaultValue) || other.defaultValue == _this.defaultValue)&&(identical(other.maximumValue, _this.maximumValue) || other.maximumValue == _this.maximumValue)&&(identical(other.minimumValue, _this.minimumValue) || other.minimumValue == _this.minimumValue)&&(identical(other.synced, _this.synced) || other.synced == _this.synced)&&(identical(other.translationKey, _this.translationKey) || other.translationKey == _this.translationKey)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AttributeModel;
-  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.key,_this.defaultValue,_this.maximumValue,_this.comment,_this.creationDate,_this.modificationDate);
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.key,_this.defaultValue,_this.maximumValue,_this.minimumValue,_this.synced,_this.translationKey,_this.comment,_this.creationDate,_this.modificationDate);
 }
 
 @override
 String toString() {
   final _this = this as AttributeModel;
-  return 'AttributeModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, defaultValue: ${_this.defaultValue}, maximumValue: ${_this.maximumValue}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
+  return 'AttributeModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, defaultValue: ${_this.defaultValue}, maximumValue: ${_this.maximumValue}, minimumValue: ${_this.minimumValue}, synced: ${_this.synced}, translationKey: ${_this.translationKey}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $AttributeModelCopyWith<$Res>  {
   factory $AttributeModelCopyWith(AttributeModel value, $Res Function(AttributeModel) _then) = _$AttributeModelCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? key,@freezed double? defaultValue, double? maximumValue, String? comment, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String? key, double defaultValue, double maximumValue, double minimumValue, bool synced, String? translationKey, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -71,15 +71,18 @@ class _$AttributeModelCopyWithImpl<$Res>
 
 /// Create a copy of AttributeModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? defaultValue = freezed,Object? maximumValue = freezed,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? defaultValue = null,Object? maximumValue = null,Object? minimumValue = null,Object? synced = null,Object? translationKey = freezed,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(AttributeModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
-as String?,defaultValue: freezed == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable
-as double?,maximumValue: freezed == maximumValue ? _self.maximumValue : maximumValue // ignore: cast_nullable_to_non_nullable
-as double?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String?,defaultValue: null == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable
+as double,maximumValue: null == maximumValue ? _self.maximumValue : maximumValue // ignore: cast_nullable_to_non_nullable
+as double,minimumValue: null == minimumValue ? _self.minimumValue : minimumValue // ignore: cast_nullable_to_non_nullable
+as double,synced: null == synced ? _self.synced : synced // ignore: cast_nullable_to_non_nullable
+as bool,translationKey: freezed == translationKey ? _self.translationKey : translationKey // ignore: cast_nullable_to_non_nullable
+as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,
@@ -167,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key, @freezed  double? defaultValue,  double? maximumValue,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  double defaultValue,  double maximumValue,  double minimumValue,  bool synced,  String? translationKey,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AttributeModel() when $default != null:
-return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultValue,_that.maximumValue,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultValue,_that.maximumValue,_that.minimumValue,_that.synced,_that.translationKey,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -188,10 +191,10 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultVal
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key, @freezed  double? defaultValue,  double? maximumValue,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  double defaultValue,  double maximumValue,  double minimumValue,  bool synced,  String? translationKey,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _AttributeModel():
-return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultValue,_that.maximumValue,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultValue,_that.maximumValue,_that.minimumValue,_that.synced,_that.translationKey,_that.comment,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +211,10 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultVal
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? key, @freezed  double? defaultValue,  double? maximumValue,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? key,  double defaultValue,  double maximumValue,  double minimumValue,  bool synced,  String? translationKey,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _AttributeModel() when $default != null:
-return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultValue,_that.maximumValue,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultValue,_that.maximumValue,_that.minimumValue,_that.synced,_that.translationKey,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -223,15 +226,18 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.defaultVal
 @JsonSerializable()
 
 class _AttributeModel extends AttributeModel {
-  const _AttributeModel({required this.uiName, this.id, this.projectId, this.key, @freezed this.defaultValue = 0.0, this.maximumValue = 0.0, this.comment, this.creationDate, this.modificationDate}): super._();
+  const _AttributeModel({required this.uiName, this.id, this.projectId, this.key, this.defaultValue = 0.0, this.maximumValue = 0.0, this.minimumValue = 0.0, this.synced = false, this.translationKey, this.comment, this.creationDate, this.modificationDate}): super._();
   factory _AttributeModel.fromJson(Map<String, dynamic> json) => _$AttributeModelFromJson(json);
 
 @override final  String uiName;
 @override final  String? id;
 @override final  String? projectId;
 @override final  String? key;
-@override@JsonKey()@freezed final  double? defaultValue;
-@override@JsonKey() final  double? maximumValue;
+@override@JsonKey() final  double defaultValue;
+@override@JsonKey() final  double maximumValue;
+@override@JsonKey() final  double minimumValue;
+@override@JsonKey() final  bool synced;
+@override final  String? translationKey;
 @override final  String? comment;
 @override final  DateTime? creationDate;
 @override final  DateTime? modificationDate;
@@ -249,18 +255,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AttributeModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.defaultValue, defaultValue) || other.defaultValue == defaultValue)&&(identical(other.maximumValue, maximumValue) || other.maximumValue == maximumValue)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AttributeModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.defaultValue, defaultValue) || other.defaultValue == defaultValue)&&(identical(other.maximumValue, maximumValue) || other.maximumValue == maximumValue)&&(identical(other.minimumValue, minimumValue) || other.minimumValue == minimumValue)&&(identical(other.synced, synced) || other.synced == synced)&&(identical(other.translationKey, translationKey) || other.translationKey == translationKey)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,uiName,id,projectId,key,defaultValue,maximumValue,comment,creationDate,modificationDate);
+    return Object.hash(runtimeType,uiName,id,projectId,key,defaultValue,maximumValue,minimumValue,synced,translationKey,comment,creationDate,modificationDate);
 }
 
 @override
 String toString() {
-    return 'AttributeModel(uiName: $uiName, id: $id, projectId: $projectId, key: $key, defaultValue: $defaultValue, maximumValue: $maximumValue, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
+    return 'AttributeModel(uiName: $uiName, id: $id, projectId: $projectId, key: $key, defaultValue: $defaultValue, maximumValue: $maximumValue, minimumValue: $minimumValue, synced: $synced, translationKey: $translationKey, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -271,7 +277,7 @@ abstract mixin class _$AttributeModelCopyWith<$Res> implements $AttributeModelCo
   factory _$AttributeModelCopyWith(_AttributeModel value, $Res Function(_AttributeModel) _then) = __$AttributeModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? key,@freezed double? defaultValue, double? maximumValue, String? comment, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String? key, double defaultValue, double maximumValue, double minimumValue, bool synced, String? translationKey, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -288,15 +294,18 @@ class __$AttributeModelCopyWithImpl<$Res>
 
 /// Create a copy of AttributeModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? defaultValue = freezed,Object? maximumValue = freezed,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? key = freezed,Object? defaultValue = null,Object? maximumValue = null,Object? minimumValue = null,Object? synced = null,Object? translationKey = freezed,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_AttributeModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,key: freezed == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
-as String?,defaultValue: freezed == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable
-as double?,maximumValue: freezed == maximumValue ? _self.maximumValue : maximumValue // ignore: cast_nullable_to_non_nullable
-as double?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
+as String?,defaultValue: null == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable
+as double,maximumValue: null == maximumValue ? _self.maximumValue : maximumValue // ignore: cast_nullable_to_non_nullable
+as double,minimumValue: null == minimumValue ? _self.minimumValue : minimumValue // ignore: cast_nullable_to_non_nullable
+as double,synced: null == synced ? _self.synced : synced // ignore: cast_nullable_to_non_nullable
+as bool,translationKey: freezed == translationKey ? _self.translationKey : translationKey // ignore: cast_nullable_to_non_nullable
+as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,
