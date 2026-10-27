@@ -3,6 +3,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../data_model.dart';
+
 part 'asset_model.freezed.dart';
 part 'asset_model.g.dart';
 
@@ -20,8 +22,12 @@ enum AssetKind {
 }
 
 /// A file stored for a project, addressed by its Minecraft resource key.
+///
+/// It is a [DataModel], so lists can sort it by its dates like the other
+/// models. It is no `NamespacedDataModel`, because its [key] already
+/// carries the namespace.
 @freezed
-abstract class AssetModel with _$AssetModel {
+abstract class AssetModel with DataModel, _$AssetModel {
   const AssetModel._();
 
   /// Creates an asset as returned by the backend's asset endpoints.
