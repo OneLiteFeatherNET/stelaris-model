@@ -58,6 +58,9 @@ abstract class AssetModel with DataModel, _$AssetModel {
 
     /// For a `.bbmodel`: the ids of the textures extracted from it.
     @Default([]) List<String> derivedAssetIds,
+
+    /// Internal notes on the asset, never part of a resource pack.
+    String? comment,
     DateTime? creationDate,
     DateTime? modificationDate,
   }) = _AssetModel;

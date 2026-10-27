@@ -23,6 +23,7 @@ _AssetModel _$AssetModelFromJson(Map<String, dynamic> json) => _AssetModel(
           ?.map((e) => e as String)
           .toList() ??
       const [],
+  comment: json['comment'] as String?,
   creationDate: json['creationDate'] == null
       ? null
       : DateTime.parse(json['creationDate'] as String),
@@ -45,6 +46,7 @@ Map<String, dynamic> _$AssetModelToJson(_AssetModel instance) =>
       'height': instance.height,
       'sourceAssetId': instance.sourceAssetId,
       'derivedAssetIds': instance.derivedAssetIds,
+      'comment': instance.comment,
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),
     };
