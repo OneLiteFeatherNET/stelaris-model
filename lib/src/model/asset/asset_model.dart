@@ -39,6 +39,9 @@ abstract class AssetModel with DataModel, _$AssetModel {
     required String key,
     required AssetKind kind,
 
+    /// The name the asset is shown by, given on upload.
+    required String displayName,
+
     /// The original name of the uploaded file.
     required String fileName,
     required String contentType,

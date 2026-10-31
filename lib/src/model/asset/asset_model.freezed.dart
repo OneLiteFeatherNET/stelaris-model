@@ -17,7 +17,8 @@ T _$identity<T>(T value) => value;
 mixin _$AssetModel {
 
  String get id; String get projectId;/// Minecraft resource location without file extension, e.g. `vulpes:item/ruby`.
- String get key; AssetKind get kind;/// The original name of the uploaded file.
+ String get key; AssetKind get kind;/// The name the asset is shown by, given on upload.
+ String get displayName;/// The original name of the uploaded file.
  String get fileName; String get contentType;/// Size of the stored file in bytes.
  int get size; String get sha1;/// Only set for textures.
  int? get width;/// Only set for textures.
@@ -38,20 +39,20 @@ $AssetModelCopyWith<AssetModel> get copyWith => _$AssetModelCopyWithImpl<AssetMo
 @override
 bool operator ==(Object other) {
   final _this = this as AssetModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AssetModel&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.fileName, _this.fileName) || other.fileName == _this.fileName)&&(identical(other.contentType, _this.contentType) || other.contentType == _this.contentType)&&(identical(other.size, _this.size) || other.size == _this.size)&&(identical(other.sha1, _this.sha1) || other.sha1 == _this.sha1)&&(identical(other.width, _this.width) || other.width == _this.width)&&(identical(other.height, _this.height) || other.height == _this.height)&&(identical(other.sourceAssetId, _this.sourceAssetId) || other.sourceAssetId == _this.sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _this.derivedAssetIds)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AssetModel&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.fileName, _this.fileName) || other.fileName == _this.fileName)&&(identical(other.contentType, _this.contentType) || other.contentType == _this.contentType)&&(identical(other.size, _this.size) || other.size == _this.size)&&(identical(other.sha1, _this.sha1) || other.sha1 == _this.sha1)&&(identical(other.width, _this.width) || other.width == _this.width)&&(identical(other.height, _this.height) || other.height == _this.height)&&(identical(other.sourceAssetId, _this.sourceAssetId) || other.sourceAssetId == _this.sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _this.derivedAssetIds)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AssetModel;
-  return Object.hash(runtimeType,_this.id,_this.projectId,_this.key,_this.kind,_this.fileName,_this.contentType,_this.size,_this.sha1,_this.width,_this.height,_this.sourceAssetId,const DeepCollectionEquality().hash(_this.derivedAssetIds),_this.comment,_this.creationDate,_this.modificationDate);
+  return Object.hash(runtimeType,_this.id,_this.projectId,_this.key,_this.kind,_this.displayName,_this.fileName,_this.contentType,_this.size,_this.sha1,_this.width,_this.height,_this.sourceAssetId,const DeepCollectionEquality().hash(_this.derivedAssetIds),_this.comment,_this.creationDate,_this.modificationDate);
 }
 
 @override
 String toString() {
   final _this = this as AssetModel;
-  return 'AssetModel(id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, kind: ${_this.kind}, fileName: ${_this.fileName}, contentType: ${_this.contentType}, size: ${_this.size}, sha1: ${_this.sha1}, width: ${_this.width}, height: ${_this.height}, sourceAssetId: ${_this.sourceAssetId}, derivedAssetIds: ${_this.derivedAssetIds}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
+  return 'AssetModel(id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, kind: ${_this.kind}, displayName: ${_this.displayName}, fileName: ${_this.fileName}, contentType: ${_this.contentType}, size: ${_this.size}, sha1: ${_this.sha1}, width: ${_this.width}, height: ${_this.height}, sourceAssetId: ${_this.sourceAssetId}, derivedAssetIds: ${_this.derivedAssetIds}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -62,7 +63,7 @@ abstract mixin class $AssetModelCopyWith<$Res>  {
   factory $AssetModelCopyWith(AssetModel value, $Res Function(AssetModel) _then) = _$AssetModelCopyWithImpl;
 @useResult
 $Res call({
- String id, String projectId, String key, AssetKind kind, String fileName, String contentType, int size, String sha1, int? width, int? height, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
+ String id, String projectId, String key, AssetKind kind, String displayName, String fileName, String contentType, int size, String sha1, int? width, int? height, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -79,13 +80,14 @@ class _$AssetModelCopyWithImpl<$Res>
 
 /// Create a copy of AssetModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? displayName = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(AssetModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String,key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
-as AssetKind,fileName: null == fileName ? _self.fileName : fileName // ignore: cast_nullable_to_non_nullable
+as AssetKind,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
+as String,fileName: null == fileName ? _self.fileName : fileName // ignore: cast_nullable_to_non_nullable
 as String,contentType: null == contentType ? _self.contentType : contentType // ignore: cast_nullable_to_non_nullable
 as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
 as int,sha1: null == sha1 ? _self.sha1 : sha1 // ignore: cast_nullable_to_non_nullable
@@ -181,10 +183,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AssetModel() when $default != null:
-return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -202,10 +204,10 @@ return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.fileName,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _AssetModel():
-return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -222,10 +224,10 @@ return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.fileName,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String projectId,  String key,  AssetKind kind,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _AssetModel() when $default != null:
-return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -237,7 +239,7 @@ return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.fileName,_th
 @JsonSerializable()
 
 class _AssetModel extends AssetModel {
-  const _AssetModel({required this.id, required this.projectId, required this.key, required this.kind, required this.fileName, required this.contentType, required this.size, required this.sha1, this.width, this.height, this.sourceAssetId,  List<String> derivedAssetIds = const [], this.comment, this.creationDate, this.modificationDate}): _derivedAssetIds = derivedAssetIds,super._();
+  const _AssetModel({required this.id, required this.projectId, required this.key, required this.kind, required this.displayName, required this.fileName, required this.contentType, required this.size, required this.sha1, this.width, this.height, this.sourceAssetId,  List<String> derivedAssetIds = const [], this.comment, this.creationDate, this.modificationDate}): _derivedAssetIds = derivedAssetIds,super._();
   factory _AssetModel.fromJson(Map<String, dynamic> json) => _$AssetModelFromJson(json);
 
 @override final  String id;
@@ -245,6 +247,8 @@ class _AssetModel extends AssetModel {
 /// Minecraft resource location without file extension, e.g. `vulpes:item/ruby`.
 @override final  String key;
 @override final  AssetKind kind;
+/// The name the asset is shown by, given on upload.
+@override final  String displayName;
 /// The original name of the uploaded file.
 @override final  String fileName;
 @override final  String contentType;
@@ -284,18 +288,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AssetModel&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.fileName, fileName) || other.fileName == fileName)&&(identical(other.contentType, contentType) || other.contentType == contentType)&&(identical(other.size, size) || other.size == size)&&(identical(other.sha1, sha1) || other.sha1 == sha1)&&(identical(other.width, width) || other.width == width)&&(identical(other.height, height) || other.height == height)&&(identical(other.sourceAssetId, sourceAssetId) || other.sourceAssetId == sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _derivedAssetIds)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AssetModel&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.fileName, fileName) || other.fileName == fileName)&&(identical(other.contentType, contentType) || other.contentType == contentType)&&(identical(other.size, size) || other.size == size)&&(identical(other.sha1, sha1) || other.sha1 == sha1)&&(identical(other.width, width) || other.width == width)&&(identical(other.height, height) || other.height == height)&&(identical(other.sourceAssetId, sourceAssetId) || other.sourceAssetId == sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _derivedAssetIds)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,projectId,key,kind,fileName,contentType,size,sha1,width,height,sourceAssetId,const DeepCollectionEquality().hash(_derivedAssetIds),comment,creationDate,modificationDate);
+    return Object.hash(runtimeType,id,projectId,key,kind,displayName,fileName,contentType,size,sha1,width,height,sourceAssetId,const DeepCollectionEquality().hash(_derivedAssetIds),comment,creationDate,modificationDate);
 }
 
 @override
 String toString() {
-    return 'AssetModel(id: $id, projectId: $projectId, key: $key, kind: $kind, fileName: $fileName, contentType: $contentType, size: $size, sha1: $sha1, width: $width, height: $height, sourceAssetId: $sourceAssetId, derivedAssetIds: $derivedAssetIds, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
+    return 'AssetModel(id: $id, projectId: $projectId, key: $key, kind: $kind, displayName: $displayName, fileName: $fileName, contentType: $contentType, size: $size, sha1: $sha1, width: $width, height: $height, sourceAssetId: $sourceAssetId, derivedAssetIds: $derivedAssetIds, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -306,7 +310,7 @@ abstract mixin class _$AssetModelCopyWith<$Res> implements $AssetModelCopyWith<$
   factory _$AssetModelCopyWith(_AssetModel value, $Res Function(_AssetModel) _then) = __$AssetModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String projectId, String key, AssetKind kind, String fileName, String contentType, int size, String sha1, int? width, int? height, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
+ String id, String projectId, String key, AssetKind kind, String displayName, String fileName, String contentType, int size, String sha1, int? width, int? height, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -323,13 +327,14 @@ class __$AssetModelCopyWithImpl<$Res>
 
 /// Create a copy of AssetModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? displayName = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_AssetModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String,key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
-as AssetKind,fileName: null == fileName ? _self.fileName : fileName // ignore: cast_nullable_to_non_nullable
+as AssetKind,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
+as String,fileName: null == fileName ? _self.fileName : fileName // ignore: cast_nullable_to_non_nullable
 as String,contentType: null == contentType ? _self.contentType : contentType // ignore: cast_nullable_to_non_nullable
 as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
 as int,sha1: null == sha1 ? _self.sha1 : sha1 // ignore: cast_nullable_to_non_nullable

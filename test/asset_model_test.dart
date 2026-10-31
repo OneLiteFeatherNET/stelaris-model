@@ -8,6 +8,7 @@ void main() {
       'projectId': 'p-1',
       'key': 'vulpes:item/ruby',
       'kind': 'MODEL',
+      'displayName': 'Ruby',
       'fileName': 'ruby.json',
       'contentType': 'application/json',
       'size': 64,
@@ -30,6 +31,7 @@ void main() {
       'projectId': 'p-1',
       'key': 'vulpes:item/ruby',
       'kind': 'MODEL',
+      'displayName': 'Ruby',
       'fileName': 'ruby.json',
       'contentType': 'application/json',
       'size': 64,
@@ -40,6 +42,8 @@ void main() {
     final asset = AssetModel.fromJson(json);
 
     expect(asset.comment, 'Shared with the gem');
+    expect(asset.displayName, 'Ruby');
+    expect(asset.toJson()['displayName'], 'Ruby');
     expect(asset.toJson()['comment'], 'Shared with the gem');
   });
 }
