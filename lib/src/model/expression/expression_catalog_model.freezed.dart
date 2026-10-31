@@ -215,8 +215,8 @@ return $default(_that.evalexVersion,_that.functions,_that.operators,_that.consta
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(explicitToJson: true)
 class _ExpressionCatalog implements ExpressionCatalog {
   const _ExpressionCatalog({this.evalexVersion = '',  List<CatalogFunction> functions = const [],  List<CatalogOperator> operators = const [],  List<CatalogConstant> constants = const []}): _functions = functions,_operators = operators,_constants = constants;
   factory _ExpressionCatalog.fromJson(Map<String, dynamic> json) => _$ExpressionCatalogFromJson(json);
@@ -313,7 +313,7 @@ as List<CatalogConstant>,
 /// @nodoc
 mixin _$CatalogFunction {
 
- String get name;@JsonKey(unknownEnumValue: CatalogFunctionCategory.other) CatalogFunctionCategory get category; List<CatalogParameter> get parameters; String? get description;@JsonKey(fromJson: _functionKindFromJson) ExpressionFunctionKind? get kind;@JsonKey(fromJson: _functionReturnTypeFromJson) ExpressionFunctionReturnType? get returnType;
+ String get name;@JsonKey(unknownEnumValue: CatalogFunctionCategory.other) CatalogFunctionCategory get category; List<CatalogParameter> get parameters; String? get description;@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionFunctionKind? get kind;@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionValueType? get returnType;
 /// Create a copy of CatalogFunction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -351,7 +351,7 @@ abstract mixin class $CatalogFunctionCopyWith<$Res>  {
   factory $CatalogFunctionCopyWith(CatalogFunction value, $Res Function(CatalogFunction) _then) = _$CatalogFunctionCopyWithImpl;
 @useResult
 $Res call({
- String name,@JsonKey(unknownEnumValue: CatalogFunctionCategory.other) CatalogFunctionCategory category, List<CatalogParameter> parameters, String? description,@JsonKey(fromJson: _functionKindFromJson) ExpressionFunctionKind? kind,@JsonKey(fromJson: _functionReturnTypeFromJson) ExpressionFunctionReturnType? returnType
+ String name,@JsonKey(unknownEnumValue: CatalogFunctionCategory.other) CatalogFunctionCategory category, List<CatalogParameter> parameters, String? description,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionFunctionKind? kind,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionValueType? returnType
 });
 
 
@@ -376,7 +376,7 @@ as CatalogFunctionCategory,parameters: null == parameters ? _self.parameters : p
 as List<CatalogParameter>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
 as ExpressionFunctionKind?,returnType: freezed == returnType ? _self.returnType : returnType // ignore: cast_nullable_to_non_nullable
-as ExpressionFunctionReturnType?,
+as ExpressionValueType?,
   ));
 }
 
@@ -461,7 +461,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other)  CatalogFunctionCategory category,  List<CatalogParameter> parameters,  String? description, @JsonKey(fromJson: _functionKindFromJson)  ExpressionFunctionKind? kind, @JsonKey(fromJson: _functionReturnTypeFromJson)  ExpressionFunctionReturnType? returnType)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other)  CatalogFunctionCategory category,  List<CatalogParameter> parameters,  String? description, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionFunctionKind? kind, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionValueType? returnType)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CatalogFunction() when $default != null:
 return $default(_that.name,_that.category,_that.parameters,_that.description,_that.kind,_that.returnType);case _:
@@ -482,7 +482,7 @@ return $default(_that.name,_that.category,_that.parameters,_that.description,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other)  CatalogFunctionCategory category,  List<CatalogParameter> parameters,  String? description, @JsonKey(fromJson: _functionKindFromJson)  ExpressionFunctionKind? kind, @JsonKey(fromJson: _functionReturnTypeFromJson)  ExpressionFunctionReturnType? returnType)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other)  CatalogFunctionCategory category,  List<CatalogParameter> parameters,  String? description, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionFunctionKind? kind, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionValueType? returnType)  $default,) {final _that = this;
 switch (_that) {
 case _CatalogFunction():
 return $default(_that.name,_that.category,_that.parameters,_that.description,_that.kind,_that.returnType);case _:
@@ -502,7 +502,7 @@ return $default(_that.name,_that.category,_that.parameters,_that.description,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other)  CatalogFunctionCategory category,  List<CatalogParameter> parameters,  String? description, @JsonKey(fromJson: _functionKindFromJson)  ExpressionFunctionKind? kind, @JsonKey(fromJson: _functionReturnTypeFromJson)  ExpressionFunctionReturnType? returnType)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other)  CatalogFunctionCategory category,  List<CatalogParameter> parameters,  String? description, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionFunctionKind? kind, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionValueType? returnType)?  $default,) {final _that = this;
 switch (_that) {
 case _CatalogFunction() when $default != null:
 return $default(_that.name,_that.category,_that.parameters,_that.description,_that.kind,_that.returnType);case _:
@@ -514,10 +514,10 @@ return $default(_that.name,_that.category,_that.parameters,_that.description,_th
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(explicitToJson: true)
 class _CatalogFunction implements CatalogFunction {
-  const _CatalogFunction({required this.name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other) this.category = CatalogFunctionCategory.other,  List<CatalogParameter> parameters = const [], this.description, @JsonKey(fromJson: _functionKindFromJson) this.kind, @JsonKey(fromJson: _functionReturnTypeFromJson) this.returnType}): _parameters = parameters;
+  const _CatalogFunction({required this.name, @JsonKey(unknownEnumValue: CatalogFunctionCategory.other) this.category = CatalogFunctionCategory.other,  List<CatalogParameter> parameters = const [], this.description, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.kind, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.returnType}): _parameters = parameters;
   factory _CatalogFunction.fromJson(Map<String, dynamic> json) => _$CatalogFunctionFromJson(json);
 
 @override final  String name;
@@ -530,8 +530,8 @@ class _CatalogFunction implements CatalogFunction {
 }
 
 @override final  String? description;
-@override@JsonKey(fromJson: _functionKindFromJson) final  ExpressionFunctionKind? kind;
-@override@JsonKey(fromJson: _functionReturnTypeFromJson) final  ExpressionFunctionReturnType? returnType;
+@override@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) final  ExpressionFunctionKind? kind;
+@override@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) final  ExpressionValueType? returnType;
 
 /// Create a copy of CatalogFunction
 /// with the given fields replaced by the non-null parameter values.
@@ -568,7 +568,7 @@ abstract mixin class _$CatalogFunctionCopyWith<$Res> implements $CatalogFunction
   factory _$CatalogFunctionCopyWith(_CatalogFunction value, $Res Function(_CatalogFunction) _then) = __$CatalogFunctionCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@JsonKey(unknownEnumValue: CatalogFunctionCategory.other) CatalogFunctionCategory category, List<CatalogParameter> parameters, String? description,@JsonKey(fromJson: _functionKindFromJson) ExpressionFunctionKind? kind,@JsonKey(fromJson: _functionReturnTypeFromJson) ExpressionFunctionReturnType? returnType
+ String name,@JsonKey(unknownEnumValue: CatalogFunctionCategory.other) CatalogFunctionCategory category, List<CatalogParameter> parameters, String? description,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionFunctionKind? kind,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionValueType? returnType
 });
 
 
@@ -593,7 +593,7 @@ as CatalogFunctionCategory,parameters: null == parameters ? _self._parameters : 
 as List<CatalogParameter>,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
 as ExpressionFunctionKind?,returnType: freezed == returnType ? _self.returnType : returnType // ignore: cast_nullable_to_non_nullable
-as ExpressionFunctionReturnType?,
+as ExpressionValueType?,
   ));
 }
 
@@ -604,7 +604,7 @@ as ExpressionFunctionReturnType?,
 /// @nodoc
 mixin _$CatalogParameter {
 
- String get name;@JsonKey(fromJson: _parameterTypeFromJson) ExpressionVariableType? get type; bool get varArg; bool get lazy; bool get nonZero; bool get nonNegative;
+ String get name;@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionValueType? get type; bool get varArg; bool get lazy; bool get nonZero; bool get nonNegative;
 /// Create a copy of CatalogParameter
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -642,7 +642,7 @@ abstract mixin class $CatalogParameterCopyWith<$Res>  {
   factory $CatalogParameterCopyWith(CatalogParameter value, $Res Function(CatalogParameter) _then) = _$CatalogParameterCopyWithImpl;
 @useResult
 $Res call({
- String name,@JsonKey(fromJson: _parameterTypeFromJson) ExpressionVariableType? type, bool varArg, bool lazy, bool nonZero, bool nonNegative
+ String name,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionValueType? type, bool varArg, bool lazy, bool nonZero, bool nonNegative
 });
 
 
@@ -663,7 +663,7 @@ class _$CatalogParameterCopyWithImpl<$Res>
   return _then(CatalogParameter(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,type: freezed == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as ExpressionVariableType?,varArg: null == varArg ? _self.varArg : varArg // ignore: cast_nullable_to_non_nullable
+as ExpressionValueType?,varArg: null == varArg ? _self.varArg : varArg // ignore: cast_nullable_to_non_nullable
 as bool,lazy: null == lazy ? _self.lazy : lazy // ignore: cast_nullable_to_non_nullable
 as bool,nonZero: null == nonZero ? _self.nonZero : nonZero // ignore: cast_nullable_to_non_nullable
 as bool,nonNegative: null == nonNegative ? _self.nonNegative : nonNegative // ignore: cast_nullable_to_non_nullable
@@ -752,7 +752,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(fromJson: _parameterTypeFromJson)  ExpressionVariableType? type,  bool varArg,  bool lazy,  bool nonZero,  bool nonNegative)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionValueType? type,  bool varArg,  bool lazy,  bool nonZero,  bool nonNegative)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CatalogParameter() when $default != null:
 return $default(_that.name,_that.type,_that.varArg,_that.lazy,_that.nonZero,_that.nonNegative);case _:
@@ -773,7 +773,7 @@ return $default(_that.name,_that.type,_that.varArg,_that.lazy,_that.nonZero,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(fromJson: _parameterTypeFromJson)  ExpressionVariableType? type,  bool varArg,  bool lazy,  bool nonZero,  bool nonNegative)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionValueType? type,  bool varArg,  bool lazy,  bool nonZero,  bool nonNegative)  $default,) {final _that = this;
 switch (_that) {
 case _CatalogParameter():
 return $default(_that.name,_that.type,_that.varArg,_that.lazy,_that.nonZero,_that.nonNegative);case _:
@@ -793,7 +793,7 @@ return $default(_that.name,_that.type,_that.varArg,_that.lazy,_that.nonZero,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(fromJson: _parameterTypeFromJson)  ExpressionVariableType? type,  bool varArg,  bool lazy,  bool nonZero,  bool nonNegative)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ExpressionValueType? type,  bool varArg,  bool lazy,  bool nonZero,  bool nonNegative)?  $default,) {final _that = this;
 switch (_that) {
 case _CatalogParameter() when $default != null:
 return $default(_that.name,_that.type,_that.varArg,_that.lazy,_that.nonZero,_that.nonNegative);case _:
@@ -808,11 +808,11 @@ return $default(_that.name,_that.type,_that.varArg,_that.lazy,_that.nonZero,_tha
 @JsonSerializable()
 
 class _CatalogParameter implements CatalogParameter {
-  const _CatalogParameter({required this.name, @JsonKey(fromJson: _parameterTypeFromJson) this.type, this.varArg = false, this.lazy = false, this.nonZero = false, this.nonNegative = false});
+  const _CatalogParameter({required this.name, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.type, this.varArg = false, this.lazy = false, this.nonZero = false, this.nonNegative = false});
   factory _CatalogParameter.fromJson(Map<String, dynamic> json) => _$CatalogParameterFromJson(json);
 
 @override final  String name;
-@override@JsonKey(fromJson: _parameterTypeFromJson) final  ExpressionVariableType? type;
+@override@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) final  ExpressionValueType? type;
 @override@JsonKey() final  bool varArg;
 @override@JsonKey() final  bool lazy;
 @override@JsonKey() final  bool nonZero;
@@ -853,7 +853,7 @@ abstract mixin class _$CatalogParameterCopyWith<$Res> implements $CatalogParamet
   factory _$CatalogParameterCopyWith(_CatalogParameter value, $Res Function(_CatalogParameter) _then) = __$CatalogParameterCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@JsonKey(fromJson: _parameterTypeFromJson) ExpressionVariableType? type, bool varArg, bool lazy, bool nonZero, bool nonNegative
+ String name,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ExpressionValueType? type, bool varArg, bool lazy, bool nonZero, bool nonNegative
 });
 
 
@@ -874,7 +874,7 @@ class __$CatalogParameterCopyWithImpl<$Res>
   return _then(_CatalogParameter(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,type: freezed == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as ExpressionVariableType?,varArg: null == varArg ? _self.varArg : varArg // ignore: cast_nullable_to_non_nullable
+as ExpressionValueType?,varArg: null == varArg ? _self.varArg : varArg // ignore: cast_nullable_to_non_nullable
 as bool,lazy: null == lazy ? _self.lazy : lazy // ignore: cast_nullable_to_non_nullable
 as bool,nonZero: null == nonZero ? _self.nonZero : nonZero // ignore: cast_nullable_to_non_nullable
 as bool,nonNegative: null == nonNegative ? _self.nonNegative : nonNegative // ignore: cast_nullable_to_non_nullable

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ExpressionVariable {
 
- String get name; ExpressionVariableType get type; String? get testValue;
+ String get name; ExpressionValueType get type; String? get testValue;
 /// Create a copy of ExpressionVariable
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $ExpressionVariableCopyWith<$Res>  {
   factory $ExpressionVariableCopyWith(ExpressionVariable value, $Res Function(ExpressionVariable) _then) = _$ExpressionVariableCopyWithImpl;
 @useResult
 $Res call({
- String name, ExpressionVariableType type, String? testValue
+ String name, ExpressionValueType type, String? testValue
 });
 
 
@@ -75,7 +75,7 @@ class _$ExpressionVariableCopyWithImpl<$Res>
   return _then(ExpressionVariable(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as ExpressionVariableType,testValue: freezed == testValue ? _self.testValue : testValue // ignore: cast_nullable_to_non_nullable
+as ExpressionValueType,testValue: freezed == testValue ? _self.testValue : testValue // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  ExpressionVariableType type,  String? testValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  ExpressionValueType type,  String? testValue)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ExpressionVariable() when $default != null:
 return $default(_that.name,_that.type,_that.testValue);case _:
@@ -182,7 +182,7 @@ return $default(_that.name,_that.type,_that.testValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  ExpressionVariableType type,  String? testValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  ExpressionValueType type,  String? testValue)  $default,) {final _that = this;
 switch (_that) {
 case _ExpressionVariable():
 return $default(_that.name,_that.type,_that.testValue);case _:
@@ -202,7 +202,7 @@ return $default(_that.name,_that.type,_that.testValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  ExpressionVariableType type,  String? testValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  ExpressionValueType type,  String? testValue)?  $default,) {final _that = this;
 switch (_that) {
 case _ExpressionVariable() when $default != null:
 return $default(_that.name,_that.type,_that.testValue);case _:
@@ -216,12 +216,12 @@ return $default(_that.name,_that.type,_that.testValue);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _ExpressionVariable extends ExpressionVariable {
-  const _ExpressionVariable({required this.name, this.type = ExpressionVariableType.NUMBER, this.testValue}): super._();
+class _ExpressionVariable implements ExpressionVariable {
+  const _ExpressionVariable({required this.name, this.type = ExpressionValueType.number, this.testValue});
   factory _ExpressionVariable.fromJson(Map<String, dynamic> json) => _$ExpressionVariableFromJson(json);
 
 @override final  String name;
-@override@JsonKey() final  ExpressionVariableType type;
+@override@JsonKey() final  ExpressionValueType type;
 @override final  String? testValue;
 
 /// Create a copy of ExpressionVariable
@@ -259,7 +259,7 @@ abstract mixin class _$ExpressionVariableCopyWith<$Res> implements $ExpressionVa
   factory _$ExpressionVariableCopyWith(_ExpressionVariable value, $Res Function(_ExpressionVariable) _then) = __$ExpressionVariableCopyWithImpl;
 @override @useResult
 $Res call({
- String name, ExpressionVariableType type, String? testValue
+ String name, ExpressionValueType type, String? testValue
 });
 
 
@@ -280,7 +280,7 @@ class __$ExpressionVariableCopyWithImpl<$Res>
   return _then(_ExpressionVariable(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as ExpressionVariableType,testValue: freezed == testValue ? _self.testValue : testValue // ignore: cast_nullable_to_non_nullable
+as ExpressionValueType,testValue: freezed == testValue ? _self.testValue : testValue // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -565,7 +565,8 @@ as String,
 /// @nodoc
 mixin _$ExpressionModel {
 
- String get uiName; String get expression; String? get id; String? get comment;@JsonKey(toJson: _variablesToJson) List<ExpressionVariable> get variables; String? get projectId; DateTime? get creationDate; DateTime? get modificationDate;
+ String get uiName; String? get id; String? get projectId;/// The EvalEx formula.
+ String get expression; List<ExpressionVariable> get variables; String? get comment; DateTime? get creationDate; DateTime? get modificationDate;
 /// Create a copy of ExpressionModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -579,20 +580,20 @@ $ExpressionModelCopyWith<ExpressionModel> get copyWith => _$ExpressionModelCopyW
 @override
 bool operator ==(Object other) {
   final _this = this as ExpressionModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExpressionModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.expression, _this.expression) || other.expression == _this.expression)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&const DeepCollectionEquality().equals(other.variables, _this.variables)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExpressionModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.expression, _this.expression) || other.expression == _this.expression)&&const DeepCollectionEquality().equals(other.variables, _this.variables)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as ExpressionModel;
-  return Object.hash(runtimeType,_this.uiName,_this.expression,_this.id,_this.comment,const DeepCollectionEquality().hash(_this.variables),_this.projectId,_this.creationDate,_this.modificationDate);
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.expression,const DeepCollectionEquality().hash(_this.variables),_this.comment,_this.creationDate,_this.modificationDate);
 }
 
 @override
 String toString() {
   final _this = this as ExpressionModel;
-  return 'ExpressionModel(uiName: ${_this.uiName}, expression: ${_this.expression}, id: ${_this.id}, comment: ${_this.comment}, variables: ${_this.variables}, projectId: ${_this.projectId}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
+  return 'ExpressionModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, expression: ${_this.expression}, variables: ${_this.variables}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -603,7 +604,7 @@ abstract mixin class $ExpressionModelCopyWith<$Res>  {
   factory $ExpressionModelCopyWith(ExpressionModel value, $Res Function(ExpressionModel) _then) = _$ExpressionModelCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String expression, String? id, String? comment,@JsonKey(toJson: _variablesToJson) List<ExpressionVariable> variables, String? projectId, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String expression, List<ExpressionVariable> variables, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -620,14 +621,14 @@ class _$ExpressionModelCopyWithImpl<$Res>
 
 /// Create a copy of ExpressionModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? expression = null,Object? id = freezed,Object? comment = freezed,Object? variables = null,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? expression = null,Object? variables = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(ExpressionModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
-as String,expression: null == expression ? _self.expression : expression // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,variables: null == variables ? _self.variables : variables // ignore: cast_nullable_to_non_nullable
-as List<ExpressionVariable>,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as String?,expression: null == expression ? _self.expression : expression // ignore: cast_nullable_to_non_nullable
+as String,variables: null == variables ? _self.variables : variables // ignore: cast_nullable_to_non_nullable
+as List<ExpressionVariable>,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,
@@ -715,10 +716,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String expression,  String? id,  String? comment, @JsonKey(toJson: _variablesToJson)  List<ExpressionVariable> variables,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String expression,  List<ExpressionVariable> variables,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ExpressionModel() when $default != null:
-return $default(_that.uiName,_that.expression,_that.id,_that.comment,_that.variables,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.expression,_that.variables,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -736,10 +737,10 @@ return $default(_that.uiName,_that.expression,_that.id,_that.comment,_that.varia
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String expression,  String? id,  String? comment, @JsonKey(toJson: _variablesToJson)  List<ExpressionVariable> variables,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String expression,  List<ExpressionVariable> variables,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _ExpressionModel():
-return $default(_that.uiName,_that.expression,_that.id,_that.comment,_that.variables,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.expression,_that.variables,_that.comment,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -756,10 +757,10 @@ return $default(_that.uiName,_that.expression,_that.id,_that.comment,_that.varia
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String expression,  String? id,  String? comment, @JsonKey(toJson: _variablesToJson)  List<ExpressionVariable> variables,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String expression,  List<ExpressionVariable> variables,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _ExpressionModel() when $default != null:
-return $default(_that.uiName,_that.expression,_that.id,_that.comment,_that.variables,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.expression,_that.variables,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -768,24 +769,25 @@ return $default(_that.uiName,_that.expression,_that.id,_that.comment,_that.varia
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(explicitToJson: true)
 class _ExpressionModel extends ExpressionModel {
-  const _ExpressionModel({required this.uiName, this.expression = '', this.id, this.comment, @JsonKey(toJson: _variablesToJson)  List<ExpressionVariable> variables = const [], this.projectId, this.creationDate, this.modificationDate}): _variables = variables,super._();
+  const _ExpressionModel({required this.uiName, this.id, this.projectId, this.expression = '',  List<ExpressionVariable> variables = const [], this.comment, this.creationDate, this.modificationDate}): _variables = variables,super._();
   factory _ExpressionModel.fromJson(Map<String, dynamic> json) => _$ExpressionModelFromJson(json);
 
 @override final  String uiName;
-@override@JsonKey() final  String expression;
 @override final  String? id;
-@override final  String? comment;
+@override final  String? projectId;
+/// The EvalEx formula.
+@override@JsonKey() final  String expression;
  final  List<ExpressionVariable> _variables;
-@override@JsonKey(toJson: _variablesToJson) List<ExpressionVariable> get variables {
+@override@JsonKey() List<ExpressionVariable> get variables {
   if (_variables is EqualUnmodifiableListView) return _variables;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_variables);
 }
 
-@override final  String? projectId;
+@override final  String? comment;
 @override final  DateTime? creationDate;
 @override final  DateTime? modificationDate;
 
@@ -802,18 +804,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExpressionModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.expression, expression) || other.expression == expression)&&(identical(other.id, id) || other.id == id)&&(identical(other.comment, comment) || other.comment == comment)&&const DeepCollectionEquality().equals(other.variables, _variables)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExpressionModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.expression, expression) || other.expression == expression)&&const DeepCollectionEquality().equals(other.variables, _variables)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,uiName,expression,id,comment,const DeepCollectionEquality().hash(_variables),projectId,creationDate,modificationDate);
+    return Object.hash(runtimeType,uiName,id,projectId,expression,const DeepCollectionEquality().hash(_variables),comment,creationDate,modificationDate);
 }
 
 @override
 String toString() {
-    return 'ExpressionModel(uiName: $uiName, expression: $expression, id: $id, comment: $comment, variables: $variables, projectId: $projectId, creationDate: $creationDate, modificationDate: $modificationDate)';
+    return 'ExpressionModel(uiName: $uiName, id: $id, projectId: $projectId, expression: $expression, variables: $variables, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -824,7 +826,7 @@ abstract mixin class _$ExpressionModelCopyWith<$Res> implements $ExpressionModel
   factory _$ExpressionModelCopyWith(_ExpressionModel value, $Res Function(_ExpressionModel) _then) = __$ExpressionModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String expression, String? id, String? comment,@JsonKey(toJson: _variablesToJson) List<ExpressionVariable> variables, String? projectId, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String expression, List<ExpressionVariable> variables, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -841,14 +843,14 @@ class __$ExpressionModelCopyWithImpl<$Res>
 
 /// Create a copy of ExpressionModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? expression = null,Object? id = freezed,Object? comment = freezed,Object? variables = null,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? expression = null,Object? variables = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_ExpressionModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
-as String,expression: null == expression ? _self.expression : expression // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,variables: null == variables ? _self._variables : variables // ignore: cast_nullable_to_non_nullable
-as List<ExpressionVariable>,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as String?,expression: null == expression ? _self.expression : expression // ignore: cast_nullable_to_non_nullable
+as String,variables: null == variables ? _self._variables : variables // ignore: cast_nullable_to_non_nullable
+as List<ExpressionVariable>,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,

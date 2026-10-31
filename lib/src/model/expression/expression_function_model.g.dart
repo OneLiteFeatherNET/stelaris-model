@@ -10,16 +10,15 @@ _ExpressionFunctionModel _$ExpressionFunctionModelFromJson(
   Map<String, dynamic> json,
 ) => _ExpressionFunctionModel(
   uiName: json['uiName'] as String,
+  id: json['id'] as String?,
+  projectId: json['projectId'] as String?,
   name: json['name'] as String? ?? '',
   kind:
       $enumDecodeNullable(_$ExpressionFunctionKindEnumMap, json['kind']) ??
-      ExpressionFunctionKind.FORMULA,
+      ExpressionFunctionKind.formula,
   returnType:
-      $enumDecodeNullable(
-        _$ExpressionFunctionReturnTypeEnumMap,
-        json['returnType'],
-      ) ??
-      ExpressionFunctionReturnType.NUMBER,
+      $enumDecodeNullable(_$ExpressionValueTypeEnumMap, json['returnType']) ??
+      ExpressionValueType.number,
   parameters:
       (json['parameters'] as List<dynamic>?)
           ?.map((e) => ExpressionVariable.fromJson(e as Map<String, dynamic>))
@@ -27,8 +26,6 @@ _ExpressionFunctionModel _$ExpressionFunctionModelFromJson(
       const [],
   body: json['body'] as String?,
   comment: json['comment'] as String?,
-  id: json['id'] as String?,
-  projectId: json['projectId'] as String?,
   creationDate: json['creationDate'] == null
       ? null
       : DateTime.parse(json['creationDate'] as String),
@@ -41,27 +38,27 @@ Map<String, dynamic> _$ExpressionFunctionModelToJson(
   _ExpressionFunctionModel instance,
 ) => <String, dynamic>{
   'uiName': instance.uiName,
-  'name': instance.name,
-  'kind': _$ExpressionFunctionKindEnumMap[instance.kind]!,
-  'returnType': _$ExpressionFunctionReturnTypeEnumMap[instance.returnType]!,
-  'parameters': _parametersToJson(instance.parameters),
-  'body': instance.body,
-  'comment': instance.comment,
   'id': instance.id,
   'projectId': instance.projectId,
+  'name': instance.name,
+  'kind': _$ExpressionFunctionKindEnumMap[instance.kind]!,
+  'returnType': _$ExpressionValueTypeEnumMap[instance.returnType]!,
+  'parameters': instance.parameters.map((e) => e.toJson()).toList(),
+  'body': instance.body,
+  'comment': instance.comment,
   'creationDate': instance.creationDate?.toIso8601String(),
   'modificationDate': instance.modificationDate?.toIso8601String(),
 };
 
 const _$ExpressionFunctionKindEnumMap = {
-  ExpressionFunctionKind.FORMULA: 'FORMULA',
-  ExpressionFunctionKind.INTERFACE: 'INTERFACE',
+  ExpressionFunctionKind.formula: 'FORMULA',
+  ExpressionFunctionKind.interface: 'INTERFACE',
 };
 
-const _$ExpressionFunctionReturnTypeEnumMap = {
-  ExpressionFunctionReturnType.NUMBER: 'NUMBER',
-  ExpressionFunctionReturnType.BOOLEAN: 'BOOLEAN',
-  ExpressionFunctionReturnType.STRING: 'STRING',
+const _$ExpressionValueTypeEnumMap = {
+  ExpressionValueType.number: 'NUMBER',
+  ExpressionValueType.boolean: 'BOOLEAN',
+  ExpressionValueType.string: 'STRING',
 };
 
 _ExpressionFunctionInterface _$ExpressionFunctionInterfaceFromJson(

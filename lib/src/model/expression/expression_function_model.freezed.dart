@@ -16,7 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ExpressionFunctionModel {
 
- String get uiName; String get name; ExpressionFunctionKind get kind; ExpressionFunctionReturnType get returnType;@JsonKey(toJson: _parametersToJson) List<ExpressionVariable> get parameters; String? get body; String? get comment; String? get id; String? get projectId; DateTime? get creationDate; DateTime? get modificationDate;
+ String get uiName; String? get id; String? get projectId;/// The identifier formulas call the function by.
+ String get name; ExpressionFunctionKind get kind; ExpressionValueType get returnType; List<ExpressionVariable> get parameters;/// The EvalEx formula of a [ExpressionFunctionKind.formula]. For an
+/// [ExpressionFunctionKind.interface] an optional stub to try it out with.
+ String? get body; String? get comment; DateTime? get creationDate; DateTime? get modificationDate;
 /// Create a copy of ExpressionFunctionModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +33,20 @@ $ExpressionFunctionModelCopyWith<ExpressionFunctionModel> get copyWith => _$Expr
 @override
 bool operator ==(Object other) {
   final _this = this as ExpressionFunctionModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExpressionFunctionModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.returnType, _this.returnType) || other.returnType == _this.returnType)&&const DeepCollectionEquality().equals(other.parameters, _this.parameters)&&(identical(other.body, _this.body) || other.body == _this.body)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExpressionFunctionModel&&(identical(other.uiName, _this.uiName) || other.uiName == _this.uiName)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.returnType, _this.returnType) || other.returnType == _this.returnType)&&const DeepCollectionEquality().equals(other.parameters, _this.parameters)&&(identical(other.body, _this.body) || other.body == _this.body)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as ExpressionFunctionModel;
-  return Object.hash(runtimeType,_this.uiName,_this.name,_this.kind,_this.returnType,const DeepCollectionEquality().hash(_this.parameters),_this.body,_this.comment,_this.id,_this.projectId,_this.creationDate,_this.modificationDate);
+  return Object.hash(runtimeType,_this.uiName,_this.id,_this.projectId,_this.name,_this.kind,_this.returnType,const DeepCollectionEquality().hash(_this.parameters),_this.body,_this.comment,_this.creationDate,_this.modificationDate);
 }
 
 @override
 String toString() {
   final _this = this as ExpressionFunctionModel;
-  return 'ExpressionFunctionModel(uiName: ${_this.uiName}, name: ${_this.name}, kind: ${_this.kind}, returnType: ${_this.returnType}, parameters: ${_this.parameters}, body: ${_this.body}, comment: ${_this.comment}, id: ${_this.id}, projectId: ${_this.projectId}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
+  return 'ExpressionFunctionModel(uiName: ${_this.uiName}, id: ${_this.id}, projectId: ${_this.projectId}, name: ${_this.name}, kind: ${_this.kind}, returnType: ${_this.returnType}, parameters: ${_this.parameters}, body: ${_this.body}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -54,7 +57,7 @@ abstract mixin class $ExpressionFunctionModelCopyWith<$Res>  {
   factory $ExpressionFunctionModelCopyWith(ExpressionFunctionModel value, $Res Function(ExpressionFunctionModel) _then) = _$ExpressionFunctionModelCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String name, ExpressionFunctionKind kind, ExpressionFunctionReturnType returnType,@JsonKey(toJson: _parametersToJson) List<ExpressionVariable> parameters, String? body, String? comment, String? id, String? projectId, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String name, ExpressionFunctionKind kind, ExpressionValueType returnType, List<ExpressionVariable> parameters, String? body, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -71,17 +74,17 @@ class _$ExpressionFunctionModelCopyWithImpl<$Res>
 
 /// Create a copy of ExpressionFunctionModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? name = null,Object? kind = null,Object? returnType = null,Object? parameters = null,Object? body = freezed,Object? comment = freezed,Object? id = freezed,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? name = null,Object? kind = null,Object? returnType = null,Object? parameters = null,Object? body = freezed,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(ExpressionFunctionModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
 as ExpressionFunctionKind,returnType: null == returnType ? _self.returnType : returnType // ignore: cast_nullable_to_non_nullable
-as ExpressionFunctionReturnType,parameters: null == parameters ? _self.parameters : parameters // ignore: cast_nullable_to_non_nullable
+as ExpressionValueType,parameters: null == parameters ? _self.parameters : parameters // ignore: cast_nullable_to_non_nullable
 as List<ExpressionVariable>,body: freezed == body ? _self.body : body // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,
@@ -169,10 +172,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String name,  ExpressionFunctionKind kind,  ExpressionFunctionReturnType returnType, @JsonKey(toJson: _parametersToJson)  List<ExpressionVariable> parameters,  String? body,  String? comment,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String name,  ExpressionFunctionKind kind,  ExpressionValueType returnType,  List<ExpressionVariable> parameters,  String? body,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ExpressionFunctionModel() when $default != null:
-return $default(_that.uiName,_that.name,_that.kind,_that.returnType,_that.parameters,_that.body,_that.comment,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.name,_that.kind,_that.returnType,_that.parameters,_that.body,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -190,10 +193,10 @@ return $default(_that.uiName,_that.name,_that.kind,_that.returnType,_that.parame
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String name,  ExpressionFunctionKind kind,  ExpressionFunctionReturnType returnType, @JsonKey(toJson: _parametersToJson)  List<ExpressionVariable> parameters,  String? body,  String? comment,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String name,  ExpressionFunctionKind kind,  ExpressionValueType returnType,  List<ExpressionVariable> parameters,  String? body,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _ExpressionFunctionModel():
-return $default(_that.uiName,_that.name,_that.kind,_that.returnType,_that.parameters,_that.body,_that.comment,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.name,_that.kind,_that.returnType,_that.parameters,_that.body,_that.comment,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +213,10 @@ return $default(_that.uiName,_that.name,_that.kind,_that.returnType,_that.parame
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String name,  ExpressionFunctionKind kind,  ExpressionFunctionReturnType returnType, @JsonKey(toJson: _parametersToJson)  List<ExpressionVariable> parameters,  String? body,  String? comment,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String name,  ExpressionFunctionKind kind,  ExpressionValueType returnType,  List<ExpressionVariable> parameters,  String? body,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _ExpressionFunctionModel() when $default != null:
-return $default(_that.uiName,_that.name,_that.kind,_that.returnType,_that.parameters,_that.body,_that.comment,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.uiName,_that.id,_that.projectId,_that.name,_that.kind,_that.returnType,_that.parameters,_that.body,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -222,27 +225,30 @@ return $default(_that.uiName,_that.name,_that.kind,_that.returnType,_that.parame
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(explicitToJson: true)
 class _ExpressionFunctionModel extends ExpressionFunctionModel {
-  const _ExpressionFunctionModel({required this.uiName, this.name = '', this.kind = ExpressionFunctionKind.FORMULA, this.returnType = ExpressionFunctionReturnType.NUMBER, @JsonKey(toJson: _parametersToJson)  List<ExpressionVariable> parameters = const [], this.body, this.comment, this.id, this.projectId, this.creationDate, this.modificationDate}): _parameters = parameters,super._();
+  const _ExpressionFunctionModel({required this.uiName, this.id, this.projectId, this.name = '', this.kind = ExpressionFunctionKind.formula, this.returnType = ExpressionValueType.number,  List<ExpressionVariable> parameters = const [], this.body, this.comment, this.creationDate, this.modificationDate}): _parameters = parameters,super._();
   factory _ExpressionFunctionModel.fromJson(Map<String, dynamic> json) => _$ExpressionFunctionModelFromJson(json);
 
 @override final  String uiName;
+@override final  String? id;
+@override final  String? projectId;
+/// The identifier formulas call the function by.
 @override@JsonKey() final  String name;
 @override@JsonKey() final  ExpressionFunctionKind kind;
-@override@JsonKey() final  ExpressionFunctionReturnType returnType;
+@override@JsonKey() final  ExpressionValueType returnType;
  final  List<ExpressionVariable> _parameters;
-@override@JsonKey(toJson: _parametersToJson) List<ExpressionVariable> get parameters {
+@override@JsonKey() List<ExpressionVariable> get parameters {
   if (_parameters is EqualUnmodifiableListView) return _parameters;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_parameters);
 }
 
+/// The EvalEx formula of a [ExpressionFunctionKind.formula]. For an
+/// [ExpressionFunctionKind.interface] an optional stub to try it out with.
 @override final  String? body;
 @override final  String? comment;
-@override final  String? id;
-@override final  String? projectId;
 @override final  DateTime? creationDate;
 @override final  DateTime? modificationDate;
 
@@ -259,18 +265,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExpressionFunctionModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.returnType, returnType) || other.returnType == returnType)&&const DeepCollectionEquality().equals(other.parameters, _parameters)&&(identical(other.body, body) || other.body == body)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExpressionFunctionModel&&(identical(other.uiName, uiName) || other.uiName == uiName)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.returnType, returnType) || other.returnType == returnType)&&const DeepCollectionEquality().equals(other.parameters, _parameters)&&(identical(other.body, body) || other.body == body)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,uiName,name,kind,returnType,const DeepCollectionEquality().hash(_parameters),body,comment,id,projectId,creationDate,modificationDate);
+    return Object.hash(runtimeType,uiName,id,projectId,name,kind,returnType,const DeepCollectionEquality().hash(_parameters),body,comment,creationDate,modificationDate);
 }
 
 @override
 String toString() {
-    return 'ExpressionFunctionModel(uiName: $uiName, name: $name, kind: $kind, returnType: $returnType, parameters: $parameters, body: $body, comment: $comment, id: $id, projectId: $projectId, creationDate: $creationDate, modificationDate: $modificationDate)';
+    return 'ExpressionFunctionModel(uiName: $uiName, id: $id, projectId: $projectId, name: $name, kind: $kind, returnType: $returnType, parameters: $parameters, body: $body, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -281,7 +287,7 @@ abstract mixin class _$ExpressionFunctionModelCopyWith<$Res> implements $Express
   factory _$ExpressionFunctionModelCopyWith(_ExpressionFunctionModel value, $Res Function(_ExpressionFunctionModel) _then) = __$ExpressionFunctionModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String name, ExpressionFunctionKind kind, ExpressionFunctionReturnType returnType,@JsonKey(toJson: _parametersToJson) List<ExpressionVariable> parameters, String? body, String? comment, String? id, String? projectId, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String name, ExpressionFunctionKind kind, ExpressionValueType returnType, List<ExpressionVariable> parameters, String? body, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -298,17 +304,17 @@ class __$ExpressionFunctionModelCopyWithImpl<$Res>
 
 /// Create a copy of ExpressionFunctionModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? name = null,Object? kind = null,Object? returnType = null,Object? parameters = null,Object? body = freezed,Object? comment = freezed,Object? id = freezed,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uiName = null,Object? id = freezed,Object? projectId = freezed,Object? name = null,Object? kind = null,Object? returnType = null,Object? parameters = null,Object? body = freezed,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_ExpressionFunctionModel(
 uiName: null == uiName ? _self.uiName : uiName // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
 as ExpressionFunctionKind,returnType: null == returnType ? _self.returnType : returnType // ignore: cast_nullable_to_non_nullable
-as ExpressionFunctionReturnType,parameters: null == parameters ? _self._parameters : parameters // ignore: cast_nullable_to_non_nullable
+as ExpressionValueType,parameters: null == parameters ? _self._parameters : parameters // ignore: cast_nullable_to_non_nullable
 as List<ExpressionVariable>,body: freezed == body ? _self.body : body // ignore: cast_nullable_to_non_nullable
 as String?,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
-as String?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,

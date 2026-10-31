@@ -492,8 +492,8 @@ return $default(_that.valid,_that.errors,_that.usedVariables,_that.undefinedVari
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(explicitToJson: true)
 class _ExpressionValidation implements ExpressionValidation {
   const _ExpressionValidation({required this.valid,  List<ExpressionValidationError> errors = const [],  List<String> usedVariables = const [],  List<String> undefinedVariables = const [],  List<String> unusedVariables = const []}): _errors = errors,_usedVariables = usedVariables,_undefinedVariables = undefinedVariables,_unusedVariables = unusedVariables;
   factory _ExpressionValidation.fromJson(Map<String, dynamic> json) => _$ExpressionValidationFromJson(json);

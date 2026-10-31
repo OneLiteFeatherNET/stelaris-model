@@ -16,15 +16,15 @@ void main() {
     variables: const [
       ExpressionVariable(
         name: 'base',
-        type: ExpressionVariableType.NUMBER,
+        type: ExpressionValueType.number,
         testValue: '10',
       ),
       ExpressionVariable(
         name: 'crit',
-        type: ExpressionVariableType.BOOLEAN,
+        type: ExpressionValueType.boolean,
         testValue: 'true',
       ),
-      ExpressionVariable(name: 'label', type: ExpressionVariableType.STRING),
+      ExpressionVariable(name: 'label', type: ExpressionValueType.string),
     ],
   );
 
@@ -49,14 +49,14 @@ void main() {
       'testValue': null,
     });
 
-    expect(variable.type, ExpressionVariableType.BOOLEAN);
+    expect(variable.type, ExpressionValueType.boolean);
     expect(variable.testValue, isNull);
   });
 
   test('a variable without a type is a number', () {
     expect(
       const ExpressionVariable(name: 'x').type,
-      ExpressionVariableType.NUMBER,
+      ExpressionValueType.number,
     );
   });
 

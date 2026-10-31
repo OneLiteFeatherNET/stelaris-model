@@ -55,7 +55,7 @@ Map<String, dynamic> _$ExpressionValidationToJson(
   _ExpressionValidation instance,
 ) => <String, dynamic>{
   'valid': instance.valid,
-  'errors': instance.errors,
+  'errors': instance.errors.map((e) => e.toJson()).toList(),
   'usedVariables': instance.usedVariables,
   'undefinedVariables': instance.undefinedVariables,
   'unusedVariables': instance.unusedVariables,

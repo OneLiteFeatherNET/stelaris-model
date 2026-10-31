@@ -125,11 +125,11 @@ void main() {
 
       expect(function.category, CatalogFunctionCategory.project);
       expect(function.description, 'Bonus damage for a hit');
-      expect(function.kind, ExpressionFunctionKind.FORMULA);
-      expect(function.returnType, ExpressionFunctionReturnType.NUMBER);
+      expect(function.kind, ExpressionFunctionKind.formula);
+      expect(function.returnType, ExpressionValueType.number);
       expect(function.parameters.map((p) => p.type), [
-        ExpressionVariableType.NUMBER,
-        ExpressionVariableType.BOOLEAN,
+        ExpressionValueType.number,
+        ExpressionValueType.boolean,
       ]);
     },
   );
@@ -141,7 +141,7 @@ void main() {
       'kind': 'INTERFACE',
     });
 
-    expect(function.kind, ExpressionFunctionKind.INTERFACE);
+    expect(function.kind, ExpressionFunctionKind.interface);
     expect(function.description, isNull);
   });
 
@@ -164,6 +164,20 @@ void main() {
       ],
     });
 
+    expect(function.parameters.single.type, isNull);
+  });
+
+  test('an unknown return type and parameter type read as absent', () {
+    final function = CatalogFunction.fromJson(const {
+      'name': 'hit',
+      'category': 'PROJECT',
+      'returnType': 'VECTOR',
+      'parameters': [
+        {'name': 'target', 'type': 'ENTITY'},
+      ],
+    });
+
+    expect(function.returnType, isNull);
     expect(function.parameters.single.type, isNull);
   });
 }

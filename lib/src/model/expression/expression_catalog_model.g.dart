@@ -29,9 +29,9 @@ _ExpressionCatalog _$ExpressionCatalogFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$ExpressionCatalogToJson(_ExpressionCatalog instance) =>
     <String, dynamic>{
       'evalexVersion': instance.evalexVersion,
-      'functions': instance.functions,
-      'operators': instance.operators,
-      'constants': instance.constants,
+      'functions': instance.functions.map((e) => e.toJson()).toList(),
+      'operators': instance.operators.map((e) => e.toJson()).toList(),
+      'constants': instance.constants.map((e) => e.toJson()).toList(),
     };
 
 _CatalogFunction _$CatalogFunctionFromJson(Map<String, dynamic> json) =>
@@ -50,18 +50,26 @@ _CatalogFunction _$CatalogFunctionFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       description: json['description'] as String?,
-      kind: _functionKindFromJson(json['kind']),
-      returnType: _functionReturnTypeFromJson(json['returnType']),
+      kind: $enumDecodeNullable(
+        _$ExpressionFunctionKindEnumMap,
+        json['kind'],
+        unknownValue: JsonKey.nullForUndefinedEnumValue,
+      ),
+      returnType: $enumDecodeNullable(
+        _$ExpressionValueTypeEnumMap,
+        json['returnType'],
+        unknownValue: JsonKey.nullForUndefinedEnumValue,
+      ),
     );
 
 Map<String, dynamic> _$CatalogFunctionToJson(_CatalogFunction instance) =>
     <String, dynamic>{
       'name': instance.name,
       'category': _$CatalogFunctionCategoryEnumMap[instance.category]!,
-      'parameters': instance.parameters,
+      'parameters': instance.parameters.map((e) => e.toJson()).toList(),
       'description': instance.description,
       'kind': _$ExpressionFunctionKindEnumMap[instance.kind],
-      'returnType': _$ExpressionFunctionReturnTypeEnumMap[instance.returnType],
+      'returnType': _$ExpressionValueTypeEnumMap[instance.returnType],
     };
 
 const _$CatalogFunctionCategoryEnumMap = {
@@ -74,20 +82,24 @@ const _$CatalogFunctionCategoryEnumMap = {
 };
 
 const _$ExpressionFunctionKindEnumMap = {
-  ExpressionFunctionKind.FORMULA: 'FORMULA',
-  ExpressionFunctionKind.INTERFACE: 'INTERFACE',
+  ExpressionFunctionKind.formula: 'FORMULA',
+  ExpressionFunctionKind.interface: 'INTERFACE',
 };
 
-const _$ExpressionFunctionReturnTypeEnumMap = {
-  ExpressionFunctionReturnType.NUMBER: 'NUMBER',
-  ExpressionFunctionReturnType.BOOLEAN: 'BOOLEAN',
-  ExpressionFunctionReturnType.STRING: 'STRING',
+const _$ExpressionValueTypeEnumMap = {
+  ExpressionValueType.number: 'NUMBER',
+  ExpressionValueType.boolean: 'BOOLEAN',
+  ExpressionValueType.string: 'STRING',
 };
 
 _CatalogParameter _$CatalogParameterFromJson(Map<String, dynamic> json) =>
     _CatalogParameter(
       name: json['name'] as String,
-      type: _parameterTypeFromJson(json['type']),
+      type: $enumDecodeNullable(
+        _$ExpressionValueTypeEnumMap,
+        json['type'],
+        unknownValue: JsonKey.nullForUndefinedEnumValue,
+      ),
       varArg: json['varArg'] as bool? ?? false,
       lazy: json['lazy'] as bool? ?? false,
       nonZero: json['nonZero'] as bool? ?? false,
@@ -97,18 +109,12 @@ _CatalogParameter _$CatalogParameterFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$CatalogParameterToJson(_CatalogParameter instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'type': _$ExpressionVariableTypeEnumMap[instance.type],
+      'type': _$ExpressionValueTypeEnumMap[instance.type],
       'varArg': instance.varArg,
       'lazy': instance.lazy,
       'nonZero': instance.nonZero,
       'nonNegative': instance.nonNegative,
     };
-
-const _$ExpressionVariableTypeEnumMap = {
-  ExpressionVariableType.NUMBER: 'NUMBER',
-  ExpressionVariableType.BOOLEAN: 'BOOLEAN',
-  ExpressionVariableType.STRING: 'STRING',
-};
 
 _CatalogOperator _$CatalogOperatorFromJson(Map<String, dynamic> json) =>
     _CatalogOperator(

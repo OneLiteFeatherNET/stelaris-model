@@ -28,13 +28,13 @@ void main() {
     expect(function.projectId, 'p1');
     expect(function.uiName, 'Damage bonus');
     expect(function.name, 'damage_bonus');
-    expect(function.kind, ExpressionFunctionKind.FORMULA);
-    expect(function.returnType, ExpressionFunctionReturnType.NUMBER);
+    expect(function.kind, ExpressionFunctionKind.formula);
+    expect(function.returnType, ExpressionValueType.number);
     expect(function.body, 'base * 2');
     expect(function.comment, 'Doubles the base');
     expect(function.parameters.map((p) => p.name), ['base', 'crit']);
     expect(function.parameters.first.testValue, '2');
-    expect(function.parameters.last.type, ExpressionVariableType.BOOLEAN);
+    expect(function.parameters.last.type, ExpressionValueType.boolean);
   });
 
   test('reads an interface kind from its wire name', () {
@@ -43,7 +43,7 @@ void main() {
       'kind': 'INTERFACE',
     });
 
-    expect(function.kind, ExpressionFunctionKind.INTERFACE);
+    expect(function.kind, ExpressionFunctionKind.interface);
   });
 
   test('writes the kind, return type and parameters by their wire names', () {
@@ -73,8 +73,8 @@ void main() {
     const function = ExpressionFunctionModel(uiName: 'Hit');
 
     expect(function.name, '');
-    expect(function.kind, ExpressionFunctionKind.FORMULA);
-    expect(function.returnType, ExpressionFunctionReturnType.NUMBER);
+    expect(function.kind, ExpressionFunctionKind.formula);
+    expect(function.returnType, ExpressionValueType.number);
     expect(function.parameters, isEmpty);
   });
 

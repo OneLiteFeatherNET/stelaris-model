@@ -10,22 +10,22 @@ _ExpressionVariable _$ExpressionVariableFromJson(Map<String, dynamic> json) =>
     _ExpressionVariable(
       name: json['name'] as String,
       type:
-          $enumDecodeNullable(_$ExpressionVariableTypeEnumMap, json['type']) ??
-          ExpressionVariableType.NUMBER,
+          $enumDecodeNullable(_$ExpressionValueTypeEnumMap, json['type']) ??
+          ExpressionValueType.number,
       testValue: json['testValue'] as String?,
     );
 
 Map<String, dynamic> _$ExpressionVariableToJson(_ExpressionVariable instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'type': _$ExpressionVariableTypeEnumMap[instance.type]!,
+      'type': _$ExpressionValueTypeEnumMap[instance.type]!,
       'testValue': instance.testValue,
     };
 
-const _$ExpressionVariableTypeEnumMap = {
-  ExpressionVariableType.NUMBER: 'NUMBER',
-  ExpressionVariableType.BOOLEAN: 'BOOLEAN',
-  ExpressionVariableType.STRING: 'STRING',
+const _$ExpressionValueTypeEnumMap = {
+  ExpressionValueType.number: 'NUMBER',
+  ExpressionValueType.boolean: 'BOOLEAN',
+  ExpressionValueType.string: 'STRING',
 };
 
 _ExpressionResult _$ExpressionResultFromJson(Map<String, dynamic> json) =>
@@ -40,9 +40,9 @@ Map<String, dynamic> _$ExpressionResultToJson(_ExpressionResult instance) =>
 _ExpressionModel _$ExpressionModelFromJson(Map<String, dynamic> json) =>
     _ExpressionModel(
       uiName: json['uiName'] as String,
-      expression: json['expression'] as String? ?? '',
       id: json['id'] as String?,
-      comment: json['comment'] as String?,
+      projectId: json['projectId'] as String?,
+      expression: json['expression'] as String? ?? '',
       variables:
           (json['variables'] as List<dynamic>?)
               ?.map(
@@ -50,7 +50,7 @@ _ExpressionModel _$ExpressionModelFromJson(Map<String, dynamic> json) =>
               )
               .toList() ??
           const [],
-      projectId: json['projectId'] as String?,
+      comment: json['comment'] as String?,
       creationDate: json['creationDate'] == null
           ? null
           : DateTime.parse(json['creationDate'] as String),
@@ -62,11 +62,11 @@ _ExpressionModel _$ExpressionModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$ExpressionModelToJson(_ExpressionModel instance) =>
     <String, dynamic>{
       'uiName': instance.uiName,
-      'expression': instance.expression,
       'id': instance.id,
-      'comment': instance.comment,
-      'variables': _variablesToJson(instance.variables),
       'projectId': instance.projectId,
+      'expression': instance.expression,
+      'variables': instance.variables.map((e) => e.toJson()).toList(),
+      'comment': instance.comment,
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),
     };
