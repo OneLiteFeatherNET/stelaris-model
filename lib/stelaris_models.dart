@@ -29,3 +29,7 @@ export 'src/model/sound/sound_file_source.dart';
 export 'src/model/project/project.dart';
 export 'src/model/asset/asset_model.dart';
 export 'src/model/asset/asset_revision_model.dart';
+export 'src/model/expression/expression_model.dart';
+export 'src/model/expression/expression_function_model.dart';
+export 'src/model/expression/expression_catalog_model.dart';
+export 'src/model/expression/expression_validation_model.dart';
