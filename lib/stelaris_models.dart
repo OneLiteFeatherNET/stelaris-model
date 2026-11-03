@@ -33,3 +33,4 @@ export 'src/model/expression/expression_model.dart';
 export 'src/model/expression/expression_function_model.dart';
 export 'src/model/expression/expression_catalog_model.dart';
 export 'src/model/expression/expression_validation_model.dart';
+export 'src/model/pack/pack_meta.dart';
