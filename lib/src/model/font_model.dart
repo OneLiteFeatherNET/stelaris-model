@@ -34,6 +34,9 @@ abstract class FontModel with _$FontModel, DataModel, NamespacedDataModel {
     String? key,
     String? provider,
     String? texturePath,
+
+    /// The id of the texture asset of the project the font uses, null for none.
+    String? textureAssetId,
     String? comment,
     @Default('font') String mapper,
     @Default(0) int ascent,
