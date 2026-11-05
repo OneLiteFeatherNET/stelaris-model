@@ -20,7 +20,9 @@ mixin _$PackMeta {
  String get description; int get minFormatMajor; int get minFormatMinor; int get maxFormatMajor;/// The maximum minor format, null for any minor version.
  int? get maxFormatMinor;/// The identifiers of the enabled experimental feature flags. The backend
 /// leaves an empty list out of its response.
- List<String> get enabledFeatures; String? get id; String? get projectId; DateTime? get creationDate; DateTime? get modificationDate;
+ List<String> get enabledFeatures;/// The id of the texture asset of the project written as `pack.png`, null
+/// for none.
+ String? get iconAssetId; String? get id; String? get projectId; DateTime? get creationDate; DateTime? get modificationDate;
 /// Create a copy of PackMeta
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -34,20 +36,20 @@ $PackMetaCopyWith<PackMeta> get copyWith => _$PackMetaCopyWithImpl<PackMeta>(thi
 @override
 bool operator ==(Object other) {
   final _this = this as PackMeta;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PackMeta&&(identical(other.packType, _this.packType) || other.packType == _this.packType)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.minFormatMajor, _this.minFormatMajor) || other.minFormatMajor == _this.minFormatMajor)&&(identical(other.minFormatMinor, _this.minFormatMinor) || other.minFormatMinor == _this.minFormatMinor)&&(identical(other.maxFormatMajor, _this.maxFormatMajor) || other.maxFormatMajor == _this.maxFormatMajor)&&(identical(other.maxFormatMinor, _this.maxFormatMinor) || other.maxFormatMinor == _this.maxFormatMinor)&&const DeepCollectionEquality().equals(other.enabledFeatures, _this.enabledFeatures)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PackMeta&&(identical(other.packType, _this.packType) || other.packType == _this.packType)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.minFormatMajor, _this.minFormatMajor) || other.minFormatMajor == _this.minFormatMajor)&&(identical(other.minFormatMinor, _this.minFormatMinor) || other.minFormatMinor == _this.minFormatMinor)&&(identical(other.maxFormatMajor, _this.maxFormatMajor) || other.maxFormatMajor == _this.maxFormatMajor)&&(identical(other.maxFormatMinor, _this.maxFormatMinor) || other.maxFormatMinor == _this.maxFormatMinor)&&const DeepCollectionEquality().equals(other.enabledFeatures, _this.enabledFeatures)&&(identical(other.iconAssetId, _this.iconAssetId) || other.iconAssetId == _this.iconAssetId)&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as PackMeta;
-  return Object.hash(runtimeType,_this.packType,_this.description,_this.minFormatMajor,_this.minFormatMinor,_this.maxFormatMajor,_this.maxFormatMinor,const DeepCollectionEquality().hash(_this.enabledFeatures),_this.id,_this.projectId,_this.creationDate,_this.modificationDate);
+  return Object.hash(runtimeType,_this.packType,_this.description,_this.minFormatMajor,_this.minFormatMinor,_this.maxFormatMajor,_this.maxFormatMinor,const DeepCollectionEquality().hash(_this.enabledFeatures),_this.iconAssetId,_this.id,_this.projectId,_this.creationDate,_this.modificationDate);
 }
 
 @override
 String toString() {
   final _this = this as PackMeta;
-  return 'PackMeta(packType: ${_this.packType}, description: ${_this.description}, minFormatMajor: ${_this.minFormatMajor}, minFormatMinor: ${_this.minFormatMinor}, maxFormatMajor: ${_this.maxFormatMajor}, maxFormatMinor: ${_this.maxFormatMinor}, enabledFeatures: ${_this.enabledFeatures}, id: ${_this.id}, projectId: ${_this.projectId}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
+  return 'PackMeta(packType: ${_this.packType}, description: ${_this.description}, minFormatMajor: ${_this.minFormatMajor}, minFormatMinor: ${_this.minFormatMinor}, maxFormatMajor: ${_this.maxFormatMajor}, maxFormatMinor: ${_this.maxFormatMinor}, enabledFeatures: ${_this.enabledFeatures}, iconAssetId: ${_this.iconAssetId}, id: ${_this.id}, projectId: ${_this.projectId}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -58,7 +60,7 @@ abstract mixin class $PackMetaCopyWith<$Res>  {
   factory $PackMetaCopyWith(PackMeta value, $Res Function(PackMeta) _then) = _$PackMetaCopyWithImpl;
 @useResult
 $Res call({
- PackType packType, String description, int minFormatMajor, int minFormatMinor, int maxFormatMajor, int? maxFormatMinor, List<String> enabledFeatures, String? id, String? projectId, DateTime? creationDate, DateTime? modificationDate
+ PackType packType, String description, int minFormatMajor, int minFormatMinor, int maxFormatMajor, int? maxFormatMinor, List<String> enabledFeatures, String? iconAssetId, String? id, String? projectId, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -75,7 +77,7 @@ class _$PackMetaCopyWithImpl<$Res>
 
 /// Create a copy of PackMeta
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? packType = null,Object? description = null,Object? minFormatMajor = null,Object? minFormatMinor = null,Object? maxFormatMajor = null,Object? maxFormatMinor = freezed,Object? enabledFeatures = null,Object? id = freezed,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? packType = null,Object? description = null,Object? minFormatMajor = null,Object? minFormatMinor = null,Object? maxFormatMajor = null,Object? maxFormatMinor = freezed,Object? enabledFeatures = null,Object? iconAssetId = freezed,Object? id = freezed,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(PackMeta(
 packType: null == packType ? _self.packType : packType // ignore: cast_nullable_to_non_nullable
 as PackType,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -84,7 +86,8 @@ as int,minFormatMinor: null == minFormatMinor ? _self.minFormatMinor : minFormat
 as int,maxFormatMajor: null == maxFormatMajor ? _self.maxFormatMajor : maxFormatMajor // ignore: cast_nullable_to_non_nullable
 as int,maxFormatMinor: freezed == maxFormatMinor ? _self.maxFormatMinor : maxFormatMinor // ignore: cast_nullable_to_non_nullable
 as int?,enabledFeatures: null == enabledFeatures ? _self.enabledFeatures : enabledFeatures // ignore: cast_nullable_to_non_nullable
-as List<String>,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as List<String>,iconAssetId: freezed == iconAssetId ? _self.iconAssetId : iconAssetId // ignore: cast_nullable_to_non_nullable
+as String?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable
@@ -173,10 +176,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PackType packType,  String description,  int minFormatMajor,  int minFormatMinor,  int maxFormatMajor,  int? maxFormatMinor,  List<String> enabledFeatures,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PackType packType,  String description,  int minFormatMajor,  int minFormatMinor,  int maxFormatMajor,  int? maxFormatMinor,  List<String> enabledFeatures,  String? iconAssetId,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PackMeta() when $default != null:
-return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minFormatMinor,_that.maxFormatMajor,_that.maxFormatMinor,_that.enabledFeatures,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minFormatMinor,_that.maxFormatMajor,_that.maxFormatMinor,_that.enabledFeatures,_that.iconAssetId,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -194,10 +197,10 @@ return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minF
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PackType packType,  String description,  int minFormatMajor,  int minFormatMinor,  int maxFormatMajor,  int? maxFormatMinor,  List<String> enabledFeatures,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PackType packType,  String description,  int minFormatMajor,  int minFormatMinor,  int maxFormatMajor,  int? maxFormatMinor,  List<String> enabledFeatures,  String? iconAssetId,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _PackMeta():
-return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minFormatMinor,_that.maxFormatMajor,_that.maxFormatMinor,_that.enabledFeatures,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minFormatMinor,_that.maxFormatMajor,_that.maxFormatMinor,_that.enabledFeatures,_that.iconAssetId,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +217,10 @@ return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minF
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PackType packType,  String description,  int minFormatMajor,  int minFormatMinor,  int maxFormatMajor,  int? maxFormatMinor,  List<String> enabledFeatures,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PackType packType,  String description,  int minFormatMajor,  int minFormatMinor,  int maxFormatMajor,  int? maxFormatMinor,  List<String> enabledFeatures,  String? iconAssetId,  String? id,  String? projectId,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _PackMeta() when $default != null:
-return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minFormatMinor,_that.maxFormatMajor,_that.maxFormatMinor,_that.enabledFeatures,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minFormatMinor,_that.maxFormatMajor,_that.maxFormatMinor,_that.enabledFeatures,_that.iconAssetId,_that.id,_that.projectId,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -229,7 +232,7 @@ return $default(_that.packType,_that.description,_that.minFormatMajor,_that.minF
 @JsonSerializable()
 
 class _PackMeta extends PackMeta {
-  const _PackMeta({required this.packType, required this.description, required this.minFormatMajor, this.minFormatMinor = 0, required this.maxFormatMajor, this.maxFormatMinor,  List<String> enabledFeatures = const [], this.id, this.projectId, this.creationDate, this.modificationDate}): _enabledFeatures = enabledFeatures,super._();
+  const _PackMeta({required this.packType, required this.description, required this.minFormatMajor, this.minFormatMinor = 0, required this.maxFormatMajor, this.maxFormatMinor,  List<String> enabledFeatures = const [], this.iconAssetId, this.id, this.projectId, this.creationDate, this.modificationDate}): _enabledFeatures = enabledFeatures,super._();
   factory _PackMeta.fromJson(Map<String, dynamic> json) => _$PackMetaFromJson(json);
 
 @override final  PackType packType;
@@ -251,6 +254,9 @@ class _PackMeta extends PackMeta {
   return EqualUnmodifiableListView(_enabledFeatures);
 }
 
+/// The id of the texture asset of the project written as `pack.png`, null
+/// for none.
+@override final  String? iconAssetId;
 @override final  String? id;
 @override final  String? projectId;
 @override final  DateTime? creationDate;
@@ -269,18 +275,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PackMeta&&(identical(other.packType, packType) || other.packType == packType)&&(identical(other.description, description) || other.description == description)&&(identical(other.minFormatMajor, minFormatMajor) || other.minFormatMajor == minFormatMajor)&&(identical(other.minFormatMinor, minFormatMinor) || other.minFormatMinor == minFormatMinor)&&(identical(other.maxFormatMajor, maxFormatMajor) || other.maxFormatMajor == maxFormatMajor)&&(identical(other.maxFormatMinor, maxFormatMinor) || other.maxFormatMinor == maxFormatMinor)&&const DeepCollectionEquality().equals(other.enabledFeatures, _enabledFeatures)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PackMeta&&(identical(other.packType, packType) || other.packType == packType)&&(identical(other.description, description) || other.description == description)&&(identical(other.minFormatMajor, minFormatMajor) || other.minFormatMajor == minFormatMajor)&&(identical(other.minFormatMinor, minFormatMinor) || other.minFormatMinor == minFormatMinor)&&(identical(other.maxFormatMajor, maxFormatMajor) || other.maxFormatMajor == maxFormatMajor)&&(identical(other.maxFormatMinor, maxFormatMinor) || other.maxFormatMinor == maxFormatMinor)&&const DeepCollectionEquality().equals(other.enabledFeatures, _enabledFeatures)&&(identical(other.iconAssetId, iconAssetId) || other.iconAssetId == iconAssetId)&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,packType,description,minFormatMajor,minFormatMinor,maxFormatMajor,maxFormatMinor,const DeepCollectionEquality().hash(_enabledFeatures),id,projectId,creationDate,modificationDate);
+    return Object.hash(runtimeType,packType,description,minFormatMajor,minFormatMinor,maxFormatMajor,maxFormatMinor,const DeepCollectionEquality().hash(_enabledFeatures),iconAssetId,id,projectId,creationDate,modificationDate);
 }
 
 @override
 String toString() {
-    return 'PackMeta(packType: $packType, description: $description, minFormatMajor: $minFormatMajor, minFormatMinor: $minFormatMinor, maxFormatMajor: $maxFormatMajor, maxFormatMinor: $maxFormatMinor, enabledFeatures: $enabledFeatures, id: $id, projectId: $projectId, creationDate: $creationDate, modificationDate: $modificationDate)';
+    return 'PackMeta(packType: $packType, description: $description, minFormatMajor: $minFormatMajor, minFormatMinor: $minFormatMinor, maxFormatMajor: $maxFormatMajor, maxFormatMinor: $maxFormatMinor, enabledFeatures: $enabledFeatures, iconAssetId: $iconAssetId, id: $id, projectId: $projectId, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -291,7 +297,7 @@ abstract mixin class _$PackMetaCopyWith<$Res> implements $PackMetaCopyWith<$Res>
   factory _$PackMetaCopyWith(_PackMeta value, $Res Function(_PackMeta) _then) = __$PackMetaCopyWithImpl;
 @override @useResult
 $Res call({
- PackType packType, String description, int minFormatMajor, int minFormatMinor, int maxFormatMajor, int? maxFormatMinor, List<String> enabledFeatures, String? id, String? projectId, DateTime? creationDate, DateTime? modificationDate
+ PackType packType, String description, int minFormatMajor, int minFormatMinor, int maxFormatMajor, int? maxFormatMinor, List<String> enabledFeatures, String? iconAssetId, String? id, String? projectId, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -308,7 +314,7 @@ class __$PackMetaCopyWithImpl<$Res>
 
 /// Create a copy of PackMeta
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? packType = null,Object? description = null,Object? minFormatMajor = null,Object? minFormatMinor = null,Object? maxFormatMajor = null,Object? maxFormatMinor = freezed,Object? enabledFeatures = null,Object? id = freezed,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? packType = null,Object? description = null,Object? minFormatMajor = null,Object? minFormatMinor = null,Object? maxFormatMajor = null,Object? maxFormatMinor = freezed,Object? enabledFeatures = null,Object? iconAssetId = freezed,Object? id = freezed,Object? projectId = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_PackMeta(
 packType: null == packType ? _self.packType : packType // ignore: cast_nullable_to_non_nullable
 as PackType,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -317,7 +323,8 @@ as int,minFormatMinor: null == minFormatMinor ? _self.minFormatMinor : minFormat
 as int,maxFormatMajor: null == maxFormatMajor ? _self.maxFormatMajor : maxFormatMajor // ignore: cast_nullable_to_non_nullable
 as int,maxFormatMinor: freezed == maxFormatMinor ? _self.maxFormatMinor : maxFormatMinor // ignore: cast_nullable_to_non_nullable
 as int?,enabledFeatures: null == enabledFeatures ? _self._enabledFeatures : enabledFeatures // ignore: cast_nullable_to_non_nullable
-as List<String>,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as List<String>,iconAssetId: freezed == iconAssetId ? _self.iconAssetId : iconAssetId // ignore: cast_nullable_to_non_nullable
+as String?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String?,creationDate: freezed == creationDate ? _self.creationDate : creationDate // ignore: cast_nullable_to_non_nullable
 as DateTime?,modificationDate: freezed == modificationDate ? _self.modificationDate : modificationDate // ignore: cast_nullable_to_non_nullable

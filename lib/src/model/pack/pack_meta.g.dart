@@ -18,6 +18,7 @@ _PackMeta _$PackMetaFromJson(Map<String, dynamic> json) => _PackMeta(
           ?.map((e) => e as String)
           .toList() ??
       const [],
+  iconAssetId: json['iconAssetId'] as String?,
   id: json['id'] as String?,
   projectId: json['projectId'] as String?,
   creationDate: json['creationDate'] == null
@@ -36,6 +37,7 @@ Map<String, dynamic> _$PackMetaToJson(_PackMeta instance) => <String, dynamic>{
   'maxFormatMajor': instance.maxFormatMajor,
   'maxFormatMinor': instance.maxFormatMinor,
   'enabledFeatures': instance.enabledFeatures,
+  'iconAssetId': instance.iconAssetId,
   'id': instance.id,
   'projectId': instance.projectId,
   'creationDate': instance.creationDate?.toIso8601String(),

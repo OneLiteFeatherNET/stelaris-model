@@ -43,6 +43,10 @@ abstract class PackMeta with _$PackMeta, DataModel {
     /// The identifiers of the enabled experimental feature flags. The backend
     /// leaves an empty list out of its response.
     @Default([]) List<String> enabledFeatures,
+
+    /// The id of the texture asset of the project written as `pack.png`, null
+    /// for none.
+    String? iconAssetId,
     String? id,
     String? projectId,
     DateTime? creationDate,
