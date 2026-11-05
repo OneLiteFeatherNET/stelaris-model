@@ -72,6 +72,31 @@ void main() {
     expect(json['enabledFeatures'], ['minecraft:bundle']);
   });
 
+  test('a pack meta reads and writes its icon asset id', () {
+    final meta = PackMeta.fromJson({
+      'packType': 'RESOURCE',
+      'description': '{"text": "My pack"}',
+      'minFormatMajor': 48,
+      'maxFormatMajor': 57,
+      'iconAssetId': 'asset-1',
+    });
+
+    expect(meta.iconAssetId, 'asset-1');
+    expect(meta.toJson()['iconAssetId'], 'asset-1');
+  });
+
+  test('a pack meta without an icon reads and writes null', () {
+    final meta = PackMeta.fromJson({
+      'packType': 'DATA',
+      'description': '{"text": "My pack"}',
+      'minFormatMajor': 48,
+      'maxFormatMajor': 57,
+    });
+
+    expect(meta.iconAssetId, isNull);
+    expect(meta.toJson()['iconAssetId'], isNull);
+  });
+
   test('the format range is valid when the max major is above the min major',
       () {
     expect(range(48, 5, 57, 0).isFormatRangeValid, isTrue);
