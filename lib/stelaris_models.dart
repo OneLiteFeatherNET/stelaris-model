@@ -7,6 +7,8 @@ export 'src/namespaced_data_model.dart';
 export 'src/paginated_result.dart';
 export 'src/item_group.dart';
 export 'src/model/attribute_model.dart';
+export 'src/model/blockstate/block_state_model.dart';
+export 'src/model/blockstate/block_state_rule.dart';
 export 'src/model/dimension/attribute_operator.dart';
 export 'src/model/dimension/cardinal_light.dart';
 export 'src/model/dimension/dimension_attribute_dto.dart';
