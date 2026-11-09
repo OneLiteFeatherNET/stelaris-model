@@ -46,4 +46,28 @@ void main() {
     expect(asset.toJson()['displayName'], 'Ruby');
     expect(asset.toJson()['comment'], 'Shared with the gem');
   });
+
+  test('a sound asset carries its audio metadata', () {
+    final asset = AssetModel.fromJson({
+      'id': 'a-2',
+      'projectId': 'p-1',
+      'key': 'vulpes:ui/click',
+      'kind': 'SOUND',
+      'displayName': 'Click',
+      'fileName': 'click.ogg',
+      'contentType': 'audio/ogg',
+      'size': 4096,
+      'sha1': 'def',
+      'width': null,
+      'height': null,
+      'channels': 1,
+      'sampleRate': 44100,
+      'durationMs': 250,
+    });
+
+    expect(asset.kind, AssetKind.SOUND);
+    expect(asset.channels, 1);
+    expect(asset.sampleRate, 44100);
+    expect(asset.durationMs, 250);
+  });
 }

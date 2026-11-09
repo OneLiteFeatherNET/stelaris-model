@@ -22,7 +22,11 @@ mixin _$AssetModel {
  String get fileName; String get contentType;/// Size of the stored file in bytes.
  int get size; String get sha1;/// Only set for textures.
  int? get width;/// Only set for textures.
- int? get height;/// Set on textures extracted from a `.bbmodel`: the id of that model.
+ int? get height;/// Number of audio channels, only set for sounds.
+ int? get channels;/// Sample rate in Hz, only set for sounds.
+ int? get sampleRate;/// Duration in milliseconds, only set for sounds whose duration the
+/// backend could read.
+ int? get durationMs;/// Set on textures extracted from a `.bbmodel`: the id of that model.
  String? get sourceAssetId;/// For a `.bbmodel`: the ids of the textures extracted from it.
  List<String> get derivedAssetIds;/// Internal notes on the asset, never part of a resource pack.
  String? get comment; DateTime? get creationDate; DateTime? get modificationDate;
@@ -39,20 +43,20 @@ $AssetModelCopyWith<AssetModel> get copyWith => _$AssetModelCopyWithImpl<AssetMo
 @override
 bool operator ==(Object other) {
   final _this = this as AssetModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AssetModel&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.fileName, _this.fileName) || other.fileName == _this.fileName)&&(identical(other.contentType, _this.contentType) || other.contentType == _this.contentType)&&(identical(other.size, _this.size) || other.size == _this.size)&&(identical(other.sha1, _this.sha1) || other.sha1 == _this.sha1)&&(identical(other.width, _this.width) || other.width == _this.width)&&(identical(other.height, _this.height) || other.height == _this.height)&&(identical(other.sourceAssetId, _this.sourceAssetId) || other.sourceAssetId == _this.sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _this.derivedAssetIds)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AssetModel&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.key, _this.key) || other.key == _this.key)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.fileName, _this.fileName) || other.fileName == _this.fileName)&&(identical(other.contentType, _this.contentType) || other.contentType == _this.contentType)&&(identical(other.size, _this.size) || other.size == _this.size)&&(identical(other.sha1, _this.sha1) || other.sha1 == _this.sha1)&&(identical(other.width, _this.width) || other.width == _this.width)&&(identical(other.height, _this.height) || other.height == _this.height)&&(identical(other.channels, _this.channels) || other.channels == _this.channels)&&(identical(other.sampleRate, _this.sampleRate) || other.sampleRate == _this.sampleRate)&&(identical(other.durationMs, _this.durationMs) || other.durationMs == _this.durationMs)&&(identical(other.sourceAssetId, _this.sourceAssetId) || other.sourceAssetId == _this.sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _this.derivedAssetIds)&&(identical(other.comment, _this.comment) || other.comment == _this.comment)&&(identical(other.creationDate, _this.creationDate) || other.creationDate == _this.creationDate)&&(identical(other.modificationDate, _this.modificationDate) || other.modificationDate == _this.modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AssetModel;
-  return Object.hash(runtimeType,_this.id,_this.projectId,_this.key,_this.kind,_this.displayName,_this.fileName,_this.contentType,_this.size,_this.sha1,_this.width,_this.height,_this.sourceAssetId,const DeepCollectionEquality().hash(_this.derivedAssetIds),_this.comment,_this.creationDate,_this.modificationDate);
+  return Object.hashAll([runtimeType,_this.id,_this.projectId,_this.key,_this.kind,_this.displayName,_this.fileName,_this.contentType,_this.size,_this.sha1,_this.width,_this.height,_this.channels,_this.sampleRate,_this.durationMs,_this.sourceAssetId,const DeepCollectionEquality().hash(_this.derivedAssetIds),_this.comment,_this.creationDate,_this.modificationDate]);
 }
 
 @override
 String toString() {
   final _this = this as AssetModel;
-  return 'AssetModel(id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, kind: ${_this.kind}, displayName: ${_this.displayName}, fileName: ${_this.fileName}, contentType: ${_this.contentType}, size: ${_this.size}, sha1: ${_this.sha1}, width: ${_this.width}, height: ${_this.height}, sourceAssetId: ${_this.sourceAssetId}, derivedAssetIds: ${_this.derivedAssetIds}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
+  return 'AssetModel(id: ${_this.id}, projectId: ${_this.projectId}, key: ${_this.key}, kind: ${_this.kind}, displayName: ${_this.displayName}, fileName: ${_this.fileName}, contentType: ${_this.contentType}, size: ${_this.size}, sha1: ${_this.sha1}, width: ${_this.width}, height: ${_this.height}, channels: ${_this.channels}, sampleRate: ${_this.sampleRate}, durationMs: ${_this.durationMs}, sourceAssetId: ${_this.sourceAssetId}, derivedAssetIds: ${_this.derivedAssetIds}, comment: ${_this.comment}, creationDate: ${_this.creationDate}, modificationDate: ${_this.modificationDate})';
 }
 
 
@@ -63,7 +67,7 @@ abstract mixin class $AssetModelCopyWith<$Res>  {
   factory $AssetModelCopyWith(AssetModel value, $Res Function(AssetModel) _then) = _$AssetModelCopyWithImpl;
 @useResult
 $Res call({
- String id, String projectId, String key, AssetKind kind, String displayName, String fileName, String contentType, int size, String sha1, int? width, int? height, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
+ String id, String projectId, String key, AssetKind kind, String displayName, String fileName, String contentType, int size, String sha1, int? width, int? height, int? channels, int? sampleRate, int? durationMs, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -80,7 +84,7 @@ class _$AssetModelCopyWithImpl<$Res>
 
 /// Create a copy of AssetModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? displayName = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? displayName = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? channels = freezed,Object? sampleRate = freezed,Object? durationMs = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(AssetModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
@@ -93,6 +97,9 @@ as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non
 as int,sha1: null == sha1 ? _self.sha1 : sha1 // ignore: cast_nullable_to_non_nullable
 as String,width: freezed == width ? _self.width : width // ignore: cast_nullable_to_non_nullable
 as int?,height: freezed == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
+as int?,channels: freezed == channels ? _self.channels : channels // ignore: cast_nullable_to_non_nullable
+as int?,sampleRate: freezed == sampleRate ? _self.sampleRate : sampleRate // ignore: cast_nullable_to_non_nullable
+as int?,durationMs: freezed == durationMs ? _self.durationMs : durationMs // ignore: cast_nullable_to_non_nullable
 as int?,sourceAssetId: freezed == sourceAssetId ? _self.sourceAssetId : sourceAssetId // ignore: cast_nullable_to_non_nullable
 as String?,derivedAssetIds: null == derivedAssetIds ? _self.derivedAssetIds : derivedAssetIds // ignore: cast_nullable_to_non_nullable
 as List<String>,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable
@@ -183,10 +190,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  int? channels,  int? sampleRate,  int? durationMs,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AssetModel() when $default != null:
-return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.channels,_that.sampleRate,_that.durationMs,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return orElse();
 
 }
@@ -204,10 +211,10 @@ return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  int? channels,  int? sampleRate,  int? durationMs,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _AssetModel():
-return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.channels,_that.sampleRate,_that.durationMs,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -224,10 +231,10 @@ return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String projectId,  String key,  AssetKind kind,  String displayName,  String fileName,  String contentType,  int size,  String sha1,  int? width,  int? height,  int? channels,  int? sampleRate,  int? durationMs,  String? sourceAssetId,  List<String> derivedAssetIds,  String? comment,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _AssetModel() when $default != null:
-return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
+return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,_that.fileName,_that.contentType,_that.size,_that.sha1,_that.width,_that.height,_that.channels,_that.sampleRate,_that.durationMs,_that.sourceAssetId,_that.derivedAssetIds,_that.comment,_that.creationDate,_that.modificationDate);case _:
   return null;
 
 }
@@ -239,7 +246,7 @@ return $default(_that.id,_that.projectId,_that.key,_that.kind,_that.displayName,
 @JsonSerializable()
 
 class _AssetModel extends AssetModel {
-  const _AssetModel({required this.id, required this.projectId, required this.key, required this.kind, required this.displayName, required this.fileName, required this.contentType, required this.size, required this.sha1, this.width, this.height, this.sourceAssetId,  List<String> derivedAssetIds = const [], this.comment, this.creationDate, this.modificationDate}): _derivedAssetIds = derivedAssetIds,super._();
+  const _AssetModel({required this.id, required this.projectId, required this.key, required this.kind, required this.displayName, required this.fileName, required this.contentType, required this.size, required this.sha1, this.width, this.height, this.channels, this.sampleRate, this.durationMs, this.sourceAssetId,  List<String> derivedAssetIds = const [], this.comment, this.creationDate, this.modificationDate}): _derivedAssetIds = derivedAssetIds,super._();
   factory _AssetModel.fromJson(Map<String, dynamic> json) => _$AssetModelFromJson(json);
 
 @override final  String id;
@@ -259,6 +266,13 @@ class _AssetModel extends AssetModel {
 @override final  int? width;
 /// Only set for textures.
 @override final  int? height;
+/// Number of audio channels, only set for sounds.
+@override final  int? channels;
+/// Sample rate in Hz, only set for sounds.
+@override final  int? sampleRate;
+/// Duration in milliseconds, only set for sounds whose duration the
+/// backend could read.
+@override final  int? durationMs;
 /// Set on textures extracted from a `.bbmodel`: the id of that model.
 @override final  String? sourceAssetId;
 /// For a `.bbmodel`: the ids of the textures extracted from it.
@@ -288,18 +302,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AssetModel&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.fileName, fileName) || other.fileName == fileName)&&(identical(other.contentType, contentType) || other.contentType == contentType)&&(identical(other.size, size) || other.size == size)&&(identical(other.sha1, sha1) || other.sha1 == sha1)&&(identical(other.width, width) || other.width == width)&&(identical(other.height, height) || other.height == height)&&(identical(other.sourceAssetId, sourceAssetId) || other.sourceAssetId == sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _derivedAssetIds)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AssetModel&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.key, key) || other.key == key)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.fileName, fileName) || other.fileName == fileName)&&(identical(other.contentType, contentType) || other.contentType == contentType)&&(identical(other.size, size) || other.size == size)&&(identical(other.sha1, sha1) || other.sha1 == sha1)&&(identical(other.width, width) || other.width == width)&&(identical(other.height, height) || other.height == height)&&(identical(other.channels, channels) || other.channels == channels)&&(identical(other.sampleRate, sampleRate) || other.sampleRate == sampleRate)&&(identical(other.durationMs, durationMs) || other.durationMs == durationMs)&&(identical(other.sourceAssetId, sourceAssetId) || other.sourceAssetId == sourceAssetId)&&const DeepCollectionEquality().equals(other.derivedAssetIds, _derivedAssetIds)&&(identical(other.comment, comment) || other.comment == comment)&&(identical(other.creationDate, creationDate) || other.creationDate == creationDate)&&(identical(other.modificationDate, modificationDate) || other.modificationDate == modificationDate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,projectId,key,kind,displayName,fileName,contentType,size,sha1,width,height,sourceAssetId,const DeepCollectionEquality().hash(_derivedAssetIds),comment,creationDate,modificationDate);
+    return Object.hashAll([runtimeType,id,projectId,key,kind,displayName,fileName,contentType,size,sha1,width,height,channels,sampleRate,durationMs,sourceAssetId,const DeepCollectionEquality().hash(_derivedAssetIds),comment,creationDate,modificationDate]);
 }
 
 @override
 String toString() {
-    return 'AssetModel(id: $id, projectId: $projectId, key: $key, kind: $kind, displayName: $displayName, fileName: $fileName, contentType: $contentType, size: $size, sha1: $sha1, width: $width, height: $height, sourceAssetId: $sourceAssetId, derivedAssetIds: $derivedAssetIds, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
+    return 'AssetModel(id: $id, projectId: $projectId, key: $key, kind: $kind, displayName: $displayName, fileName: $fileName, contentType: $contentType, size: $size, sha1: $sha1, width: $width, height: $height, channels: $channels, sampleRate: $sampleRate, durationMs: $durationMs, sourceAssetId: $sourceAssetId, derivedAssetIds: $derivedAssetIds, comment: $comment, creationDate: $creationDate, modificationDate: $modificationDate)';
 }
 
 
@@ -310,7 +324,7 @@ abstract mixin class _$AssetModelCopyWith<$Res> implements $AssetModelCopyWith<$
   factory _$AssetModelCopyWith(_AssetModel value, $Res Function(_AssetModel) _then) = __$AssetModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String projectId, String key, AssetKind kind, String displayName, String fileName, String contentType, int size, String sha1, int? width, int? height, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
+ String id, String projectId, String key, AssetKind kind, String displayName, String fileName, String contentType, int size, String sha1, int? width, int? height, int? channels, int? sampleRate, int? durationMs, String? sourceAssetId, List<String> derivedAssetIds, String? comment, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -327,7 +341,7 @@ class __$AssetModelCopyWithImpl<$Res>
 
 /// Create a copy of AssetModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? displayName = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? projectId = null,Object? key = null,Object? kind = null,Object? displayName = null,Object? fileName = null,Object? contentType = null,Object? size = null,Object? sha1 = null,Object? width = freezed,Object? height = freezed,Object? channels = freezed,Object? sampleRate = freezed,Object? durationMs = freezed,Object? sourceAssetId = freezed,Object? derivedAssetIds = null,Object? comment = freezed,Object? creationDate = freezed,Object? modificationDate = freezed,}) {
   return _then(_AssetModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
@@ -340,6 +354,9 @@ as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non
 as int,sha1: null == sha1 ? _self.sha1 : sha1 // ignore: cast_nullable_to_non_nullable
 as String,width: freezed == width ? _self.width : width // ignore: cast_nullable_to_non_nullable
 as int?,height: freezed == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
+as int?,channels: freezed == channels ? _self.channels : channels // ignore: cast_nullable_to_non_nullable
+as int?,sampleRate: freezed == sampleRate ? _self.sampleRate : sampleRate // ignore: cast_nullable_to_non_nullable
+as int?,durationMs: freezed == durationMs ? _self.durationMs : durationMs // ignore: cast_nullable_to_non_nullable
 as int?,sourceAssetId: freezed == sourceAssetId ? _self.sourceAssetId : sourceAssetId // ignore: cast_nullable_to_non_nullable
 as String?,derivedAssetIds: null == derivedAssetIds ? _self._derivedAssetIds : derivedAssetIds // ignore: cast_nullable_to_non_nullable
 as List<String>,comment: freezed == comment ? _self.comment : comment // ignore: cast_nullable_to_non_nullable

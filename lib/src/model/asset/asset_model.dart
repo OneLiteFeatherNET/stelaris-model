@@ -19,6 +19,9 @@ enum AssetKind {
 
   /// A Blockbench `.bbmodel` project.
   BBMODEL,
+
+  /// A mono Ogg Vorbis sound.
+  SOUND,
 }
 
 /// A file stored for a project, addressed by its Minecraft resource key.
@@ -55,6 +58,16 @@ abstract class AssetModel with DataModel, _$AssetModel {
 
     /// Only set for textures.
     int? height,
+
+    /// Number of audio channels, only set for sounds.
+    int? channels,
+
+    /// Sample rate in Hz, only set for sounds.
+    int? sampleRate,
+
+    /// Duration in milliseconds, only set for sounds whose duration the
+    /// backend could read.
+    int? durationMs,
 
     /// Set on textures extracted from a `.bbmodel`: the id of that model.
     String? sourceAssetId,

@@ -18,6 +18,9 @@ _AssetModel _$AssetModelFromJson(Map<String, dynamic> json) => _AssetModel(
   sha1: json['sha1'] as String,
   width: (json['width'] as num?)?.toInt(),
   height: (json['height'] as num?)?.toInt(),
+  channels: (json['channels'] as num?)?.toInt(),
+  sampleRate: (json['sampleRate'] as num?)?.toInt(),
+  durationMs: (json['durationMs'] as num?)?.toInt(),
   sourceAssetId: json['sourceAssetId'] as String?,
   derivedAssetIds:
       (json['derivedAssetIds'] as List<dynamic>?)
@@ -46,6 +49,9 @@ Map<String, dynamic> _$AssetModelToJson(_AssetModel instance) =>
       'sha1': instance.sha1,
       'width': instance.width,
       'height': instance.height,
+      'channels': instance.channels,
+      'sampleRate': instance.sampleRate,
+      'durationMs': instance.durationMs,
       'sourceAssetId': instance.sourceAssetId,
       'derivedAssetIds': instance.derivedAssetIds,
       'comment': instance.comment,
@@ -57,4 +63,5 @@ const _$AssetKindEnumMap = {
   AssetKind.TEXTURE: 'TEXTURE',
   AssetKind.MODEL: 'MODEL',
   AssetKind.BBMODEL: 'BBMODEL',
+  AssetKind.SOUND: 'SOUND',
 };
