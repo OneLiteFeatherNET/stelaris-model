@@ -18,6 +18,11 @@ abstract class SoundFileSource with _$SoundFileSource, DataModel {
     required String type,
     required int weight,
     String? id,
+
+    /// The sound asset of the project the source plays. When set, [type] is
+    /// `file` and [name] is the key of the asset. Null for a file that is not
+    /// uploaded, such as a vanilla sound.
+    String? assetId,
     DateTime? creationDate,
     DateTime? modificationDate,
   }) = _SoundFileSource;
