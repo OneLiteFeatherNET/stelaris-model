@@ -11,6 +11,7 @@ void main() {
       'comment': 'Tracks on the ground',
       'rules': [
         {
+          'name': 'Slender east',
           'when': {
             'facing': ['east'],
             'flower_amount': ['1', '2'],
@@ -31,6 +32,7 @@ void main() {
     expect(model.creationDate, DateTime.utc(2026, 11, 5, 9, 30));
     expect(model.rules, [
       const BlockStateRule(
+        name: 'Slender east',
         when: {
           'facing': ['east'],
           'flower_amount': ['1', '2'],
@@ -48,6 +50,7 @@ void main() {
     final rule = BlockStateRule.fromJson({});
 
     expect(model.rules, isEmpty);
+    expect(rule.name, isNull);
     expect(rule.when, isEmpty);
     expect(rule.model, '');
     expect(rule.x, 0);
@@ -74,6 +77,7 @@ void main() {
     expect(json['key'], 'minecraft:pink_petals');
     expect(json['rules'], [
       {
+        'name': null,
         'when': {
           'facing': ['north'],
         },

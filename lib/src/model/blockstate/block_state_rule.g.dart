@@ -8,6 +8,7 @@ part of 'block_state_rule.dart';
 
 _BlockStateRule _$BlockStateRuleFromJson(Map<String, dynamic> json) =>
     _BlockStateRule(
+      name: json['name'] as String?,
       when:
           (json['when'] as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(
@@ -24,6 +25,7 @@ _BlockStateRule _$BlockStateRuleFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$BlockStateRuleToJson(_BlockStateRule instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'when': instance.when,
       'model': instance.model,
       'x': instance.x,

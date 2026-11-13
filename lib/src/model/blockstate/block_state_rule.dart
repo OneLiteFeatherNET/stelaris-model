@@ -11,6 +11,9 @@ abstract class BlockStateRule with _$BlockStateRule {
   const BlockStateRule._();
 
   const factory BlockStateRule({
+    /// A name for the editor to tell the rules apart. Not part of the file.
+    String? name,
+
     /// The allowed values per state property. A property which is missing or
     /// has no values matches any value.
     @Default({}) Map<String, List<String>> when,

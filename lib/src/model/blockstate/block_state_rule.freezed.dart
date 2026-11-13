@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BlockStateRule {
 
-/// The allowed values per state property. A property which is missing or
+/// A name for the editor to tell the rules apart. Not part of the file.
+ String? get name;/// The allowed values per state property. A property which is missing or
 /// has no values matches any value.
  Map<String, List<String>> get when;/// The model shown for a matching state, e.g. `minecraft:block/stone`.
  String get model;/// The rotation of the model around the x axis in steps of 90 degrees.
@@ -36,20 +37,20 @@ $BlockStateRuleCopyWith<BlockStateRule> get copyWith => _$BlockStateRuleCopyWith
 @override
 bool operator ==(Object other) {
   final _this = this as BlockStateRule;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BlockStateRule&&const DeepCollectionEquality().equals(other.when, _this.when)&&(identical(other.model, _this.model) || other.model == _this.model)&&(identical(other.x, _this.x) || other.x == _this.x)&&(identical(other.y, _this.y) || other.y == _this.y)&&(identical(other.uvlock, _this.uvlock) || other.uvlock == _this.uvlock));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BlockStateRule&&(identical(other.name, _this.name) || other.name == _this.name)&&const DeepCollectionEquality().equals(other.when, _this.when)&&(identical(other.model, _this.model) || other.model == _this.model)&&(identical(other.x, _this.x) || other.x == _this.x)&&(identical(other.y, _this.y) || other.y == _this.y)&&(identical(other.uvlock, _this.uvlock) || other.uvlock == _this.uvlock));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as BlockStateRule;
-  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.when),_this.model,_this.x,_this.y,_this.uvlock);
+  return Object.hash(runtimeType,_this.name,const DeepCollectionEquality().hash(_this.when),_this.model,_this.x,_this.y,_this.uvlock);
 }
 
 @override
 String toString() {
   final _this = this as BlockStateRule;
-  return 'BlockStateRule(when: ${_this.when}, model: ${_this.model}, x: ${_this.x}, y: ${_this.y}, uvlock: ${_this.uvlock})';
+  return 'BlockStateRule(name: ${_this.name}, when: ${_this.when}, model: ${_this.model}, x: ${_this.x}, y: ${_this.y}, uvlock: ${_this.uvlock})';
 }
 
 
@@ -60,7 +61,7 @@ abstract mixin class $BlockStateRuleCopyWith<$Res>  {
   factory $BlockStateRuleCopyWith(BlockStateRule value, $Res Function(BlockStateRule) _then) = _$BlockStateRuleCopyWithImpl;
 @useResult
 $Res call({
- Map<String, List<String>> when, String model, int x, int y, bool uvlock
+ String? name, Map<String, List<String>> when, String model, int x, int y, bool uvlock
 });
 
 
@@ -77,9 +78,10 @@ class _$BlockStateRuleCopyWithImpl<$Res>
 
 /// Create a copy of BlockStateRule
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? when = null,Object? model = null,Object? x = null,Object? y = null,Object? uvlock = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = freezed,Object? when = null,Object? model = null,Object? x = null,Object? y = null,Object? uvlock = null,}) {
   return _then(BlockStateRule(
-when: null == when ? _self.when : when // ignore: cast_nullable_to_non_nullable
+name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,when: null == when ? _self.when : when // ignore: cast_nullable_to_non_nullable
 as Map<String, List<String>>,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as String,x: null == x ? _self.x : x // ignore: cast_nullable_to_non_nullable
 as int,y: null == y ? _self.y : y // ignore: cast_nullable_to_non_nullable
@@ -169,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Map<String, List<String>> when,  String model,  int x,  int y,  bool uvlock)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? name,  Map<String, List<String>> when,  String model,  int x,  int y,  bool uvlock)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BlockStateRule() when $default != null:
-return $default(_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
+return $default(_that.name,_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
   return orElse();
 
 }
@@ -190,10 +192,10 @@ return $default(_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Map<String, List<String>> when,  String model,  int x,  int y,  bool uvlock)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? name,  Map<String, List<String>> when,  String model,  int x,  int y,  bool uvlock)  $default,) {final _that = this;
 switch (_that) {
 case _BlockStateRule():
-return $default(_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
+return $default(_that.name,_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +212,10 @@ return $default(_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Map<String, List<String>> when,  String model,  int x,  int y,  bool uvlock)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? name,  Map<String, List<String>> when,  String model,  int x,  int y,  bool uvlock)?  $default,) {final _that = this;
 switch (_that) {
 case _BlockStateRule() when $default != null:
-return $default(_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
+return $default(_that.name,_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
   return null;
 
 }
@@ -225,9 +227,11 @@ return $default(_that.when,_that.model,_that.x,_that.y,_that.uvlock);case _:
 @JsonSerializable()
 
 class _BlockStateRule extends BlockStateRule {
-  const _BlockStateRule({ Map<String, List<String>> when = const {}, this.model = '', this.x = 0, this.y = 0, this.uvlock = false}): _when = when,super._();
+  const _BlockStateRule({this.name,  Map<String, List<String>> when = const {}, this.model = '', this.x = 0, this.y = 0, this.uvlock = false}): _when = when,super._();
   factory _BlockStateRule.fromJson(Map<String, dynamic> json) => _$BlockStateRuleFromJson(json);
 
+/// A name for the editor to tell the rules apart. Not part of the file.
+@override final  String? name;
 /// The allowed values per state property. A property which is missing or
 /// has no values matches any value.
  final  Map<String, List<String>> _when;
@@ -261,18 +265,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BlockStateRule&&const DeepCollectionEquality().equals(other.when, _when)&&(identical(other.model, model) || other.model == model)&&(identical(other.x, x) || other.x == x)&&(identical(other.y, y) || other.y == y)&&(identical(other.uvlock, uvlock) || other.uvlock == uvlock));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BlockStateRule&&(identical(other.name, name) || other.name == name)&&const DeepCollectionEquality().equals(other.when, _when)&&(identical(other.model, model) || other.model == model)&&(identical(other.x, x) || other.x == x)&&(identical(other.y, y) || other.y == y)&&(identical(other.uvlock, uvlock) || other.uvlock == uvlock));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_when),model,x,y,uvlock);
+    return Object.hash(runtimeType,name,const DeepCollectionEquality().hash(_when),model,x,y,uvlock);
 }
 
 @override
 String toString() {
-    return 'BlockStateRule(when: $when, model: $model, x: $x, y: $y, uvlock: $uvlock)';
+    return 'BlockStateRule(name: $name, when: $when, model: $model, x: $x, y: $y, uvlock: $uvlock)';
 }
 
 
@@ -283,7 +287,7 @@ abstract mixin class _$BlockStateRuleCopyWith<$Res> implements $BlockStateRuleCo
   factory _$BlockStateRuleCopyWith(_BlockStateRule value, $Res Function(_BlockStateRule) _then) = __$BlockStateRuleCopyWithImpl;
 @override @useResult
 $Res call({
- Map<String, List<String>> when, String model, int x, int y, bool uvlock
+ String? name, Map<String, List<String>> when, String model, int x, int y, bool uvlock
 });
 
 
@@ -300,9 +304,10 @@ class __$BlockStateRuleCopyWithImpl<$Res>
 
 /// Create a copy of BlockStateRule
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? when = null,Object? model = null,Object? x = null,Object? y = null,Object? uvlock = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = freezed,Object? when = null,Object? model = null,Object? x = null,Object? y = null,Object? uvlock = null,}) {
   return _then(_BlockStateRule(
-when: null == when ? _self._when : when // ignore: cast_nullable_to_non_nullable
+name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,when: null == when ? _self._when : when // ignore: cast_nullable_to_non_nullable
 as Map<String, List<String>>,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as String,x: null == x ? _self.x : x // ignore: cast_nullable_to_non_nullable
 as int,y: null == y ? _self.y : y // ignore: cast_nullable_to_non_nullable
