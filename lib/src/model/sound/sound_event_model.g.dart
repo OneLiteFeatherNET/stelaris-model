@@ -18,7 +18,7 @@ _SoundEventModel _$SoundEventModelFromJson(Map<String, dynamic> json) =>
       minimumValue: (json['minimumValue'] as num?)?.toDouble() ?? 0.0,
       source: json['source'] == null
           ? SoundSource.master
-          : _sourceFromJson(json['source'] as String?),
+          : const SoundSourceConverter().fromJson(json['source'] as String),
       files: json['files'] == null
           ? SoundEventModel._defaultFiles
           : PaginatedResult<SoundFileSource>.fromJson(
@@ -45,7 +45,7 @@ Map<String, dynamic> _$SoundEventModelToJson(_SoundEventModel instance) =>
       'subTitle': instance.subTitle,
       'comment': instance.comment,
       'minimumValue': instance.minimumValue,
-      'source': _sourceToJson(instance.source),
+      'source': const SoundSourceConverter().toJson(instance.source),
       'files': instance.files.toJson((value) => value),
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),

@@ -5,6 +5,7 @@ import '../../data_model.dart';
 import '../../namespaced_data_model.dart';
 import '../../paginated_result.dart';
 import 'sound_file_source.dart';
+import 'sound_source_converter.dart';
 
 part 'sound_event_model.freezed.dart';
 
@@ -14,14 +15,6 @@ SoundEventModel soundEventFromJson(dynamic json) =>
     SoundEventModel.fromJson(json);
 
 Map<String, dynamic> soundEventToJson(SoundEventModel model) => model.toJson();
-
-/// Reads the source as the backend sends it, in upper case like `MASTER`.
-/// An unknown or missing value falls back to [SoundSource.master].
-SoundSource _sourceFromJson(String? json) =>
-    SoundSource.byKey(json?.toLowerCase() ?? '') ?? SoundSource.master;
-
-/// Writes the source in upper case, the name of the backend's enum constant.
-String _sourceToJson(SoundSource source) => source.key.toUpperCase();
 
 @freezed
 abstract class SoundEventModel with _$SoundEventModel, DataModel, NamespacedDataModel {
@@ -47,7 +40,7 @@ abstract class SoundEventModel with _$SoundEventModel, DataModel, NamespacedData
     String? comment,
     @Default(0.0) double minimumValue,
     @Default(SoundSource.master)
-    @JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson)
+    @SoundSourceConverter()
     SoundSource source,
     @Default(SoundEventModel._defaultFiles)
     PaginatedResult<SoundFileSource> files,
