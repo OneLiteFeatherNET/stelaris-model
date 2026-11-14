@@ -15,6 +15,14 @@ SoundEventModel soundEventFromJson(dynamic json) =>
 
 Map<String, dynamic> soundEventToJson(SoundEventModel model) => model.toJson();
 
+/// Reads the source as the backend sends it, in upper case like `MASTER`.
+/// An unknown or missing value falls back to [SoundSource.master].
+SoundSource _sourceFromJson(String? json) =>
+    SoundSource.byKey(json?.toLowerCase() ?? '') ?? SoundSource.master;
+
+/// Writes the source in upper case, the name of the backend's enum constant.
+String _sourceToJson(SoundSource source) => source.key.toUpperCase();
+
 @freezed
 abstract class SoundEventModel with _$SoundEventModel, DataModel, NamespacedDataModel {
   const SoundEventModel._();
@@ -39,6 +47,7 @@ abstract class SoundEventModel with _$SoundEventModel, DataModel, NamespacedData
     String? comment,
     @Default(0.0) double minimumValue,
     @Default(SoundSource.master)
+    @JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson)
     SoundSource source,
     @Default(SoundEventModel._defaultFiles)
     PaginatedResult<SoundFileSource> files,

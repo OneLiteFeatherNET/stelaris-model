@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SoundEventModel {
 
- String get uiName; String? get id; String? get projectId; String? get key; String? get keyName; String? get subTitle; String? get comment; double get minimumValue; SoundSource get source; PaginatedResult<SoundFileSource> get files;@JsonKey(includeToJson: false) bool get isLoading; DateTime? get creationDate; DateTime? get modificationDate;
+ String get uiName; String? get id; String? get projectId; String? get key; String? get keyName; String? get subTitle; String? get comment; double get minimumValue;@JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson) SoundSource get source; PaginatedResult<SoundFileSource> get files;@JsonKey(includeToJson: false) bool get isLoading; DateTime? get creationDate; DateTime? get modificationDate;
 /// Create a copy of SoundEventModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $SoundEventModelCopyWith<$Res>  {
   factory $SoundEventModelCopyWith(SoundEventModel value, $Res Function(SoundEventModel) _then) = _$SoundEventModelCopyWithImpl;
 @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? key, String? keyName, String? subTitle, String? comment, double minimumValue, SoundSource source, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String? key, String? keyName, String? subTitle, String? comment, double minimumValue,@JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson) SoundSource source, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading, DateTime? creationDate, DateTime? modificationDate
 });
 
 
@@ -171,7 +171,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? keyName,  String? subTitle,  String? comment,  double minimumValue,  SoundSource source,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? keyName,  String? subTitle,  String? comment,  double minimumValue, @JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson)  SoundSource source,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading,  DateTime? creationDate,  DateTime? modificationDate)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SoundEventModel() when $default != null:
 return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.keyName,_that.subTitle,_that.comment,_that.minimumValue,_that.source,_that.files,_that.isLoading,_that.creationDate,_that.modificationDate);case _:
@@ -192,7 +192,7 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.keyName,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? keyName,  String? subTitle,  String? comment,  double minimumValue,  SoundSource source,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String uiName,  String? id,  String? projectId,  String? key,  String? keyName,  String? subTitle,  String? comment,  double minimumValue, @JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson)  SoundSource source,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading,  DateTime? creationDate,  DateTime? modificationDate)  $default,) {final _that = this;
 switch (_that) {
 case _SoundEventModel():
 return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.keyName,_that.subTitle,_that.comment,_that.minimumValue,_that.source,_that.files,_that.isLoading,_that.creationDate,_that.modificationDate);case _:
@@ -212,7 +212,7 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.keyName,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? key,  String? keyName,  String? subTitle,  String? comment,  double minimumValue,  SoundSource source,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String uiName,  String? id,  String? projectId,  String? key,  String? keyName,  String? subTitle,  String? comment,  double minimumValue, @JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson)  SoundSource source,  PaginatedResult<SoundFileSource> files, @JsonKey(includeToJson: false)  bool isLoading,  DateTime? creationDate,  DateTime? modificationDate)?  $default,) {final _that = this;
 switch (_that) {
 case _SoundEventModel() when $default != null:
 return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.keyName,_that.subTitle,_that.comment,_that.minimumValue,_that.source,_that.files,_that.isLoading,_that.creationDate,_that.modificationDate);case _:
@@ -227,7 +227,7 @@ return $default(_that.uiName,_that.id,_that.projectId,_that.key,_that.keyName,_t
 @JsonSerializable()
 
 class _SoundEventModel extends SoundEventModel {
-   _SoundEventModel({required this.uiName, this.id, this.projectId, this.key, this.keyName, this.subTitle, this.comment, this.minimumValue = 0.0, this.source = SoundSource.master, this.files = SoundEventModel._defaultFiles, @JsonKey(includeToJson: false) this.isLoading = false, this.creationDate, this.modificationDate}): super._();
+   _SoundEventModel({required this.uiName, this.id, this.projectId, this.key, this.keyName, this.subTitle, this.comment, this.minimumValue = 0.0, @JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson) this.source = SoundSource.master, this.files = SoundEventModel._defaultFiles, @JsonKey(includeToJson: false) this.isLoading = false, this.creationDate, this.modificationDate}): super._();
   factory _SoundEventModel.fromJson(Map<String, dynamic> json) => _$SoundEventModelFromJson(json);
 
 @override final  String uiName;
@@ -238,7 +238,7 @@ class _SoundEventModel extends SoundEventModel {
 @override final  String? subTitle;
 @override final  String? comment;
 @override@JsonKey() final  double minimumValue;
-@override@JsonKey() final  SoundSource source;
+@override@JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson) final  SoundSource source;
 @override@JsonKey() final  PaginatedResult<SoundFileSource> files;
 @override@JsonKey(includeToJson: false) final  bool isLoading;
 @override final  DateTime? creationDate;
@@ -279,7 +279,7 @@ abstract mixin class _$SoundEventModelCopyWith<$Res> implements $SoundEventModel
   factory _$SoundEventModelCopyWith(_SoundEventModel value, $Res Function(_SoundEventModel) _then) = __$SoundEventModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uiName, String? id, String? projectId, String? key, String? keyName, String? subTitle, String? comment, double minimumValue, SoundSource source, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading, DateTime? creationDate, DateTime? modificationDate
+ String uiName, String? id, String? projectId, String? key, String? keyName, String? subTitle, String? comment, double minimumValue,@JsonKey(fromJson: _sourceFromJson, toJson: _sourceToJson) SoundSource source, PaginatedResult<SoundFileSource> files,@JsonKey(includeToJson: false) bool isLoading, DateTime? creationDate, DateTime? modificationDate
 });
 
 

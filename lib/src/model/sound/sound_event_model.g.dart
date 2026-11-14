@@ -16,9 +16,9 @@ _SoundEventModel _$SoundEventModelFromJson(Map<String, dynamic> json) =>
       subTitle: json['subTitle'] as String?,
       comment: json['comment'] as String?,
       minimumValue: (json['minimumValue'] as num?)?.toDouble() ?? 0.0,
-      source:
-          $enumDecodeNullable(_$SoundSourceEnumMap, json['source']) ??
-          SoundSource.master,
+      source: json['source'] == null
+          ? SoundSource.master
+          : _sourceFromJson(json['source'] as String?),
       files: json['files'] == null
           ? SoundEventModel._defaultFiles
           : PaginatedResult<SoundFileSource>.fromJson(
@@ -45,22 +45,8 @@ Map<String, dynamic> _$SoundEventModelToJson(_SoundEventModel instance) =>
       'subTitle': instance.subTitle,
       'comment': instance.comment,
       'minimumValue': instance.minimumValue,
-      'source': _$SoundSourceEnumMap[instance.source]!,
+      'source': _sourceToJson(instance.source),
       'files': instance.files.toJson((value) => value),
       'creationDate': instance.creationDate?.toIso8601String(),
       'modificationDate': instance.modificationDate?.toIso8601String(),
     };
-
-const _$SoundSourceEnumMap = {
-  SoundSource.master: 'master',
-  SoundSource.music: 'music',
-  SoundSource.record: 'record',
-  SoundSource.weather: 'weather',
-  SoundSource.block: 'block',
-  SoundSource.hostile: 'hostile',
-  SoundSource.neutral: 'neutral',
-  SoundSource.player: 'player',
-  SoundSource.ambient: 'ambient',
-  SoundSource.voice: 'voice',
-  SoundSource.ui: 'ui',
-};
