@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vulpes_data/sound.dart';
 
 import '../../data_model.dart';
 import '../../namespaced_data_model.dart';
@@ -36,6 +37,9 @@ abstract class SoundEventModel with _$SoundEventModel, DataModel, NamespacedData
     String? keyName,
     String? subTitle,
     String? comment,
+    @Default(0.0) double minimumValue,
+    @Default(SoundSource.master)
+    SoundSource source,
     @Default(SoundEventModel._defaultFiles)
     PaginatedResult<SoundFileSource> files,
     @Default(false) @JsonKey(includeToJson: false) bool isLoading,
