@@ -12,12 +12,9 @@ generated output has to already be present in the tree.
 If you edit any model, regenerate before committing:
 
 ```sh
-flutter pub run build_runner build --delete-conflicting-outputs
+dart run build_runner build --delete-conflicting-outputs
 ```
 
-Plain `dart run build_runner build --delete-conflicting-outputs` won't resolve
-here since this package depends on the Flutter SDK; use `flutter pub run` as
-shown above.
-
-Verify `dart format --set-exit-if-changed lib` is clean and tests pass before
-opening a PR.
+This is a plain Dart package without the Flutter SDK, so the `dart` tool is
+all it needs. Verify `dart format --set-exit-if-changed lib` is clean and
+`dart analyze` and `dart test` pass before opening a PR.

@@ -1,5 +1,5 @@
 import 'package:stelaris_models/stelaris_models.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:vulpes_data/sound.dart';
 
 void main() {
