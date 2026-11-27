@@ -27,9 +27,6 @@ _ItemModel _$ItemModelFromJson(Map<String, dynamic> json) => _ItemModel(
           json['lore'] as Map<String, dynamic>,
           (value) => ItemLoreDto.fromJson(value as Map<String, dynamic>),
         ),
-  isLoadingMoreEnchantments:
-      json['isLoadingMoreEnchantments'] as bool? ?? false,
-  isLoadingMoreLoreLines: json['isLoadingMoreLoreLines'] as bool? ?? false,
   creationDate: json['creationDate'] == null
       ? null
       : DateTime.parse(json['creationDate'] as String),

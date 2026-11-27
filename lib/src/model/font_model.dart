@@ -42,7 +42,6 @@ abstract class FontModel with _$FontModel, DataModel, NamespacedDataModel {
     @Default(0) int ascent,
     @Default(0) int height,
     @Default(FontModel._defaultFiles) PaginatedResult<FontStringDTO> chars,
-    @Default(false) @JsonKey(includeToJson: false) bool isLoadingChars,
     DateTime? creationDate,
     DateTime? modificationDate,
   }) = _FontModel;

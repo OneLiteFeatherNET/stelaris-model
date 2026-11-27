@@ -24,7 +24,6 @@ _FontModel _$FontModelFromJson(Map<String, dynamic> json) => _FontModel(
           json['chars'] as Map<String, dynamic>,
           (value) => FontStringDTO.fromJson(value as Map<String, dynamic>),
         ),
-  isLoadingChars: json['isLoadingChars'] as bool? ?? false,
   creationDate: json['creationDate'] == null
       ? null
       : DateTime.parse(json['creationDate'] as String),

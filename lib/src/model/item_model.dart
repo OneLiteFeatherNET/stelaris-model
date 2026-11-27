@@ -50,10 +50,6 @@ abstract class ItemModel with _$ItemModel, DataModel, NamespacedDataModel {
     @Default(ItemModel.defaultEnchantments)
     PaginatedResult<ItemEnchantmentDto> enchantments,
     @Default(ItemModel._defaultLore) PaginatedResult<ItemLoreDto> lore,
-    @Default(false)
-    @JsonKey(includeToJson: false)
-    bool isLoadingMoreEnchantments,
-    @Default(false) @JsonKey(includeToJson: false) bool isLoadingMoreLoreLines,
     DateTime? creationDate,
     DateTime? modificationDate,
   }) = _ItemModel;
