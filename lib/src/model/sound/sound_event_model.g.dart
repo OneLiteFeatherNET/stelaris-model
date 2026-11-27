@@ -26,7 +26,6 @@ _SoundEventModel _$SoundEventModelFromJson(Map<String, dynamic> json) =>
               (value) =>
                   SoundFileSource.fromJson(value as Map<String, dynamic>),
             ),
-      isLoading: json['isLoading'] as bool? ?? false,
       creationDate: json['creationDate'] == null
           ? null
           : DateTime.parse(json['creationDate'] as String),

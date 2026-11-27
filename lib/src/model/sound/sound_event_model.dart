@@ -44,7 +44,6 @@ abstract class SoundEventModel with _$SoundEventModel, DataModel, NamespacedData
     SoundSource source,
     @Default(SoundEventModel._defaultFiles)
     PaginatedResult<SoundFileSource> files,
-    @Default(false) @JsonKey(includeToJson: false) bool isLoading,
     DateTime? creationDate,
     DateTime? modificationDate,
   }) = _SoundEventModel;
